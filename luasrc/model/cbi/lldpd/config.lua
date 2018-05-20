@@ -3,17 +3,17 @@
 -- Anton Kikin <a.kikin@tano-systems.com>
 --
 
+local util = require "luci.util"
+
 m = Map("lldpd",
 	translate("Link Layer Discovery Protocol"),
 	translate("This page allows you to configure lldpd")
 )
 
-s = m:section(TypedSection, "lldpd")
+-- reload daemon after CBI configuration is commited
+m.on_after_commit = function() luci.sys.call("/etc/init.d/lldpd reload") end
 
-function s.parse(self, ...)
-	TypedSection.parse(self, ...)
-	os.execute("/etc/init.d/lldpd reload")
-end
+s = m:section(TypedSection, "lldpd")
 
 s:tab("general", translate("General Settings"))
 s:tab("protocols", translate("Protocols"))
