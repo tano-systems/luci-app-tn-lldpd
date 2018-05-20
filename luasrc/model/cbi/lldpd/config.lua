@@ -10,6 +10,11 @@ m = Map("lldpd",
 
 s = m:section(TypedSection, "lldpd")
 
+function s.parse(self, ...)
+	TypedSection.parse(self, ...)
+	os.execute("/etc/init.d/lldpd reload")
+end
+
 s:tab("general", translate("General Settings"))
 s:tab("protocols", translate("Protocols"))
 
