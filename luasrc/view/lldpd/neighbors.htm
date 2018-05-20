@@ -1,0 +1,21 @@
+<%#
+ Copyright (c) 2018, Tano Systems. All Rights Reserved.
+ Anton Kikin <a.kikin@tano-systems.com>
+-%>
+
+<% css = [[
+
+#lldp-neighbors {
+	width: 100%;
+	font-family: monospace;
+}
+
+]] -%>
+
+<%+header%>
+
+<h2 name="content"><%:Link Layer Discovery Protocol%></h2>
+<div class="cbi-map-descr">This page allows you to see detected neighbors by lldpd</div>
+<textarea readonly="readonly" wrap="on" rows="<%=lldpd_neighbors:cmatch("\n")+2%>" id="lldp-neighbors"><%=lldpd_neighbors:pcdata()%></textarea>
+
+<%+footer%>

@@ -1,0 +1,35 @@
+<%#
+ Copyright (c) 2018, Tano Systems. All Rights Reserved.
+ Anton Kikin <a.kikin@tano-systems.com>
+-%>
+
+<% css = [[
+
+#lldp-statistics,
+#lldp-interfaces,
+#lldp-chassis,
+#lldp-configuration {
+	width: 100%;
+	font-family: monospace;
+}
+
+]] -%>
+
+<%+header%>
+
+<h2 name="content"><%:Link Layer Discovery Protocol%></h2>
+<div class="cbi-map-descr">This page allows you to see various information about lldpd</div>
+
+<h3 name="content"><%:Statistics%></h3>
+<textarea readonly="readonly" wrap="on" rows="<%=lldpd_statistics:cmatch("\n")+2%>" id="lldp-statistics"><%=lldpd_statistics:pcdata()%></textarea>
+
+<h3 name="content"><%:Interfaces%></h3>
+<textarea readonly="readonly" wrap="on" rows="<%=lldpd_interfaces:cmatch("\n")+2%>" id="lldp-interfaces"><%=lldpd_interfaces:pcdata()%></textarea>
+
+<h3 name="content"><%:Chassis%></h3>
+<textarea readonly="readonly" wrap="on" rows="<%=lldpd_chassis:cmatch("\n")+2%>" id="lldp-chassis"><%=lldpd_chassis:pcdata()%></textarea>
+
+<h3 name="content"><%:Configuration%></h3>
+<textarea readonly="readonly" wrap="on" rows="<%=lldpd_configuration:cmatch("\n")+2%>" id="lldp-configuration"><%=lldpd_configuration:pcdata()%></textarea>
+
+<%+footer%>
