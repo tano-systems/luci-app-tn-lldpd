@@ -8,7 +8,7 @@ set EXTRA_OPTIONS=-pw "%PASSWORD%"
 
 if [%HOST%] == [] goto host_empty
 
-pscp -r %EXTRA_OPTIONS% %PASSWORD% luasrc/* %HOST%:%LUCI_PATH%
+pscp -r %EXTRA_OPTIONS% %PASSWORD% %~dp0/luasrc/* %HOST%:%LUCI_PATH%
 
 rem Clear LuCI index cache
 plink %EXTRA_OPTIONS% %HOST% "/etc/init.d/uhttpd stop; rm -rf /tmp/luci-*; /etc/init.d/uhttpd start"

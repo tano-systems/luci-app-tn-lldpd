@@ -1,0 +1,70 @@
+<%#
+ Copyright (c) 2018, Tano Systems. All Rights Reserved.
+ Anton Kikin <a.kikin@tano-systems.com>
+-%>
+
+<%+header%>
+
+<script type="text/javascript" src="<%=resource%>/cbi.js"></script>
+<script type="text/javascript">//<![CDATA[
+
+	XHR.poll(5, '<%=url('admin/services/lldpd/statistics_request')%>', null,
+		function(x, json)
+		{
+			var counters_table =
+				document.getElementById('counters');
+
+			var ifaces = json.lldp.interface;
+
+			// Clear table
+			while (counters_table.rows.length > 1)
+				counters_table.rows[0].parentNode.deleteRow(-1);
+
+			var i = 0;
+			for (var iface in ifaces)
+			{
+				var c = ifaces[iface];
+
+				var tr = counters_table.rows[0].parentNode.insertRow(-1);
+				    tr.className = 'cbi-section-table-row cbi-rowstyle-' + (1 + (i % 2));
+
+				tr.insertCell(-1).innerHTML = "<strong>" + iface + "</strong>";
+				tr.insertCell(-1).innerHTML = c.tx.tx;
+				tr.insertCell(-1).innerHTML = c.rx.rx;
+				tr.insertCell(-1).innerHTML = c.rx_discarded_cnt.rx_discarded_cnt;
+				tr.insertCell(-1).innerHTML = c.rx_unrecognized_cnt.rx_unrecognized_cnt;
+				tr.insertCell(-1).innerHTML = c.ageout_cnt.ageout_cnt;
+				tr.insertCell(-1).innerHTML = c.insert_cnt.insert_cnt;
+				tr.insertCell(-1).innerHTML = c.delete_cnt.delete_cnt;
+
+				i++;
+			}
+		}
+	)
+//]]></script>
+
+<h2 name="content"><%:LLDPd: Statistics%></h2>
+<div class="cbi-map-descr">This page allows you to see detected neighbors by lldpd</div>
+
+<fieldset class="cbi-section" id="cbi-table-table">
+	<legend><%:Counters%></legend>
+
+	<div class="cbi-section-node">
+		<table class="cbi-section-table" id="counters">
+			<tr class="cbi-section-table-titles">
+				<th class="cbi-section-table-cell"><%:Interface%></th>
+				<th class="cbi-section-table-cell"><%:Tx%></th>
+				<th class="cbi-section-table-cell"><%:Rx%></th>
+				<th class="cbi-section-table-cell"><%:Rx discarded%></th>
+				<th class="cbi-section-table-cell"><%:Rx unrecognized%></th>
+				<th class="cbi-section-table-cell"><%:Ageout count%></th>
+				<th class="cbi-section-table-cell"><%:Insert count%></th>
+				<th class="cbi-section-table-cell"><%:Deletecount%></th>
+			</tr>
+			<tr><td colspan="8"><em><%:Collecting data...%></em></td></tr>
+		</table>
+	</div>
+
+</fieldset>
+
+<%+footer%>

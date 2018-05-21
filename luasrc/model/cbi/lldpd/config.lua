@@ -6,8 +6,13 @@
 local util = require "luci.util"
 
 m = Map("lldpd",
-	translate("Link Layer Discovery Protocol"),
-	translate("This page allows you to configure lldpd")
+	translate("LLDPd (implementation of IEEE 802.1ab)"),
+	translate(
+		"LLDP is an industry standard protocol designed to supplant proprietary Link-Layer " ..
+		"protocols such as Extreme's EDP (Extreme Discovery Protocol) and CDP (Cisco Discovery Protocol). " ..
+		"The goal of LLDP is to provide an inter-vendor compatible mechanism to deliver " ..
+		"Link-Layer notifications to adjacent network devices."
+	)
 )
 
 -- reload daemon after CBI configuration is commited
