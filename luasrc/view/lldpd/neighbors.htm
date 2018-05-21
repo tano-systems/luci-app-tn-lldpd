@@ -8,11 +8,130 @@
 <script type="text/javascript" src="<%=resource%>/cbi.js"></script>
 <script type="text/javascript">//<![CDATA[
 
+	function add_neighbor_row(i, table, key, obj)
+	{
+		var inner;
+
+		var tr = table.rows[0].parentNode.insertRow(-1);
+		    tr.className = 'cbi-section-table-row cbi-rowstyle-' + (1 + (i % 2));
+
+		// Interface
+		tr.insertCell(-1).innerHTML = "<strong>" + key + "</strong>";
+
+		// Protocol
+		if (typeof obj.via !== 'undefined')
+			inner = obj.via;
+		else
+			inner = "";
+
+		tr.insertCell(-1).innerHTML = inner;
+
+		// Age
+		if (typeof obj.age !== 'undefined')
+			inner = obj.age;
+		else
+			inner = "";
+
+		tr.insertCell(-1).innerHTML = inner;
+
+		// Chassis
+		inner = "";
+
+		for (var chassis in obj.chassis)
+		{
+			var ch = obj.chassis[chassis];
+
+			inner += "<strong>Chassis:</strong>";
+			inner += "<ul>";
+			inner += "<li><strong>Name:</strong>&nbsp;" + chassis + '</li>';
+
+			if (typeof ch.descr !== 'undefined')
+				inner += "<li><strong>Description:</strong>&nbsp;" + ch.descr + "</li>";
+
+			if (typeof ch.id.value !== 'undefined')
+				inner += "<li><strong>ID:</strong>&nbsp;" + ch.id.value.toUpperCase() + "</li>";
+
+			if (typeof ch.id.type !== 'undefined')
+				inner += "<li><strong>ID type:</strong>&nbsp;" + ch.id.type.toUpperCase() + "</li>";
+
+			// Management addresses
+			if (typeof ch["mgmt-ip"] !== 'undefined')
+			{
+				if (Array.isArray(ch["mgmt-ip"]) && (ch["mgmt-ip"].length > 0))
+				{
+					// Array of addresses
+					inner += "<li><strong>Management addresses:</strong><ul>";
+
+					for (var ip = 0; ip < ch["mgmt-ip"].length; ip++)
+						inner += "<li>" + ch["mgmt-ip"][ip] + "</li>";
+
+					inner += "</ul></li>";
+				}
+				else
+				{
+					// One address
+					inner += "<li><strong>Management address:</strong>&nbsp;";
+					inner += ch["mgmt-ip"] + "</li>";
+				}
+			}
+
+			if (typeof ch.capability !== 'undefined')
+			{
+				if (Array.isArray(ch.capability) && (ch.capability.length > 0))
+				{
+					// Array of capabilities
+					inner += "<li><strong>Capabilities:</strong><ul>";
+
+					for (var cap = 0; cap < ch.capability.length; cap++)
+					{
+						inner += "<li><strong>" + ch.capability[cap].type + ":</strong>&nbsp;";
+						inner += ch.capability[cap].enabled ? "Enabled" : "Disabled";
+						inner += "</li>";
+					}
+
+					inner += "</ul></li>";
+				}
+				else
+				{
+					// One capability
+					inner += "<li><strong>Capabilities:</strong><ul>";
+					inner += "<li><strong>" + ch.capability.type + ":</strong>&nbsp;";
+					inner += ch.capability.enabled ? "Enabled" : "Disabled";
+					inner += "</li></ul></li>";
+				}
+			}
+
+			inner += "</ul>";
+		}
+
+		inner += "<strong>Port:</strong>";
+		inner += "<ul>";
+
+		if (typeof obj.port.descr !== 'undefined')
+			inner += "<li><strong>Description:</strong>&nbsp;" + obj.port.descr + "</li>";
+
+		if (typeof obj.port.id.value !== 'undefined')
+			inner += "<li><strong>ID:</strong>&nbsp;" + obj.port.id.value.toUpperCase() + "</li>";
+
+		if (typeof obj.port.id.type !== 'undefined')
+			inner += "<li><strong>ID type:</strong>&nbsp;" + obj.port.id.type.toUpperCase() + "</li>";
+
+		if (typeof obj.port.ttl !== 'undefined')
+			inner += "<li><strong>TTL:</strong>&nbsp;" + obj.port.ttl + "</li>";
+
+		inner += "</ul>";
+
+		tr.insertCell(-1).innerHTML = inner;
+	}
+
 	XHR.poll(5, '<%=url('admin/services/lldpd/neighbors_request')%>', null,
 		function(x, json)
 		{
 			var nb_table =
 				document.getElementById('neighbors');
+
+			var nb_count =
+				document.getElementById('neighbors-count');
 
 			var ifaces = json.lldp.interface;
 
@@ -20,107 +139,34 @@
 			while (nb_table.rows.length > 1)
 				nb_table.rows[0].parentNode.deleteRow(-1);
 
-			var i = 0;
-			for (var iface in ifaces)
+			var count = 0;
+
+			if (Array.isArray(ifaces))
 			{
-				var c = ifaces[iface];
-				var inner;
-
-				var tr = nb_table.rows[0].parentNode.insertRow(-1);
-				    tr.className = 'cbi-section-table-row cbi-rowstyle-' + (1 + (i % 2));
-
-				// Interface
-				tr.insertCell(-1).innerHTML = "<strong>" + iface + "</strong>";
-
-				// Protocol
-				if (typeof c.via !== 'undefined')
-					inner = c.via;
-				else
-					inner = "";
-
-				tr.insertCell(-1).innerHTML = inner;
-
-				// Age
-				if (typeof c.age !== 'undefined')
-					inner = c.age;
-				else
-					inner = "";
-
-				tr.insertCell(-1).innerHTML = inner;
-
-				// Chassis
-				inner = "";
-
-				for (var chassis in c.chassis)
+				for (var i = 0; i < ifaces.length; i++)
 				{
-					var ch = c.chassis[chassis];
-
-					inner += "<strong>Chassis:</strong>";
-					inner += "<ul>";
-					inner += "<li><strong>Name:</strong>&nbsp;" + chassis + '</li>';
-
-					if (typeof ch.descr !== 'undefined')
-						inner += "<li><strong>Description:</strong>&nbsp;" + ch.descr + "</li>";
-
-					if (typeof ch.id.value !== 'undefined')
-						inner += "<li><strong>ID:</strong>&nbsp;" + ch.id.value.toUpperCase() + "</li>";
-
-					if (typeof ch.id.type !== 'undefined')
-						inner += "<li><strong>ID type:</strong>&nbsp;" + ch.id.type.toUpperCase() + "</li>";
-
-					if ((typeof ch["mgmt-ip"] !== 'undefined') && (ch["mgmt-ip"].length > 0))
+					for (var iface in ifaces[i])
 					{
-						inner += "<li><strong>Management addresses:</strong><ul>";
-
-						for (var ip = 0; ip < ch["mgmt-ip"].length; ip++)
-							inner += "<li>" + ch["mgmt-ip"][ip] + "</li>";
-
-						inner += "</ul></li>";
+						add_neighbor_row(count, nb_table, iface, ifaces[i][iface])
+						count++;
 					}
-
-					if ((typeof ch.capability !== 'undefined') && (ch.capability.length > 0))
-					{
-						inner += "<li><strong>Capabilities:</strong><ul>";
-
-						for (var cap = 0; cap < ch.capability.length; cap++)
-						{
-							inner += "<li><strong>" + ch.capability[cap].type + ":</strong>&nbsp;";
-							inner += ch.capability[cap].enabled ? "Enabled" : "Disabled";
-							inner += "</li>";
-						}
-
-						inner += "</ul></li>";
-					}
-
-					inner += "</ul>";
 				}
-
-				inner += "<strong>Port:</strong>";
-				inner += "<ul>";
-
-				if (typeof c.port.descr !== 'undefined')
-					inner += "<li><strong>Description:</strong>&nbsp;" + c.port.descr + "</li>";
-
-				if (typeof c.port.id.value !== 'undefined')
-					inner += "<li><strong>ID:</strong>&nbsp;" + c.port.id.value.toUpperCase() + "</li>";
-
-				if (typeof c.port.id.type !== 'undefined')
-					inner += "<li><strong>ID type:</strong>&nbsp;" + c.port.id.type.toUpperCase() + "</li>";
-
-				if (typeof c.port.ttl !== 'undefined')
-					inner += "<li><strong>TTL:</strong>&nbsp;" + c.port.ttl + "</li>";
-
-				inner += "</ul>";
-
-				tr.insertCell(-1).innerHTML = inner;
-
-				i++;
 			}
+			else
+			{
+				for (var iface in ifaces)
+				{
+					add_neighbor_row(count, nb_table, iface, ifaces[iface])
+					count++;
+				}
+			}
+
+			nb_count.innerHTML = count;
 		}
 	)
 //]]></script>
 
-<h2 name="content"><%:LLDPd: Neighbors%></h2>
+<h2 name="content"><%:LLDPd: Neighbors%> (<span id="neighbors-count">0</span>)</h2>
 <div class="cbi-map-descr">This page allows you to see detected neighbors by LLDPd</div>
 
 <fieldset class="cbi-section" id="cbi-table-table">

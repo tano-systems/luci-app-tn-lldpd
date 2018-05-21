@@ -8,6 +8,21 @@
 <script type="text/javascript" src="<%=resource%>/cbi.js"></script>
 <script type="text/javascript">//<![CDATA[
 
+	function add_iface_row(i, table, key, obj)
+	{
+		var tr = table.rows[0].parentNode.insertRow(-1);
+		    tr.className = 'cbi-section-table-row cbi-rowstyle-' + (1 + (i % 2));
+
+		tr.insertCell(-1).innerHTML = "<strong>" + key + "</strong>";
+		tr.insertCell(-1).innerHTML = obj.tx.tx;
+		tr.insertCell(-1).innerHTML = obj.rx.rx;
+		tr.insertCell(-1).innerHTML = obj.rx_discarded_cnt.rx_discarded_cnt;
+		tr.insertCell(-1).innerHTML = obj.rx_unrecognized_cnt.rx_unrecognized_cnt;
+		tr.insertCell(-1).innerHTML = obj.ageout_cnt.ageout_cnt;
+		tr.insertCell(-1).innerHTML = obj.insert_cnt.insert_cnt;
+		tr.insertCell(-1).innerHTML = obj.delete_cnt.delete_cnt;
+	}
+
 	XHR.poll(5, '<%=url('admin/services/lldpd/statistics_request')%>', null,
 		function(x, json)
 		{
@@ -20,24 +35,26 @@
 			while (counters_table.rows.length > 1)
 				counters_table.rows[0].parentNode.deleteRow(-1);
 
-			var i = 0;
-			for (var iface in ifaces)
+			if (Array.isArray(ifaces))
 			{
-				var c = ifaces[iface];
-
-				var tr = counters_table.rows[0].parentNode.insertRow(-1);
-				    tr.className = 'cbi-section-table-row cbi-rowstyle-' + (1 + (i % 2));
-
-				tr.insertCell(-1).innerHTML = "<strong>" + iface + "</strong>";
-				tr.insertCell(-1).innerHTML = c.tx.tx;
-				tr.insertCell(-1).innerHTML = c.rx.rx;
-				tr.insertCell(-1).innerHTML = c.rx_discarded_cnt.rx_discarded_cnt;
-				tr.insertCell(-1).innerHTML = c.rx_unrecognized_cnt.rx_unrecognized_cnt;
-				tr.insertCell(-1).innerHTML = c.ageout_cnt.ageout_cnt;
-				tr.insertCell(-1).innerHTML = c.insert_cnt.insert_cnt;
-				tr.insertCell(-1).innerHTML = c.delete_cnt.delete_cnt;
-
-				i++;
+				var j = 0;
+				for (var i = 0; i < ifaces.length; i++)
+				{
+					for (var iface in ifaces[i])
+					{
+						add_iface_row(j, counters_table, iface, ifaces[i][iface])
+						j++;
+					}
+				}
+			}
+			else
+			{
+				var i = 0;
+				for (var iface in ifaces)
+				{
+					add_iface_row(i, counters_table, iface, ifaces[iface])
+					i++;
+				}
 			}
 		}
 	)
