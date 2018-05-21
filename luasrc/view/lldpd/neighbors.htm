@@ -5,8 +5,24 @@
 
 <%+header%>
 
+<style type="text/css">
+	table.keyvalue-markup { border: 0; }
+	table.keyvalue-markup td { padding: 0 10px 0 0; background-color: inherit !important; }
+	table.keyvalue-markup td:first-of-type { font-weight: bold; white-space: nowrap; }
+	table.keyvalue-markup td:last-of-type { width: 100%; }
+</style>
+
 <script type="text/javascript" src="<%=resource%>/cbi.js"></script>
 <script type="text/javascript">//<![CDATA[
+
+	function add_obj_row(description, value)
+	{
+		if (typeof value == 'undefined')
+			return
+
+		return '<tr><td>' + description +
+			':</td><td>' + value + '</td></tr>';
+	}
 
 	function add_neighbor_row(i, table, key, obj)
 	{
@@ -15,111 +31,91 @@
 		var tr = table.rows[0].parentNode.insertRow(-1);
 		    tr.className = 'cbi-section-table-row cbi-rowstyle-' + (1 + (i % 2));
 
+		//
 		// Interface
-		tr.insertCell(-1).innerHTML = "<strong>" + key + "</strong>";
-
-		// Protocol
-		if (typeof obj.via !== 'undefined')
-			inner = obj.via;
-		else
-			inner = "";
-
-		tr.insertCell(-1).innerHTML = inner;
-
-		// Age
-		if (typeof obj.age !== 'undefined')
-			inner = obj.age;
-		else
-			inner = "";
+		//
+		inner = '<table class="keyvalue-markup">';
+		inner += add_obj_row("Interface", key);
+		inner += add_obj_row("Protocol", obj.via);
+		inner += add_obj_row("Age", obj.age);
+		inner += "</table>";
 
 		tr.insertCell(-1).innerHTML = inner;
 
+		//
+		// Port
+		//
+		inner = '<table class="keyvalue-markup">';
+		inner += add_obj_row("Description", obj.port.descr);
+		inner += add_obj_row("ID", obj.port.id.value);
+		inner += add_obj_row("ID type", obj.port.id.type);
+		inner += add_obj_row("TTL", obj.port.ttl);
+		inner += "</table>";
+
+		tr.insertCell(-1).innerHTML = inner;
+
+		//
 		// Chassis
+		//
 		inner = "";
 
 		for (var chassis in obj.chassis)
 		{
 			var ch = obj.chassis[chassis];
 
-			inner += "<strong>Chassis:</strong>";
-			inner += "<ul>";
-			inner += "<li><strong>Name:</strong>&nbsp;" + chassis + '</li>';
-
-			if (typeof ch.descr !== 'undefined')
-				inner += "<li><strong>Description:</strong>&nbsp;" + ch.descr + "</li>";
-
-			if (typeof ch.id.value !== 'undefined')
-				inner += "<li><strong>ID:</strong>&nbsp;" + ch.id.value.toUpperCase() + "</li>";
-
-			if (typeof ch.id.type !== 'undefined')
-				inner += "<li><strong>ID type:</strong>&nbsp;" + ch.id.type.toUpperCase() + "</li>";
+			inner += '<table class="keyvalue-markup">';
+			inner += add_obj_row("Name", chassis);
+			inner += add_obj_row("Description", ch.descr);
+			inner += add_obj_row("ID", ch.id.value);
+			inner += add_obj_row("ID type", ch.id.type);
 
 			// Management addresses
 			if (typeof ch["mgmt-ip"] !== 'undefined')
 			{
+				var ips = "";
+
 				if (Array.isArray(ch["mgmt-ip"]) && (ch["mgmt-ip"].length > 0))
 				{
 					// Array of addresses
-					inner += "<li><strong>Management addresses:</strong><ul>";
-
 					for (var ip = 0; ip < ch["mgmt-ip"].length; ip++)
-						inner += "<li>" + ch["mgmt-ip"][ip] + "</li>";
-
-					inner += "</ul></li>";
+						ips += ch["mgmt-ip"][ip] + "<br />";
 				}
 				else
 				{
 					// One address
-					inner += "<li><strong>Management address:</strong>&nbsp;";
-					inner += ch["mgmt-ip"] + "</li>";
+					ips += ch["mgmt-ip"];
 				}
+
+				inner += add_obj_row("Management IP(s)", ips);
 			}
 
 			if (typeof ch.capability !== 'undefined')
 			{
+				var caps = "";
+
 				if (Array.isArray(ch.capability) && (ch.capability.length > 0))
 				{
 					// Array of capabilities
-					inner += "<li><strong>Capabilities:</strong><ul>";
-
 					for (var cap = 0; cap < ch.capability.length; cap++)
 					{
-						inner += "<li><strong>" + ch.capability[cap].type + ":</strong>&nbsp;";
-						inner += ch.capability[cap].enabled ? "Enabled" : "Disabled";
-						inner += "</li>";
+						caps += ch.capability[cap].type;
+						caps += " (" + (ch.capability[cap].enabled ? "enabled" : "disabled") + ")";
+						caps += "<br />";
 					}
-
-					inner += "</ul></li>";
 				}
 				else
 				{
 					// One capability
-					inner += "<li><strong>Capabilities:</strong><ul>";
-					inner += "<li><strong>" + ch.capability.type + ":</strong>&nbsp;";
-					inner += ch.capability.enabled ? "Enabled" : "Disabled";
-					inner += "</li></ul></li>";
+					caps += ch.capability.type;
+					caps += " (" + (ch.capability.enabled ? "enabled" : "disabled") + ")";
 				}
+
+				inner += add_obj_row("Capabilities", caps);
+				inner += "</td></tr>";
 			}
 
-			inner += "</ul>";
+			inner += "</table>";
 		}
-
-		inner += "<strong>Port:</strong>";
-		inner += "<ul>";
-
-		if (typeof obj.port.descr !== 'undefined')
-			inner += "<li><strong>Description:</strong>&nbsp;" + obj.port.descr + "</li>";
-
-		if (typeof obj.port.id.value !== 'undefined')
-			inner += "<li><strong>ID:</strong>&nbsp;" + obj.port.id.value.toUpperCase() + "</li>";
-
-		if (typeof obj.port.id.type !== 'undefined')
-			inner += "<li><strong>ID type:</strong>&nbsp;" + obj.port.id.type.toUpperCase() + "</li>";
-
-		if (typeof obj.port.ttl !== 'undefined')
-			inner += "<li><strong>TTL:</strong>&nbsp;" + obj.port.ttl + "</li>";
-
-		inner += "</ul>";
 
 		tr.insertCell(-1).innerHTML = inner;
 	}
@@ -170,17 +166,14 @@
 <div class="cbi-map-descr">This page allows you to see detected neighbors by LLDPd</div>
 
 <fieldset class="cbi-section" id="cbi-table-table">
-	<legend><%:LLDPd neighbors%></legend>
-
 	<div class="cbi-section-node">
 		<table class="cbi-section-table" id="neighbors">
 			<tr class="cbi-section-table-titles">
-				<th class="cbi-section-table-cell"><%:Interface%></th>
-				<th class="cbi-section-table-cell"><%:Protocol%></th>
-				<th class="cbi-section-table-cell"><%:Age%></th>
-				<th class="cbi-section-table-cell"><%:Chassis and port%></th>
+				<th class="cbi-section-table-cell"><%:Local interface%></th>
+				<th class="cbi-section-table-cell"><%:Discovered port%></th>
+				<th class="cbi-section-table-cell"><%:Discovered chassis%></th>
 			</tr>
-			<tr><td colspan="4"><em><%:Collecting data...%></em></td></tr>
+			<tr><td colspan="3"><em><%:Collecting data...%></em></td></tr>
 		</table>
 	</div>
 

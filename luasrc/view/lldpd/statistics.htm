@@ -5,22 +5,50 @@
 
 <%+header%>
 
+<style type="text/css">
+	table.keyvalue-markup { border: 0; }
+	table.keyvalue-markup td { padding: 0 10px 0 0; background-color: inherit !important; }
+	table.keyvalue-markup td:first-of-type { font-weight: bold; white-space: nowrap; }
+	table.keyvalue-markup td:last-of-type { width: 100%; }
+</style>
+
 <script type="text/javascript" src="<%=resource%>/cbi.js"></script>
 <script type="text/javascript">//<![CDATA[
 
-	function add_iface_row(i, table, key, obj)
+	function add_obj_row(description, value)
+	{
+		if (typeof value == 'undefined')
+			return
+
+		return '<tr><td>' + description +
+			':</td><td>' + value + '</td></tr>';
+	}
+
+	function add_iface_row(i, table, key, sobj, iobj)
 	{
 		var tr = table.rows[0].parentNode.insertRow(-1);
 		    tr.className = 'cbi-section-table-row cbi-rowstyle-' + (1 + (i % 2));
 
-		tr.insertCell(-1).innerHTML = "<strong>" + key + "</strong>";
-		tr.insertCell(-1).innerHTML = obj.tx.tx;
-		tr.insertCell(-1).innerHTML = obj.rx.rx;
-		tr.insertCell(-1).innerHTML = obj.rx_discarded_cnt.rx_discarded_cnt;
-		tr.insertCell(-1).innerHTML = obj.rx_unrecognized_cnt.rx_unrecognized_cnt;
-		tr.insertCell(-1).innerHTML = obj.ageout_cnt.ageout_cnt;
-		tr.insertCell(-1).innerHTML = obj.insert_cnt.insert_cnt;
-		tr.insertCell(-1).innerHTML = obj.delete_cnt.delete_cnt;
+		var inner = "";
+
+		inner += '<table class="keyvalue-markup">';
+		inner += add_obj_row("Interface", key);
+		inner += add_obj_row("Protocol", iobj.via);
+		inner += add_obj_row("Age", iobj.age);
+		inner += add_obj_row("Port ID", iobj.port.id.value);
+		inner += add_obj_row("Port ID type", iobj.port.id.type);
+		inner += add_obj_row("Port description", iobj.port.descr);
+		inner += add_obj_row("Port description", iobj.ttl.ttl);
+		inner += "</table>";
+
+		tr.insertCell(-1).innerHTML = inner;
+		tr.insertCell(-1).innerHTML = sobj.tx.tx;
+		tr.insertCell(-1).innerHTML = sobj.rx.rx;
+		tr.insertCell(-1).innerHTML = sobj.rx_discarded_cnt.rx_discarded_cnt;
+		tr.insertCell(-1).innerHTML = sobj.rx_unrecognized_cnt.rx_unrecognized_cnt;
+		tr.insertCell(-1).innerHTML = sobj.ageout_cnt.ageout_cnt;
+		tr.insertCell(-1).innerHTML = sobj.insert_cnt.insert_cnt;
+		tr.insertCell(-1).innerHTML = sobj.delete_cnt.delete_cnt;
 	}
 
 	XHR.poll(5, '<%=url('admin/services/lldpd/statistics_request')%>', null,
@@ -29,20 +57,24 @@
 			var counters_table =
 				document.getElementById('counters');
 
-			var ifaces = json.lldp.interface;
+			var statistics = json.statistics;
+			var interfaces = json.interfaces;
+
+			var sifaces = statistics.lldp.interface;
+			var ifaces  = interfaces.lldp.interface;
 
 			// Clear table
 			while (counters_table.rows.length > 1)
 				counters_table.rows[0].parentNode.deleteRow(-1);
 
-			if (Array.isArray(ifaces))
+			if (Array.isArray(sifaces))
 			{
 				var j = 0;
-				for (var i = 0; i < ifaces.length; i++)
+				for (var i = 0; i < sifaces.length; i++)
 				{
-					for (var iface in ifaces[i])
+					for (var iface in sifaces[i])
 					{
-						add_iface_row(j, counters_table, iface, ifaces[i][iface])
+						add_iface_row(j, counters_table, iface, sifaces[i][iface], ifaces[i][iface])
 						j++;
 					}
 				}
@@ -50,9 +82,9 @@
 			else
 			{
 				var i = 0;
-				for (var iface in ifaces)
+				for (var iface in sifaces)
 				{
-					add_iface_row(i, counters_table, iface, ifaces[iface])
+					add_iface_row(i, counters_table, iface, sifaces[iface], ifaces[iface])
 					i++;
 				}
 			}
@@ -61,15 +93,13 @@
 //]]></script>
 
 <h2 name="content"><%:LLDPd: Statistics%></h2>
-<div class="cbi-map-descr">This page allows you to see detected neighbors by lldpd</div>
+<div class="cbi-map-descr">This page allows you to see LLDPd interfaces statistics</div>
 
 <fieldset class="cbi-section" id="cbi-table-table">
-	<legend><%:Counters%></legend>
-
 	<div class="cbi-section-node">
 		<table class="cbi-section-table" id="counters">
 			<tr class="cbi-section-table-titles">
-				<th class="cbi-section-table-cell"><%:Interface%></th>
+				<th class="cbi-section-table-cell"><%:Local interface%></th>
 				<th class="cbi-section-table-cell"><%:Tx%></th>
 				<th class="cbi-section-table-cell"><%:Rx%></th>
 				<th class="cbi-section-table-cell"><%:Rx discarded%></th>
