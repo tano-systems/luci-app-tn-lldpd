@@ -123,7 +123,7 @@ msgid "ID type"
 msgstr "Тип ID"
 
 msgid "Insert count"
-msgstr "Кол-во вставок"
+msgstr "Кол-во обнаружений"
 
 msgid "Interface"
 msgstr "Интерфейс"
@@ -153,7 +153,7 @@ msgid "Location"
 msgstr "Расположение"
 
 msgid "Management IP(s)"
-msgstr "IP-адреса управления"
+msgstr "IP-адреса"
 
 msgid "Name"
 msgstr "Имя"
@@ -183,10 +183,10 @@ msgid "Rx discarded"
 msgstr "Rx (отброшено)"
 
 msgid "Rx unrecognized"
-msgstr "Rx (не распознано)"
+msgstr "Rx (не&nbsp;распознано)"
 
 msgid "SNMP agentX socket path"
-msgstr "Путь сокета SNMP agentX"
+msgstr "Путь к&nbsp;сокету SNMP agentX"
 
 msgid "Seconds"
 msgstr "Секунды"
