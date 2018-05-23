@@ -7,6 +7,10 @@ in LuCI web interface.
 ## Depends
 Package depends on lldpd package.
 
+## Supported languages
+- Russian
+- English
+
 ## Screenshots
 
 ### Configuration tab

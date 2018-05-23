@@ -27,32 +27,28 @@ s.addremove = false
 
 -- System description
 lldp_description = s:option(Value, "lldp_description",
-	translate("Description"),
-	translate("")
+	translate("Description")
 )
 
 lldp_description.placeholder = "System description"
 
 -- System hostname
 lldp_hostname = s:option(Value, "lldp_hostname",
-	translate("Hostname"),
-	translate("")
+	translate("Hostname")
 )
 
 lldp_hostname.placeholder = "System hostname"
 
 -- System location
 lldp_location = s:option(Value, "lldp_location",
-	translate("Location"),
-	translate("")
+	translate("Location")
 )
 
 lldp_location.placeholder = "System location"
 
 -- LLDP class
 lldp_class = s:option(Value, "lldp_class",
-	translate("Class"),
-	translate("")
+	translate("Class")
 )
 
 lldp_class.datatype = "uinteger"
@@ -69,8 +65,7 @@ lldp_tx_internal.placeholder = 10
 
 -- SNMP agentX socket
 agentxsocket = s:option(Value, "agentxsocket",
-	translate("SNMP agentX socket path"),
-	translate("")
+	translate("SNMP agentX socket path")
 )
 
 agentxsocket.rmempty = false
@@ -93,8 +88,7 @@ s:tab("protocols", translate("Protocols"))
 
 -- Interfaces to listen on
 ifname_multi = s:taboption("interfaces", DynamicList, "interface",
-	translate("Interfaces"),
-	translate("")
+	translate("Interfaces")
 )
 
 ifname_multi.template  = "cbi/network_ifacelist"

@@ -1,0 +1,194 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+msgid ""
+"<abbr title=\"Bay Discovery Protocol\">NDP</abbr> is a proprietary Data Link "
+"Layer protocol developed by Nortel"
+msgstr ""
+
+msgid ""
+"<abbr title=\"Cisco Discovery Protocol\">CDP</abbr> is a proprietary Data "
+"Link Layer protocol developed by Cisco Systems"
+msgstr ""
+
+msgid ""
+"<abbr title=\"Extreme Discovery Protocol\">EDP</abbr> is a proprietary Data "
+"Link Layer protocol developed by Extreme Networks"
+msgstr ""
+
+msgid ""
+"<abbr title=\"Foundry Discovery Protocol\">FDP</abbr> is a proprietary Data "
+"Link Layer protocol developed by Foundry Networks"
+msgstr ""
+
+msgid ""
+"<p>LLDPd is a implementation of IEEE 802.1ab (<abbr title=\"Link Layer "
+"Discovery Protocol\">LLDP</abbr>)</p>"
+msgstr ""
+
+msgid "Advanced settings"
+msgstr ""
+
+msgid "Age"
+msgstr ""
+
+msgid "Ageout count"
+msgstr ""
+
+msgid "Capabilities"
+msgstr ""
+
+msgid "Chassis"
+msgstr ""
+
+msgid "Class"
+msgstr ""
+
+msgid "Collecting data..."
+msgstr ""
+
+msgid "Configuration"
+msgstr ""
+
+msgid "Configure"
+msgstr ""
+
+msgid "Debug information"
+msgstr ""
+
+msgid "Delete count"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Discovered chassis"
+msgstr ""
+
+msgid "Discovered port"
+msgstr ""
+
+msgid "Enable <abbr title=\"Cisco Discovery Protocol\">CDP</abbr>"
+msgstr ""
+
+msgid "Enable <abbr title=\"Extreme Discovery Protocol\">EDP</abbr>"
+msgstr ""
+
+msgid "Enable <abbr title=\"Foundry Discovery Protocol\">FDP</abbr>"
+msgstr ""
+
+msgid ""
+"Enable <abbr title=\"Nortel Discovery Protocol\">NDP</abbr> (<abbr title="
+"\"Bay Network Management Protocol\">BNMP</abbr>, <abbr title=\"Bay Discovery "
+"Protocol\">BDP</abbr>, <abbr title=\"Nortel Topology Discovery Protocol"
+"\">NTDP</abbr>, <abbr title=\"SynOptics Network Management Protocol\">SONMP</"
+"abbr>)"
+msgstr ""
+
+msgid "General settings"
+msgstr ""
+
+msgid "Hostname"
+msgstr ""
+
+msgid "ID"
+msgstr ""
+
+msgid "ID type"
+msgstr ""
+
+msgid "Insert count"
+msgstr ""
+
+msgid "Interface"
+msgstr ""
+
+msgid "Interfaces"
+msgstr ""
+
+msgid "LLDPd"
+msgstr ""
+
+msgid "LLDPd: Configure"
+msgstr ""
+
+msgid "LLDPd: Debug information"
+msgstr ""
+
+msgid "LLDPd: Neighbors"
+msgstr ""
+
+msgid "LLDPd: Statistics"
+msgstr ""
+
+msgid "Local interface"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Management IP(s)"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Neighbors"
+msgstr ""
+
+msgid "Port ID"
+msgstr ""
+
+msgid "Port ID type"
+msgstr ""
+
+msgid "Port description"
+msgstr ""
+
+msgid "Protocol"
+msgstr ""
+
+msgid "Protocols"
+msgstr ""
+
+msgid "Rx"
+msgstr ""
+
+msgid "Rx discarded"
+msgstr ""
+
+msgid "Rx unrecognized"
+msgstr ""
+
+msgid "SNMP agentX socket path"
+msgstr ""
+
+msgid "Seconds"
+msgstr ""
+
+msgid "Statistics"
+msgstr ""
+
+msgid "TTL"
+msgstr ""
+
+msgid "This page allows you to see LLDPd interfaces statistics"
+msgstr ""
+
+msgid "This page allows you to see discovered neighbors by LLDPd"
+msgstr ""
+
+msgid "This page allows you to see various information for debugging"
+msgstr ""
+
+msgid "Transmit interval"
+msgstr ""
+
+msgid "Tx"
+msgstr ""
+
+msgid "disabled"
+msgstr ""
+
+msgid "enabled"
+msgstr ""

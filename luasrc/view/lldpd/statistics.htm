@@ -32,13 +32,13 @@
 		var inner = "";
 
 		inner += '<table class="keyvalue-markup">';
-		inner += add_obj_row("Interface", key);
-		inner += add_obj_row("Protocol", iobj.via);
-		inner += add_obj_row("Age", iobj.age);
-		inner += add_obj_row("Port ID", iobj.port.id.value);
-		inner += add_obj_row("Port ID type", iobj.port.id.type);
-		inner += add_obj_row("Port description", iobj.port.descr);
-		inner += add_obj_row("TTL", iobj.ttl.ttl);
+		inner += add_obj_row("<%:Interface%>", key);
+		inner += add_obj_row("<%:Protocol%>", iobj.via);
+		inner += add_obj_row("<%:Age%>", iobj.age);
+		inner += add_obj_row("<%:Port ID%>", iobj.port.id.value);
+		inner += add_obj_row("<%:Port ID type%>", iobj.port.id.type);
+		inner += add_obj_row("<%:Port description%>", iobj.port.descr);
+		inner += add_obj_row("<%:TTL%>", iobj.ttl.ttl);
 		inner += "</table>";
 
 		tr.insertCell(-1).innerHTML = inner;
@@ -93,7 +93,7 @@
 //]]></script>
 
 <h2 name="content"><%:LLDPd: Statistics%></h2>
-<div class="cbi-map-descr">This page allows you to see LLDPd interfaces statistics</div>
+<div class="cbi-map-descr"><%:This page allows you to see LLDPd interfaces statistics%></div>
 
 <fieldset class="cbi-section" id="cbi-table-table">
 	<div class="cbi-section-node">

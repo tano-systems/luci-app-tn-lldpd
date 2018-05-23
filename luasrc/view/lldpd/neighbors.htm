@@ -35,9 +35,9 @@
 		// Interface
 		//
 		inner = '<table class="keyvalue-markup">';
-		inner += add_obj_row("Interface", key);
-		inner += add_obj_row("Protocol", obj.via);
-		inner += add_obj_row("Age", obj.age);
+		inner += add_obj_row("<%:Interface%>", key);
+		inner += add_obj_row("<%:Protocol%>", obj.via);
+		inner += add_obj_row("<%:Age%>", obj.age);
 		inner += "</table>";
 
 		tr.insertCell(-1).innerHTML = inner;
@@ -46,10 +46,10 @@
 		// Port
 		//
 		inner = '<table class="keyvalue-markup">';
-		inner += add_obj_row("Description", obj.port.descr);
-		inner += add_obj_row("ID", obj.port.id.value);
-		inner += add_obj_row("ID type", obj.port.id.type);
-		inner += add_obj_row("TTL", obj.port.ttl);
+		inner += add_obj_row("<%:Description%>", obj.port.descr);
+		inner += add_obj_row("<%:ID%>", obj.port.id.value);
+		inner += add_obj_row("<%:ID type%>", obj.port.id.type);
+		inner += add_obj_row("<%:TTL%>", obj.port.ttl);
 		inner += "</table>";
 
 		tr.insertCell(-1).innerHTML = inner;
@@ -64,10 +64,10 @@
 			var ch = obj.chassis[chassis];
 
 			inner += '<table class="keyvalue-markup">';
-			inner += add_obj_row("Name", chassis);
-			inner += add_obj_row("Description", ch.descr);
-			inner += add_obj_row("ID", ch.id.value);
-			inner += add_obj_row("ID type", ch.id.type);
+			inner += add_obj_row("<%:Name%>", chassis);
+			inner += add_obj_row("<%:Description%>", ch.descr);
+			inner += add_obj_row("<%:ID%>", ch.id.value);
+			inner += add_obj_row("<%:ID type%>", ch.id.type);
 
 			// Management addresses
 			if (typeof ch["mgmt-ip"] !== 'undefined')
@@ -86,7 +86,7 @@
 					ips += ch["mgmt-ip"];
 				}
 
-				inner += add_obj_row("Management IP(s)", ips);
+				inner += add_obj_row("<%:Management IP(s)%>", ips);
 			}
 
 			if (typeof ch.capability !== 'undefined')
@@ -99,7 +99,7 @@
 					for (var cap = 0; cap < ch.capability.length; cap++)
 					{
 						caps += ch.capability[cap].type;
-						caps += " (" + (ch.capability[cap].enabled ? "enabled" : "disabled") + ")";
+						caps += " (" + (ch.capability[cap].enabled ? "<%:enabled%>" : "<%:disabled%>") + ")";
 						caps += "<br />";
 					}
 				}
@@ -107,10 +107,10 @@
 				{
 					// One capability
 					caps += ch.capability.type;
-					caps += " (" + (ch.capability.enabled ? "enabled" : "disabled") + ")";
+					caps += " (" + (ch.capability.enabled ? "<%:enabled%>" : "<%:disabled%>") + ")";
 				}
 
-				inner += add_obj_row("Capabilities", caps);
+				inner += add_obj_row("<%:Capabilities%>", caps);
 				inner += "</td></tr>";
 			}
 
@@ -163,7 +163,7 @@
 //]]></script>
 
 <h2 name="content"><%:LLDPd: Neighbors%> (<span id="neighbors-count">0</span>)</h2>
-<div class="cbi-map-descr">This page allows you to see discovered neighbors by LLDPd</div>
+<div class="cbi-map-descr"><%:This page allows you to see discovered neighbors by LLDPd%></div>
 
 <fieldset class="cbi-section" id="cbi-table-table">
 	<div class="cbi-section-node">

@@ -1,0 +1,219 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: luci-app-lldpd\n"
+"PO-Revision-Date: 2018-05-23 18:11+0300\n"
+"Last-Translator: Anton Kikin <a.kikin@tano-systems.com>\n"
+"Language-Team: none\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid ""
+"<abbr title=\"Bay Discovery Protocol\">NDP</abbr> is a proprietary Data Link "
+"Layer protocol developed by Nortel"
+msgstr ""
+"<abbr title=\"Bay Discovery Protocol\">NDP</abbr> проприетарный протокол второго "
+"уровня, разработанный компанией Nortel"
+
+msgid ""
+"<abbr title=\"Cisco Discovery Protocol\">CDP</abbr> is a proprietary Data "
+"Link Layer protocol developed by Cisco Systems"
+msgstr ""
+"<abbr title=\"Cisco Discovery Protocol\">CDP</abbr> проприетарный протокол второго "
+"уровня, разработанный компанией Cisco Systems"
+
+msgid ""
+"<abbr title=\"Extreme Discovery Protocol\">EDP</abbr> is a proprietary Data "
+"Link Layer protocol developed by Extreme Networks"
+msgstr ""
+"<abbr title=\"Extreme Discovery Protocol\">EDP</abbr> проприетарный протокол второго "
+"уровня, разработанный компанией Extreme Networks"
+
+msgid ""
+"<abbr title=\"Foundry Discovery Protocol\">FDP</abbr> is a proprietary Data "
+"Link Layer protocol developed by Foundry Networks"
+msgstr ""
+"<abbr title=\"Foundry Discovery Protocol\">FDP</abbr> проприетарный протокол второго "
+"уровня, разработанный компанией Foundry Networks"
+
+msgid ""
+"<p>LLDPd is a implementation of IEEE 802.1ab (<abbr title=\"Link Layer "
+"Discovery Protocol\">LLDP</abbr>)</p>"
+msgstr ""
+"<p>LLDPd это программная реализация стандарта IEEE 802.1ab (<abbr title=\"Link Layer "
+"Discovery Protocol\">LLDP</abbr>)</p>"
+
+msgid "Advanced settings"
+msgstr "Дополнительные настройки"
+
+msgid "Age"
+msgstr "Возраст"
+
+msgid "Ageout count"
+msgstr "Кол-во устаревших"
+
+msgid "Capabilities"
+msgstr "Возможности"
+
+msgid "Chassis"
+msgstr "Шасси"
+
+msgid "Class"
+msgstr "Класс"
+
+msgid "Collecting data..."
+msgstr "Сбор данных..."
+
+msgid "Configuration"
+msgstr "Конфигурация"
+
+msgid "Configure"
+msgstr "Настройки"
+
+msgid "Debug information"
+msgstr "Отладочная информация"
+
+msgid "Delete count"
+msgstr "Кол-во удалений"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Discovered chassis"
+msgstr "Обнаруженное шасси"
+
+msgid "Discovered port"
+msgstr "Обнаруженный порт"
+
+msgid "Enable <abbr title=\"Cisco Discovery Protocol\">CDP</abbr>"
+msgstr "Включить <abbr title=\"Cisco Discovery Protocol\">CDP</abbr>"
+
+msgid "Enable <abbr title=\"Extreme Discovery Protocol\">EDP</abbr>"
+msgstr "Включить <abbr title=\"Extreme Discovery Protocol\">EDP</abbr>"
+
+msgid "Enable <abbr title=\"Foundry Discovery Protocol\">FDP</abbr>"
+msgstr "Включить <abbr title=\"Foundry Discovery Protocol\">FDP</abbr>"
+
+msgid ""
+"Enable <abbr title=\"Nortel Discovery Protocol\">NDP</abbr> (<abbr title="
+"\"Bay Network Management Protocol\">BNMP</abbr>, <abbr title=\"Bay Discovery "
+"Protocol\">BDP</abbr>, <abbr title=\"Nortel Topology Discovery Protocol"
+"\">NTDP</abbr>, <abbr title=\"SynOptics Network Management Protocol\">SONMP</"
+"abbr>)"
+msgstr ""
+"Включить <abbr title=\"Nortel Discovery Protocol\">NDP</abbr> (<abbr title="
+"\"Bay Network Management Protocol\">BNMP</abbr>, <abbr title=\"Bay Discovery "
+"Protocol\">BDP</abbr>, <abbr title=\"Nortel Topology Discovery Protocol"
+"\">NTDP</abbr>, <abbr title=\"SynOptics Network Management Protocol\">SONMP</"
+"abbr>)"
+
+msgid "General settings"
+msgstr "Основные настройки"
+
+msgid "Hostname"
+msgstr "Имя хоста"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "ID type"
+msgstr "Тип ID"
+
+msgid "Insert count"
+msgstr "Кол-во вставок"
+
+msgid "Interface"
+msgstr "Интерфейс"
+
+msgid "Interfaces"
+msgstr "Интерфейсы"
+
+msgid "LLDPd"
+msgstr "LLDPd"
+
+msgid "LLDPd: Configure"
+msgstr "LLDPd: Настройки"
+
+msgid "LLDPd: Debug information"
+msgstr "LLDPd: Отладочная информация"
+
+msgid "LLDPd: Neighbors"
+msgstr "LLDPd: Соседи"
+
+msgid "LLDPd: Statistics"
+msgstr "LLDPd: Статистика"
+
+msgid "Local interface"
+msgstr "Локальный интерфейс"
+
+msgid "Location"
+msgstr "Расположение"
+
+msgid "Management IP(s)"
+msgstr "IP-адреса управления"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Neighbors"
+msgstr "Соседи"
+
+msgid "Port ID"
+msgstr "Порт"
+
+msgid "Port ID type"
+msgstr "Тип порта"
+
+msgid "Port description"
+msgstr "Описание порта"
+
+msgid "Protocol"
+msgstr "Протокол"
+
+msgid "Protocols"
+msgstr "Протоколы"
+
+msgid "Rx"
+msgstr "Rx"
+
+msgid "Rx discarded"
+msgstr "Rx (отброшено)"
+
+msgid "Rx unrecognized"
+msgstr "Rx (не распознано)"
+
+msgid "SNMP agentX socket path"
+msgstr "Путь сокета SNMP agentX"
+
+msgid "Seconds"
+msgstr "Секунды"
+
+msgid "Statistics"
+msgstr "Статистика"
+
+msgid "TTL"
+msgstr "TTL"
+
+msgid "This page allows you to see LLDPd interfaces statistics"
+msgstr "На данной странице можно просматривать статистику интерфейсов LLDPd"
+
+msgid "This page allows you to see discovered neighbors by LLDPd"
+msgstr "На данной странице можно просматривать информацию обнаруженных соседей LLDPd"
+
+msgid "This page allows you to see various information for debugging"
+msgstr "На данной странице можно просматривать различную информацию LLDPd"
+
+msgid "Transmit interval"
+msgstr "Интервал отправки"
+
+msgid "Tx"
+msgstr "Tx"
+
+msgid "disabled"
+msgstr "выключено"
+
+msgid "enabled"
+msgstr "включено"
