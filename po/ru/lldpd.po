@@ -55,7 +55,7 @@ msgid "Age"
 msgstr "Возраст"
 
 msgid "Ageout count"
-msgstr "Кол-во устаревших"
+msgstr "Устарело"
 
 msgid "Capabilities"
 msgstr "Возможности"
@@ -79,7 +79,7 @@ msgid "Debug information"
 msgstr "Отладочная информация"
 
 msgid "Delete count"
-msgstr "Кол-во удалений"
+msgstr "Удалено"
 
 msgid "Description"
 msgstr "Описание"
@@ -123,7 +123,7 @@ msgid "ID type"
 msgstr "Тип ID"
 
 msgid "Insert count"
-msgstr "Кол-во обнаружений"
+msgstr "Обнаружено"
 
 msgid "Interface"
 msgstr "Интерфейс"
@@ -183,10 +183,10 @@ msgid "Rx discarded"
 msgstr "Rx (отброшено)"
 
 msgid "Rx unrecognized"
-msgstr "Rx (не&nbsp;распознано)"
+msgstr "Rx (не распознано)"
 
 msgid "SNMP agentX socket path"
-msgstr "Путь к&nbsp;сокету SNMP agentX"
+msgstr "Путь к сокету SNMP agentX"
 
 msgid "Seconds"
 msgstr "Секунды"
