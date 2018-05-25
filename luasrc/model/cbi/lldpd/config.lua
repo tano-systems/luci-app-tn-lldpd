@@ -132,11 +132,14 @@ enable_sonmp = s:taboption("protocols", Flag, "enable_sonmp",
 		"<abbr title=\"Bay Discovery Protocol\">BDP</abbr>, " ..
 		"<abbr title=\"Nortel Topology Discovery Protocol\">NTDP</abbr>, " ..
 		"<abbr title=\"SynOptics Network Management Protocol\">SONMP</abbr>)"),
-	translate("<abbr title=\"Bay Discovery Protocol\">NDP</abbr> is a proprietary " ..
+	translate("<abbr title=\"Nortel Discovery Protocol\">NDP</abbr> is a proprietary " ..
 		"Data Link Layer protocol developed by Nortel"
 	)
 )
 
 enable_sonmp.rmempty = false
+
+f = m:section(SimpleSection, nil)
+f.template = "lldpd/footer"
 
 return m

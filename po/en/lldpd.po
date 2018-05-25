@@ -1,9 +1,9 @@
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8"
+msgstr "Content-Type: text/plain; charset=UTF-8\n"
 
 msgid ""
-"<abbr title=\"Bay Discovery Protocol\">NDP</abbr> is a proprietary Data Link "
-"Layer protocol developed by Nortel"
+"&copy; 2018, Tano Systems, Anton Kikin &lt;<a href=\"mailto:a.kikin@tano-"
+"systems.com\">a.kikin@tano-systems.com&gt;"
 msgstr ""
 
 msgid ""
@@ -19,6 +19,11 @@ msgstr ""
 msgid ""
 "<abbr title=\"Foundry Discovery Protocol\">FDP</abbr> is a proprietary Data "
 "Link Layer protocol developed by Foundry Networks"
+msgstr ""
+
+msgid ""
+"<abbr title=\"Nortel Discovery Protocol\">NDP</abbr> is a proprietary Data "
+"Link Layer protocol developed by Nortel"
 msgstr ""
 
 msgid ""
@@ -107,6 +112,9 @@ msgid "Interfaces"
 msgstr ""
 
 msgid "LLDPd"
+msgstr ""
+
+msgid "LLDPd LuCI application developed by Tano Systems"
 msgstr ""
 
 msgid "LLDPd: Configure"

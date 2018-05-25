@@ -17,7 +17,6 @@ function index()
 	entry({"admin", "services", "lldpd", "statistics_request"}, call("action_statistics_request")).leaf = true
 
 	entry({"admin", "services", "lldpd", "information"}, call("action_information"), _("Debug information"), 4)
-
 end
 
 -- LLDPCLI commands
