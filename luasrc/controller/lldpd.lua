@@ -7,16 +7,15 @@ module("luci.controller.lldpd", package.seeall)
 
 function index()
 	entry({"admin", "services", "lldpd"}, firstchild(), _("LLDPd"), 80)
-
 	entry({"admin", "services", "lldpd", "config"}, cbi("lldpd/config"), _("Configure"), 1)
 
-	entry({"admin", "services", "lldpd", "neighbors"}, template("lldpd/neighbors"), _("Neighbors"), 2)
-	entry({"admin", "services", "lldpd", "neighbors_request"}, call("action_neighbors_request")).leaf = true
+	entry({"admin", "status", "lldpd"}, firstchild(), _("LLDPd"), 80)
 
-	entry({"admin", "services", "lldpd", "statistics"}, template("lldpd/statistics"), _("Statistics"), 3)
-	entry({"admin", "services", "lldpd", "statistics_request"}, call("action_statistics_request")).leaf = true
+	entry({"admin", "status", "lldpd", "neighbors"}, template("lldpd/neighbors"), _("Neighbors"), 2)
+	entry({"admin", "status", "lldpd", "neighbors_request"}, call("action_neighbors_request")).leaf = true
 
-	entry({"admin", "services", "lldpd", "information"}, call("action_information"), _("Debug information"), 4)
+	entry({"admin", "status", "lldpd", "statistics"}, template("lldpd/statistics"), _("Statistics"), 3)
+	entry({"admin", "status", "lldpd", "statistics_request"}, call("action_statistics_request")).leaf = true
 end
 
 -- LLDPCLI commands
@@ -50,16 +49,3 @@ function action_statistics_request()
 	luci.http.write('}');
 end
 
--- Information page
-
-function action_information()
-	local lldpd_configuration = lldpcli_show("configuration", "keyvalue")
-	local lldpd_chassis = lldpcli_show("chassis", "keyvalue")
-	local lldpd_interfaces = lldpcli_show("interfaces", "keyvalue")
-
-	luci.template.render("lldpd/information", {
-		lldpd_configuration = lldpd_configuration,
-		lldpd_chassis       = lldpd_chassis,
-		lldpd_interfaces    = lldpd_interfaces
-	})
-end

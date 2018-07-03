@@ -120,7 +120,7 @@
 		tr.insertCell(-1).innerHTML = inner;
 	}
 
-	XHR.poll(5, '<%=url('admin/services/lldpd/neighbors_request')%>', null,
+	XHR.poll(5, '<%=url('admin/status/lldpd/neighbors_request')%>', null,
 		function(x, json)
 		{
 			var nb_table =
