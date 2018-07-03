@@ -1,0 +1,164 @@
+<%#
+ Copyright (c) 2018, Tano Systems. All Rights Reserved.
+ Anton Kikin <a.kikin@tano-systems.com>
+-%>
+
+<%+header%>
+
+<style type="text/css">
+	table.keyvalue-markup { border: 0; }
+	table.keyvalue-markup td { padding: 0 10px 0 0; background-color: inherit !important; }
+	table.keyvalue-markup td:first-of-type { font-weight: bold; white-space: nowrap; }
+	table.keyvalue-markup td:last-of-type { width: 100%; }
+</style>
+
+<script type="text/javascript" src="<%=resource%>/cbi.js"></script>
+<script type="text/javascript">//<![CDATA[
+
+	function add_obj_row(description, value)
+	{
+		if (typeof value == 'undefined')
+			return
+
+		return '<tr><td>' + description +
+			':</td><td>' + value + '</td></tr>';
+	}
+
+	function add_neighbor_row(i, table, obj)
+	{
+		var inner;
+
+		var tr = table.rows[0].parentNode.insertRow(-1);
+		    tr.className = 'cbi-section-table-row cbi-rowstyle-' + (1 + (i % 2));
+
+		//
+		// Interface
+		//
+		inner = '<table class="keyvalue-markup">';
+		inner += add_obj_row("<%:Interface%>", obj.name);
+		inner += add_obj_row("<%:Protocol%>", obj.via);
+		inner += add_obj_row("<%:Age%>", obj.age);
+		inner += "</table>";
+
+		tr.insertCell(-1).innerHTML = inner;
+
+		//
+		// Port
+		//
+		inner = '<table class="keyvalue-markup">';
+		inner += add_obj_row("<%:Description%>", obj.port[0].descr[0].value);
+		inner += add_obj_row("<%:ID%>", obj.port[0].id[0].value);
+		inner += add_obj_row("<%:ID type%>", obj.port[0].id[0].type);
+		inner += add_obj_row("<%:TTL%>", obj.port[0].ttl[0].value);
+		inner += "</table>";
+
+		tr.insertCell(-1).innerHTML = inner;
+
+		//
+		// Chassis
+		//
+		inner = "";
+
+		for (var chassis in obj.chassis)
+		{
+			var ch = obj.chassis[chassis];
+
+			inner += '<table class="keyvalue-markup">';
+			inner += add_obj_row("<%:Name%>", ch.name[0].value);
+			inner += add_obj_row("<%:Description%>", ch.descr[0].value);
+			inner += add_obj_row("<%:ID%>", ch.id[0].value);
+			inner += add_obj_row("<%:ID type%>", ch.id[0].type);
+
+			// Management addresses
+			if (typeof ch["mgmt-ip"] !== 'undefined')
+			{
+				var ips = "";
+
+				if (ch["mgmt-ip"].length > 0)
+				{
+					// Array of addresses
+					for (var ip = 0; ip < ch["mgmt-ip"].length; ip++)
+						ips += ch["mgmt-ip"][ip].value + "<br />";
+				}
+				else
+				{
+					// One address
+					ips += ch["mgmt-ip"][0].value;
+				}
+
+				inner += add_obj_row("<%:Management IP(s)%>", ips);
+			}
+
+			if (typeof ch.capability !== 'undefined')
+			{
+				var caps = "";
+
+				if (ch.capability.length > 0)
+				{
+					// Array of capabilities
+					for (var cap = 0; cap < ch.capability.length; cap++)
+					{
+						caps += ch.capability[cap].type;
+						caps += " (" + (ch.capability[cap].enabled ? "<%:enabled%>" : "<%:disabled%>") + ")";
+						caps += "<br />";
+					}
+				}
+				else
+				{
+					// One capability
+					caps += ch.capability[0].type;
+					caps += " (" + (ch.capability[0].enabled ? "<%:enabled%>" : "<%:disabled%>") + ")";
+				}
+
+				inner += add_obj_row("<%:Capabilities%>", caps);
+				inner += "</td></tr>";
+			}
+
+			inner += "</table>";
+		}
+
+		tr.insertCell(-1).innerHTML = inner;
+	}
+
+	XHR.poll(5, '<%=url('admin/status/lldpd/neighbors_request')%>', null,
+		function(x, json)
+		{
+			var nb_table =
+				document.getElementById('neighbors');
+
+			var nb_count =
+				document.getElementById('neighbors-count');
+
+			var ifaces = json.lldp[0].interface;
+
+			// Clear table
+			while (nb_table.rows.length > 1)
+				nb_table.rows[0].parentNode.deleteRow(-1);
+
+			for (var i = 0; i < ifaces.length; i++)
+				add_neighbor_row(i, nb_table, ifaces[i]);
+
+			nb_count.innerHTML = i;
+		}
+	)
+//]]></script>
+
+<h2 name="content"><%:LLDPd: Neighbors%> (<span id="neighbors-count">0</span>)</h2>
+<div class="cbi-map-descr"><%:This page allows you to see discovered neighbors by LLDPd%></div>
+
+<fieldset class="cbi-section" id="cbi-table-table">
+	<div class="cbi-section-node">
+		<table class="cbi-section-table" id="neighbors">
+			<tr class="cbi-section-table-titles">
+				<th class="cbi-section-table-cell"><%:Local interface%></th>
+				<th class="cbi-section-table-cell"><%:Discovered port%></th>
+				<th class="cbi-section-table-cell"><%:Discovered chassis%></th>
+			</tr>
+			<tr><td colspan="3"><em><%:Collecting data...%></em></td></tr>
+		</table>
+	</div>
+
+</fieldset>
+
+<% include("lldpd/footer") -%>
+<%+footer%>
