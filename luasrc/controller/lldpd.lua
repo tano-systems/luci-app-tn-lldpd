@@ -32,7 +32,7 @@ end
 
 function action_neighbors_request()
 	luci.http.prepare_content("application/json")
-	luci.http.write(lldpcli_show("neighbors", "json"))
+	luci.http.write(lldpcli_show("neighbors", "json0"))
 end
 
 -- Statistics page
@@ -41,11 +41,11 @@ function action_statistics_request()
 	luci.http.prepare_content("application/json")
 	
 	luci.http.write('{"statistics":');
-	luci.http.write(lldpcli_show("statistics", "json"))
+	luci.http.write(lldpcli_show("statistics", "json0"))
 	luci.http.write(',');
 
 	luci.http.write('"interfaces":');
-	luci.http.write(lldpcli_show("interfaces", "json"))
+	luci.http.write(lldpcli_show("interfaces", "json0"))
 	luci.http.write('}');
 end
 

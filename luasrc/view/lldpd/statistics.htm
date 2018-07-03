@@ -24,7 +24,7 @@
 			':</td><td>' + value + '</td></tr>';
 	}
 
-	function add_iface_row(i, table, key, sobj, iobj)
+	function add_iface_row(i, table, sobj, iobj)
 	{
 		var tr = table.rows[0].parentNode.insertRow(-1);
 		    tr.className = 'cbi-section-table-row cbi-rowstyle-' + (1 + (i % 2));
@@ -32,23 +32,23 @@
 		var inner = "";
 
 		inner += '<table class="keyvalue-markup">';
-		inner += add_obj_row("<%:Interface%>", key);
+		inner += add_obj_row("<%:Interface%>", iobj.name);
 		inner += add_obj_row("<%:Protocol%>", iobj.via);
 		inner += add_obj_row("<%:Age%>", iobj.age);
-		inner += add_obj_row("<%:Port ID%>", iobj.port.id.value);
-		inner += add_obj_row("<%:Port ID type%>", iobj.port.id.type);
-		inner += add_obj_row("<%:Port description%>", iobj.port.descr);
-		inner += add_obj_row("<%:TTL%>", iobj.ttl.ttl);
+		inner += add_obj_row("<%:Port ID%>", iobj.port[0].id[0].value);
+		inner += add_obj_row("<%:Port ID type%>", iobj.port[0].id[0].type);
+		inner += add_obj_row("<%:Port description%>", iobj.port[0].descr[0].value);
+		inner += add_obj_row("<%:TTL%>", iobj.ttl[0].ttl);
 		inner += "</table>";
 
 		tr.insertCell(-1).innerHTML = inner;
-		tr.insertCell(-1).innerHTML = sobj.tx.tx;
-		tr.insertCell(-1).innerHTML = sobj.rx.rx;
-		tr.insertCell(-1).innerHTML = sobj.rx_discarded_cnt.rx_discarded_cnt;
-		tr.insertCell(-1).innerHTML = sobj.rx_unrecognized_cnt.rx_unrecognized_cnt;
-		tr.insertCell(-1).innerHTML = sobj.ageout_cnt.ageout_cnt;
-		tr.insertCell(-1).innerHTML = sobj.insert_cnt.insert_cnt;
-		tr.insertCell(-1).innerHTML = sobj.delete_cnt.delete_cnt;
+		tr.insertCell(-1).innerHTML = sobj.tx[0].tx;
+		tr.insertCell(-1).innerHTML = sobj.rx[0].rx;
+		tr.insertCell(-1).innerHTML = sobj.rx_discarded_cnt[0].rx_discarded_cnt;
+		tr.insertCell(-1).innerHTML = sobj.rx_unrecognized_cnt[0].rx_unrecognized_cnt;
+		tr.insertCell(-1).innerHTML = sobj.ageout_cnt[0].ageout_cnt;
+		tr.insertCell(-1).innerHTML = sobj.insert_cnt[0].insert_cnt;
+		tr.insertCell(-1).innerHTML = sobj.delete_cnt[0].delete_cnt;
 	}
 
 	XHR.poll(5, '<%=url('admin/status/lldpd/statistics_request')%>', null,
@@ -60,34 +60,15 @@
 			var statistics = json.statistics;
 			var interfaces = json.interfaces;
 
-			var sifaces = statistics.lldp.interface;
-			var ifaces  = interfaces.lldp.interface;
+			var sifaces = statistics.lldp[0].interface;
+			var ifaces  = interfaces.lldp[0].interface;
 
 			// Clear table
 			while (counters_table.rows.length > 1)
 				counters_table.rows[0].parentNode.deleteRow(-1);
 
-			if (Array.isArray(sifaces))
-			{
-				var j = 0;
-				for (var i = 0; i < sifaces.length; i++)
-				{
-					for (var iface in sifaces[i])
-					{
-						add_iface_row(j, counters_table, iface, sifaces[i][iface], ifaces[i][iface])
-						j++;
-					}
-				}
-			}
-			else
-			{
-				var i = 0;
-				for (var iface in sifaces)
-				{
-					add_iface_row(i, counters_table, iface, sifaces[iface], ifaces[iface])
-					i++;
-				}
-			}
+			for (var i = 0; i < sifaces.length; i++)
+				add_iface_row(i, counters_table, sifaces[i], ifaces[i])
 		}
 	)
 //]]></script>
