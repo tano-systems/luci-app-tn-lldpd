@@ -143,8 +143,8 @@ msgstr "Интерфейсы"
 msgid "LLDPd"
 msgstr "LLDPd"
 
-msgid "LLDPd LuCI application developed by Tano Systems"
-msgstr "LuCI приложение управления LLDPd разработано компанией Tano Systems"
+msgid "LLDPd LuCI application (version %s)"
+msgstr "LuCI приложение управления LLDPd (версия %s)"
 
 msgid "LLDPd: Configure"
 msgstr "LLDPd: Настройки"

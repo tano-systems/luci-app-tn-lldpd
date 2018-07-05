@@ -114,7 +114,7 @@ msgstr ""
 msgid "LLDPd"
 msgstr ""
 
-msgid "LLDPd LuCI application developed by Tano Systems"
+msgid "LLDPd LuCI application (version %s)"
 msgstr ""
 
 msgid "LLDPd: Configure"
