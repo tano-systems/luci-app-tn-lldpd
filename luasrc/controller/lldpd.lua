@@ -6,8 +6,7 @@
 module("luci.controller.lldpd", package.seeall)
 
 function index()
-	entry({"admin", "services", "lldpd"}, firstchild(), _("LLDPd"), 80)
-	entry({"admin", "services", "lldpd", "config"}, cbi("lldpd/config"), _("Configure"), 1)
+	entry({"admin", "services", "lldpd"}, cbi("lldpd/config"), _("LLDPd"), 80)
 
 	entry({"admin", "status", "lldpd"}, firstchild(), _("LLDPd"), 80)
 
