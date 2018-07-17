@@ -7,8 +7,8 @@
 
 <style type="text/css">
 	table.keyvalue-markup { border: 0; }
-	table.keyvalue-markup td { padding: 0 10px 0 0; background-color: inherit !important; }
-	table.keyvalue-markup td:first-of-type { font-weight: bold; white-space: nowrap; }
+	table.keyvalue-markup td { padding: 2px 10px 2px 0; background-color: inherit !important; line-height: 16px; }
+	table.keyvalue-markup td:first-of-type { vertical-align: top; font-weight: bold; white-space: nowrap; }
 	table.keyvalue-markup td:last-of-type { width: 100%; }
 </style>
 
@@ -24,11 +24,9 @@
 			':</td><td>' + value + '</td></tr>';
 	}
 
-	function add_iface_row(i, table, sobj, iobj)
+	function add_iface_row(i, sobj, iobj)
 	{
-		var tr = table.rows[0].parentNode.insertRow(-1);
-		    tr.className = 'cbi-section-table-row cbi-rowstyle-' + (1 + (i % 2));
-
+		var row = [];
 		var inner = "";
 
 		inner += '<table class="keyvalue-markup">';
@@ -41,14 +39,16 @@
 		inner += add_obj_row("<%:TTL%>", iobj.ttl[0].ttl);
 		inner += "</table>";
 
-		tr.insertCell(-1).innerHTML = inner;
-		tr.insertCell(-1).innerHTML = sobj.tx[0].tx;
-		tr.insertCell(-1).innerHTML = sobj.rx[0].rx;
-		tr.insertCell(-1).innerHTML = sobj.rx_discarded_cnt[0].rx_discarded_cnt;
-		tr.insertCell(-1).innerHTML = sobj.rx_unrecognized_cnt[0].rx_unrecognized_cnt;
-		tr.insertCell(-1).innerHTML = sobj.ageout_cnt[0].ageout_cnt;
-		tr.insertCell(-1).innerHTML = sobj.insert_cnt[0].insert_cnt;
-		tr.insertCell(-1).innerHTML = sobj.delete_cnt[0].delete_cnt;
+		row.push(inner);
+		row.push(sobj.tx[0].tx);
+		row.push(sobj.rx[0].rx);
+		row.push(sobj.rx_discarded_cnt[0].rx_discarded_cnt);
+		row.push(sobj.rx_unrecognized_cnt[0].rx_unrecognized_cnt);
+		row.push(sobj.ageout_cnt[0].ageout_cnt);
+		row.push(sobj.insert_cnt[0].insert_cnt);
+		row.push(sobj.delete_cnt[0].delete_cnt);
+
+		return row;
 	}
 
 	XHR.poll(5, '<%=url('admin/status/lldpd/statistics_request')%>', null,
@@ -63,12 +63,12 @@
 			var sifaces = statistics.lldp[0].interface;
 			var ifaces  = interfaces.lldp[0].interface;
 
-			// Clear table
-			while (counters_table.rows.length > 1)
-				counters_table.rows[0].parentNode.deleteRow(-1);
+			var rows = [];
 
 			for (var i = 0; i < sifaces.length; i++)
-				add_iface_row(i, counters_table, sifaces[i], ifaces[i])
+				rows.push(add_iface_row(i, sifaces[i], ifaces[i]))
+
+			cbi_update_table(counters_table, rows, '<em><%:No information available%></em>');
 		}
 	)
 //]]></script>
@@ -78,21 +78,24 @@
 
 <fieldset class="cbi-section" id="cbi-table-table">
 	<div class="cbi-section-node">
-		<table class="cbi-section-table" id="counters">
-			<tr class="cbi-section-table-titles">
-				<th class="cbi-section-table-cell"><%:Local interface%></th>
-				<th class="cbi-section-table-cell"><%:Tx%></th>
-				<th class="cbi-section-table-cell"><%:Rx%></th>
-				<th class="cbi-section-table-cell"><%:Rx discarded%></th>
-				<th class="cbi-section-table-cell"><%:Rx unrecognized%></th>
-				<th class="cbi-section-table-cell"><%:Ageout count%></th>
-				<th class="cbi-section-table-cell"><%:Insert count%></th>
-				<th class="cbi-section-table-cell"><%:Delete count%></th>
-			</tr>
-			<tr><td colspan="8"><em><%:Collecting data...%></em></td></tr>
-		</table>
+		<div class="table" id="counters">
+			<div class="tr table-titles">
+				<div class="th col-1 top"><%:Local interface%></div>
+				<div class="th col-1 top"><%:Tx%></div>
+				<div class="th col-1 top"><%:Rx%></div>
+				<div class="th col-1 top"><%:Rx discarded%></div>
+				<div class="th col-1 top"><%:Rx unrecognized%></div>
+				<div class="th col-1 top"><%:Ageout count%></div>
+				<div class="th col-1 top"><%:Insert count%></div>
+				<div class="th col-1 top"><%:Delete count%></div>
+			</div>
+			<div class="tr placeholder">
+				<div class="td">
+					<em><%:Collecting data...%></em>
+				</div>
+			</div>
+		</div>
 	</div>
-
 </fieldset>
 
 <% include("lldpd/footer") -%>

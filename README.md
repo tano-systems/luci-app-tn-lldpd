@@ -4,6 +4,11 @@
 This package allows you to control LLDPd and view discovered neighbors by LLDPd
 in LuCI web interface.
 
+## Limitations
+Works with LuCI from OpenWrt/LEDE 18.06 branch.
+
+For OpenWrt/LEDE 17.01 use luci-app-lldpd v1.0.0.
+
 ## Depends
 Package depends on lldpd package.
 
