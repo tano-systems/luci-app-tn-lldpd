@@ -3,7 +3,7 @@ msgstr "Content-Type: text/plain; charset=UTF-8\n"
 
 msgid ""
 "&copy; 2018, Tano Systems, Anton Kikin &lt;<a href=\"mailto:a.kikin@tano-"
-"systems.com\">a.kikin@tano-systems.com&gt;"
+"systems.com\">a.kikin@tano-systems.com</a>&gt;"
 msgstr ""
 
 msgid ""
