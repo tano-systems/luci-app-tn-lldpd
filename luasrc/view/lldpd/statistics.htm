@@ -55,7 +55,7 @@
 		function(x, json)
 		{
 			var counters_table =
-				document.getElementById('counters');
+				document.getElementById('lldpd-counters');
 
 			var statistics = json.statistics;
 			var interfaces = json.interfaces;
@@ -78,7 +78,7 @@
 
 <fieldset class="cbi-section" id="cbi-table-table">
 	<div class="cbi-section-node">
-		<div class="table" id="counters">
+		<div class="table" id="lldpd-counters">
 			<div class="tr table-titles">
 				<div class="th col-1 top"><%:Local interface%></div>
 				<div class="th col-1 top"><%:Tx%></div>

@@ -124,10 +124,10 @@
 		function(x, json)
 		{
 			var nb_table =
-				document.getElementById('neighbors');
+				document.getElementById('lldpd-neighbors');
 
 			var nb_count =
-				document.getElementById('neighbors-count');
+				document.getElementById('lldpd-neighbors-count');
 
 			var rows = [];
 
@@ -144,12 +144,12 @@
 	)
 //]]></script>
 
-<h2 name="content"><%:LLDPd: Neighbors%> (<span id="neighbors-count">0</span>)</h2>
+<h2 name="content"><%:LLDPd: Neighbors%> (<span id="lldpd-neighbors-count">0</span>)</h2>
 <div class="cbi-map-descr"><%:This page allows you to see discovered neighbors by LLDPd%></div>
 
 <fieldset class="cbi-section" id="cbi-table-table">
 	<div class="cbi-section-node">
-		<div class="table" id="neighbors">
+		<div class="table" id="lldpd-neighbors">
 			<div class="tr table-titles">
 				<div class="th col-1 top"><%:Local interface%></div>
 				<div class="th col-1 top"><%:Discovered port%></div>
