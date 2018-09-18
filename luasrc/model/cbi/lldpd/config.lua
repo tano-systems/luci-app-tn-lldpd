@@ -13,9 +13,6 @@ m = Map("lldpd",
 	)
 )
 
--- reload daemon after CBI configuration is commited
-m.on_after_commit = function() luci.sys.call("/etc/init.d/lldpd reload") end
-
 s = m:section(TypedSection, "lldpd", translate("General settings"))
 
 s.anonymous = true

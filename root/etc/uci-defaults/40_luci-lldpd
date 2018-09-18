@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# needed for "Save and Apply" to reload lldpd
+uci -q batch <<-EOF >/dev/null
+	delete ucitrack.@lldpd[-1]
+	add ucitrack lldpd
+	set ucitrack.@lldpd[-1].exec="/etc/init.d/lldpd reload"
+	commit ucitrack
+EOF
+
+rm -f /tmp/luci-indexcache
+exit 0
