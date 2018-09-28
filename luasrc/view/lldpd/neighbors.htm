@@ -44,7 +44,10 @@
 		// Port
 		//
 		inner = '<table class="keyvalue-markup">';
-		inner += add_obj_row("<%:Description%>", obj.port[0].descr[0].value);
+
+		if (typeof obj.port[0].descr !== 'undefined')
+			inner += add_obj_row("<%:Description%>", obj.port[0].descr[0].value);
+
 		inner += add_obj_row("<%:ID%>", obj.port[0].id[0].value);
 		inner += add_obj_row("<%:ID type%>", obj.port[0].id[0].type);
 		inner += add_obj_row("<%:TTL%>", obj.port[0].ttl[0].value);
