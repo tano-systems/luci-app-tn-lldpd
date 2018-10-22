@@ -5,7 +5,13 @@
 
 module("luci.controller.lldpd", package.seeall)
 
+require("luci.sys")
+
 function index()
+	if not nixio.fs.access("/etc/config/lldpd") then
+		return
+	end
+
 	entry({"admin", "services", "lldpd"}, cbi("lldpd/config"), _("LLDPd"), 80)
 
 	entry({"admin", "status", "lldpd"}, firstchild(), _("LLDPd"), 80)
