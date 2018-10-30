@@ -136,9 +136,11 @@
 
 			var ifaces = json.lldp[0].interface;
 
-			// Clear table
-			for (var i = 0; i < ifaces.length; i++)
-				rows.push(add_neighbor_row(i, ifaces[i]));
+			// Fill table rows
+			if (typeof ifaces !== 'undefined') {
+				for (var i = 0; i < ifaces.length; i++)
+					rows.push(add_neighbor_row(i, ifaces[i]));
+			}
 
 			cbi_update_table(nb_table, rows, '<em><%:No information available%></em>');
 

@@ -65,8 +65,11 @@
 
 			var rows = [];
 
-			for (var i = 0; i < sifaces.length; i++)
-				rows.push(add_iface_row(i, sifaces[i], ifaces[i]))
+			if ((typeof sifaces !== 'undefined') &&
+			    (typeof  ifaces !== 'undefined')) {
+				for (var i = 0; i < sifaces.length; i++)
+					rows.push(add_iface_row(i, sifaces[i], ifaces[i]))
+			}
 
 			cbi_update_table(counters_table, rows, '<em><%:No information available%></em>');
 		}
