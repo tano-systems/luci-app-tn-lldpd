@@ -51,6 +51,16 @@ lldp_class = s:option(Value, "lldp_class",
 lldp_class.datatype = "uinteger"
 lldp_class.placeholder = 4
 
+function lldp_class.validate(self, value, section)
+	local val = tonumber(value)
+	if not val then
+		return nil, self.title .. ": " .. translate("Value is not a number")
+	elseif val < 1 or val > 4 then
+		return nil, translate(self.title) .. ": " .. translate("Must be in range from 1 to 4")
+	end
+	return value
+end
+
 -- LLDP tx interval
 lldp_tx_internal = s:option(Value, "lldp_tx_interval",
 	translate("Transmit interval"),

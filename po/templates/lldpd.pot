@@ -1,87 +1,96 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=UTF-8"
 
+#: luasrc/view/lldpd/footer.htm:9
 msgid ""
 "&copy; 2018, Tano Systems, Anton Kikin &lt;<a href=\"mailto:a.kikin@tano-"
 "systems.com\">a.kikin@tano-systems.com</a>&gt;"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:114
 msgid ""
 "<abbr title=\"Cisco Discovery Protocol\">CDP</abbr> is a proprietary Data "
 "Link Layer protocol developed by Cisco Systems"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:130
 msgid ""
 "<abbr title=\"Extreme Discovery Protocol\">EDP</abbr> is a proprietary Data "
 "Link Layer protocol developed by Extreme Networks"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:122
 msgid ""
 "<abbr title=\"Foundry Discovery Protocol\">FDP</abbr> is a proprietary Data "
 "Link Layer protocol developed by Foundry Networks"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:142
 msgid ""
 "<abbr title=\"Nortel Discovery Protocol\">NDP</abbr> is a proprietary Data "
 "Link Layer protocol developed by Nortel"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:10
 msgid ""
 "<p>LLDPd is a implementation of IEEE 802.1ab (<abbr title=\"Link Layer "
 "Discovery Protocol\">LLDP</abbr>)</p>"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:85
 msgid "Advanced settings"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:38 luasrc/view/lldpd/statistics.htm:35
 msgid "Age"
 msgstr ""
 
+#: luasrc/view/lldpd/statistics.htm:91
 msgid "Ageout count"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:114
 msgid "Capabilities"
 msgstr ""
 
-msgid "Chassis"
-msgstr ""
-
+#: luasrc/model/cbi/lldpd/config.lua:48
 msgid "Class"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:165 luasrc/view/lldpd/statistics.htm:97
 msgid "Collecting data..."
 msgstr ""
 
-msgid "Configuration"
-msgstr ""
-
-msgid "Configure"
-msgstr ""
-
-msgid "Debug information"
-msgstr ""
-
+#: luasrc/view/lldpd/statistics.htm:93
 msgid "Delete count"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:27 luasrc/view/lldpd/neighbors.htm:49
+#: luasrc/view/lldpd/neighbors.htm:69
 msgid "Description"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:161
 msgid "Discovered chassis"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:160
 msgid "Discovered port"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:113
 msgid "Enable <abbr title=\"Cisco Discovery Protocol\">CDP</abbr>"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:129
 msgid "Enable <abbr title=\"Extreme Discovery Protocol\">EDP</abbr>"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:121
 msgid "Enable <abbr title=\"Foundry Discovery Protocol\">FDP</abbr>"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:137
 msgid ""
 "Enable <abbr title=\"Nortel Discovery Protocol\">NDP</abbr> (<abbr title="
 "\"Bay Network Management Protocol\">BNMP</abbr>, <abbr title=\"Bay Discovery "
@@ -90,113 +99,154 @@ msgid ""
 "abbr>)"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:16
 msgid "General settings"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:34
 msgid "Hostname"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:51 luasrc/view/lldpd/neighbors.htm:70
 msgid "ID"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:52 luasrc/view/lldpd/neighbors.htm:71
 msgid "ID type"
 msgstr ""
 
+#: luasrc/view/lldpd/statistics.htm:92
 msgid "Insert count"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:36 luasrc/view/lldpd/statistics.htm:33
 msgid "Interface"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:89 luasrc/model/cbi/lldpd/config.lua:98
 msgid "Interfaces"
 msgstr ""
 
+#: luasrc/controller/lldpd.lua:15 luasrc/controller/lldpd.lua:17
 msgid "LLDPd"
 msgstr ""
 
+#: luasrc/view/lldpd/footer.htm:8
 msgid "LLDPd LuCI application (version %s)"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:9
 msgid "LLDPd: Configure"
 msgstr ""
 
-msgid "LLDPd: Debug information"
-msgstr ""
-
+#: luasrc/view/lldpd/neighbors.htm:152
 msgid "LLDPd: Neighbors"
 msgstr ""
 
+#: luasrc/view/lldpd/statistics.htm:79
 msgid "LLDPd: Statistics"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:159 luasrc/view/lldpd/statistics.htm:86
 msgid "Local interface"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:41
 msgid "Location"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:90
 msgid "Management IP(s)"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:59
+msgid "Must be in range from 1 to 4"
+msgstr ""
+
+#: luasrc/view/lldpd/neighbors.htm:68
 msgid "Name"
 msgstr ""
 
+#: luasrc/controller/lldpd.lua:19
 msgid "Neighbors"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:145 luasrc/view/lldpd/statistics.htm:74
+msgid "No information available"
+msgstr ""
+
+#: luasrc/view/lldpd/statistics.htm:36
 msgid "Port ID"
 msgstr ""
 
+#: luasrc/view/lldpd/statistics.htm:37
 msgid "Port ID type"
 msgstr ""
 
+#: luasrc/view/lldpd/statistics.htm:38
 msgid "Port description"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:37 luasrc/view/lldpd/statistics.htm:34
 msgid "Protocol"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:90
 msgid "Protocols"
 msgstr ""
 
+#: luasrc/view/lldpd/statistics.htm:88
 msgid "Rx"
 msgstr ""
 
+#: luasrc/view/lldpd/statistics.htm:89
 msgid "Rx discarded"
 msgstr ""
 
+#: luasrc/view/lldpd/statistics.htm:90
 msgid "Rx unrecognized"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:75
 msgid "SNMP agentX socket path"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:67
 msgid "Seconds"
 msgstr ""
 
+#: luasrc/controller/lldpd.lua:22
 msgid "Statistics"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:53 luasrc/view/lldpd/statistics.htm:39
 msgid "TTL"
 msgstr ""
 
+#: luasrc/view/lldpd/statistics.htm:80
 msgid "This page allows you to see LLDPd interfaces statistics"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:153
 msgid "This page allows you to see discovered neighbors by LLDPd"
 msgstr ""
 
-msgid "This page allows you to see various information for debugging"
-msgstr ""
-
+#: luasrc/model/cbi/lldpd/config.lua:66
 msgid "Transmit interval"
 msgstr ""
 
+#: luasrc/view/lldpd/statistics.htm:87
 msgid "Tx"
 msgstr ""
 
+#: luasrc/model/cbi/lldpd/config.lua:57
+msgid "Value is not a number"
+msgstr ""
+
+#: luasrc/view/lldpd/neighbors.htm:103 luasrc/view/lldpd/neighbors.htm:111
 msgid "disabled"
 msgstr ""
 
+#: luasrc/view/lldpd/neighbors.htm:103 luasrc/view/lldpd/neighbors.htm:111
 msgid "enabled"
 msgstr ""
