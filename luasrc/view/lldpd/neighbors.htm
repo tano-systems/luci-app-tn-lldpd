@@ -123,7 +123,7 @@
 		return row;
 	}
 
-	XHR.poll(5, '<%=url('admin/status/lldpd/neighbors_request')%>', null,
+	XHR.poll(5, '<%=url('admin/services/lldpd/get_neighbors')%>', null,
 		function(x, json)
 		{
 			var nb_table =

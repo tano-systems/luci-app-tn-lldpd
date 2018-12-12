@@ -51,7 +51,7 @@
 		return row;
 	}
 
-	XHR.poll(5, '<%=url('admin/status/lldpd/statistics_request')%>', null,
+	XHR.poll(5, '<%=url('admin/services/lldpd/get_statistics')%>', null,
 		function(x, json)
 		{
 			var counters_table =

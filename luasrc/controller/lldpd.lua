@@ -12,15 +12,22 @@ function index()
 		return
 	end
 
-	entry({"admin", "services", "lldpd"}, cbi("lldpd/config"), _("LLDPd"), 80)
+	entry({"admin", "services", "lldpd"}, firstchild(), _("LLDP"), 80)
 
-	entry({"admin", "status", "lldpd"}, firstchild(), _("LLDPd"), 80)
+	entry({"admin", "services", "lldpd", "status"}, firstchild(), _("Status"), 10)
+	entry({"admin", "services", "lldpd", "config"}, cbi("lldpd/config"), _("Settings"), 20)
 
-	entry({"admin", "status", "lldpd", "neighbors"}, template("lldpd/neighbors"), _("Neighbors"), 2)
-	entry({"admin", "status", "lldpd", "neighbors_request"}, call("action_neighbors_request")).leaf = true
+	entry({"admin", "services", "lldpd", "status", "neighbors"},
+		template("lldpd/neighbors"), _("Neighbors"), 10)
 
-	entry({"admin", "status", "lldpd", "statistics"}, template("lldpd/statistics"), _("Statistics"), 3)
-	entry({"admin", "status", "lldpd", "statistics_request"}, call("action_statistics_request")).leaf = true
+	entry({"admin", "services", "lldpd", "status", "statistics"},
+		template("lldpd/statistics"), _("Statistics"), 20)
+
+	entry({"admin", "services", "lldpd", "get_neighbors"},
+		call("action_get_neighbors"))
+
+	entry({"admin", "services", "lldpd", "get_statistics"},
+		call("action_get_statistics"))
 end
 
 -- LLDPCLI commands
@@ -35,14 +42,14 @@ end
 
 -- Neighbors page
 
-function action_neighbors_request()
+function action_get_neighbors()
 	luci.http.prepare_content("application/json")
 	luci.http.write(lldpcli_show("neighbors", "json0"))
 end
 
 -- Statistics page
 
-function action_statistics_request()
+function action_get_statistics()
 	luci.http.prepare_content("application/json")
 	
 	luci.http.write('{"statistics":');
