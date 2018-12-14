@@ -169,7 +169,8 @@
 
 		var rows = []
 
-		if (typeof data.neighbors.lldp !== 'undefined')
+		if (typeof data.neighbors !== 'undefined' &&
+		    typeof data.neighbors.lldp !== 'undefined')
 		{
 			var ifaces = data.neighbors.lldp[0].interface
 
@@ -224,7 +225,9 @@
 
 		var rows = []
 
-		if (typeof data.statistics.lldp !== 'undefined' &&
+		if (typeof data.statistics !== 'undefined' &&
+		    typeof data.interfaces !== 'undefined' &&
+		    typeof data.statistics.lldp !== 'undefined' &&
 		    typeof data.interfaces.lldp !== 'undefined')
 		{
 			var sifaces = data.statistics.lldp[0].interface
@@ -251,8 +254,9 @@
 		var chassis_table =
 			document.getElementById('lldpd-chassis')
 
-		if (typeof data.chassis['local-chassis'] !== 'undefined' &&
-			typeof data.chassis['local-chassis'][0].chassis[0].name !== 'undefined')
+		if (typeof data.chassis !== 'undefined' &&
+		    typeof data.chassis['local-chassis'] !== 'undefined' &&
+		    typeof data.chassis['local-chassis'][0].chassis[0].name !== 'undefined')
 		{
 			chassis_table.innerHTML = lldpd_fmt_chassis_kvtable(
 				data.chassis['local-chassis'][0].chassis[0])
