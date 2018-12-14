@@ -169,7 +169,8 @@
 
 		var rows = []
 
-		if (typeof data.neighbors !== 'undefined' &&
+		if (data &&
+		    typeof data.neighbors !== 'undefined' &&
 		    typeof data.neighbors.lldp !== 'undefined')
 		{
 			var ifaces = data.neighbors.lldp[0].interface
@@ -225,7 +226,8 @@
 
 		var rows = []
 
-		if (typeof data.statistics !== 'undefined' &&
+		if (data &&
+		    typeof data.statistics !== 'undefined' &&
 		    typeof data.interfaces !== 'undefined' &&
 		    typeof data.statistics.lldp !== 'undefined' &&
 		    typeof data.interfaces.lldp !== 'undefined')
@@ -254,7 +256,8 @@
 		var chassis_table =
 			document.getElementById('lldpd-chassis')
 
-		if (typeof data.chassis !== 'undefined' &&
+		if (data &&
+		    typeof data.chassis !== 'undefined' &&
 		    typeof data.chassis['local-chassis'] !== 'undefined' &&
 		    typeof data.chassis['local-chassis'][0].chassis[0].name !== 'undefined')
 		{
@@ -274,12 +277,10 @@
 		function(x, json)
 		{
 			var error = 0
-			
+
 			error += lldpd_neighbors_update(json)
 			error += lldpd_statistics_update(json)
 			error += lldpd_chassis_update(json)
-
-			console.log(error)
 
 			if (error > 0)
 				lldpd_error('<%:Failed to read information. Maybe LLDPd service is not running or restarting.%>')
