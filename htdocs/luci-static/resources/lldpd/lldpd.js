@@ -218,9 +218,6 @@ function lldpd_folding_toggle(img, cell_id)
 	var e_folded   = document.querySelectorAll("[id='lldpd-cell-" + cell_id + "-folded']");
 	var e_unfolded = document.querySelectorAll("[id='lldpd-cell-" + cell_id + "-unfolded']");
 
-//	var e_folded   = document.getElementById('lldpd-cell-' + cell_id + '-folded')
-//	var e_unfolded = document.getElementById('lldpd-cell-' + cell_id + '-unfolded')
-
 	if (e_folded.length != e_unfolded.length)
 		return
 
