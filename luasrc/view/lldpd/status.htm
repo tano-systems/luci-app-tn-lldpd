@@ -1,0 +1,290 @@
+<%#
+ Copyright (c) 2018, Tano Systems. All Rights Reserved.
+ Anton Kikin <a.kikin@tano-systems.com>
+-%>
+
+<%+header%>
+
+<style type="text/css">
+	table.lldpd-kvtable { border: 0; }
+
+	table.lldpd-kvtable td {
+		padding: 2px 6px 2px 0px; background-color: inherit !important; line-height: 16px;
+	}
+
+	table.lldpd-kvtable td:first-of-type {
+		vertical-align: top; font-weight: bold; white-space: nowrap;
+		text-align: right;
+	}
+
+	table.lldpd-kvtable td:last-of-type { width: 100%; }
+
+	.lldpd-table img { cursor: pointer; }
+</style>
+
+<h2 name="content"><%:LLDP: Status%></h2>
+<div class="cbi-map-descr"><%:This page allows you to see discovered LLDP neighbors, local interfaces statistics and local chassis information.%></div>
+
+<div class="alert-message error" id="lldpd-error" style="display: none"></div>
+
+<div class="cbi-section-node cbi-section-node-tabbed" data-tab-group="0">
+
+<div class="cbi-tabcontainer" id="container.neighbors"
+	data-tab="neighbors"
+	data-tab-title="<%:Neighbors table%>"
+	data-tab-active="true">
+	<h3 name="content"><%:Discovered neighbors table%> (<span id="lldpd-neighbors-count">0</span>)</h3>
+	<div class="table lldpd-table" id="lldpd-neighbors">
+		<div class="tr table-titles">
+			<div class="th top"><%:Local interface%></div>
+			<div class="th top"><%:Protocol%></div>
+			<div class="th top"><%:Discovered chassis%></div>
+			<div class="th top"><%:Discovered port%></div>
+		</div>
+		<div class="tr placeholder">
+			<div class="td">
+				<em><%:Collecting data...%></em>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="cbi-tabcontainer" id="container.statistics"
+	data-tab="statistics"
+	data-tab-title="<%:Statistics table%>"
+	data-tab-active="false">
+	<h3 name="content"><%:Local interfaces statistics table%></h3>
+	<div class="table lldpd-table" id="lldpd-statistics">
+		<div class="tr table-titles">
+			<div class="th top"><%:Local interface%></div>
+			<div class="th top"><%:Protocol%></div>
+			<div class="th top"><%:Tx%></div>
+			<div class="th top"><%:Rx%></div>
+			<div class="th top"><%:Rx discarded%></div>
+			<div class="th top"><%:Rx unrecognized%></div>
+			<div class="th top"><%:Ageout count%></div>
+			<div class="th top"><%:Insert count%></div>
+			<div class="th top"><%:Delete count%></div>
+		</div>
+		<div class="tr placeholder">
+			<div class="td">
+				<em><%:Collecting data...%></em>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="cbi-tabcontainer" id="container.chassis"
+	data-tab="chassis"
+	data-tab-title="<%:Local chassis%>"
+	data-tab-active="false">
+	<h3 name="content"><%:Local chassis information%></h3>
+	<div id="lldpd-chassis"><em><%:Collecting data...%></em></div>
+</div>
+
+</div>
+
+
+<script type="text/javascript">//<![CDATA[
+
+	function lldpd_error(msg) {
+		var d = document.getElementById('lldpd-error')
+		d.innerHTML = msg
+
+		if (!msg || (msg == ''))
+		{
+			d.innerHTML = ''
+			d.style.display = "none"
+		}
+		else
+		{
+			d.innerHTML = msg
+			d.style.display = "block"
+		}
+	}
+
+	function lldpd_error_hide() {
+		lldpd_error(null)
+	}
+
+	function lldpd_neighbors_add_row(i, obj)
+	{
+		var row = []
+		var folded
+		var unfolded
+
+		var id = lldpd_cell_id(obj.name + '-' + obj.rid)// + obj.port[0].id[0].value + obj.port[0].id[0].name)
+
+		//
+		// Interface
+		//
+		unfolded = '<table class="lldpd-kvtable">'
+		unfolded += lldpd_kvtable_add_row("<%:Name%>", obj.name)
+		unfolded += lldpd_kvtable_add_row("<%:Age%>", obj.age)
+		unfolded += "</table>"
+
+		folded = '%s'.format(obj.name)
+
+		row.push(lldpd_folding_cell_add(
+			id, folded, unfolded, true, true))
+
+		//
+		// Protocol
+		//
+		row.push(lldpd_fmt_protocol(obj.via))
+
+		//
+		// Chassis
+		//
+		var ch = obj.chassis[0]
+
+		unfolded = lldpd_fmt_chassis_kvtable(ch)
+		folded   = lldpd_fmt_chassis(ch)
+
+		row.push(lldpd_folding_cell_add(
+			id, folded, unfolded, false, true))
+
+		//
+		// Port
+		//
+		unfolded = lldpd_fmt_port_kvtable(obj)
+		folded   = lldpd_fmt_port(obj)
+
+		row.push(lldpd_folding_cell_add(
+			id, folded, unfolded, false, true))
+
+		return row
+	}
+
+	function lldpd_neighbors_update(data)
+	{
+		var error = 0
+		var i = 0
+
+		var nb_table =
+			document.getElementById('lldpd-neighbors')
+
+		var nb_count =
+			document.getElementById('lldpd-neighbors-count')
+
+		var rows = []
+
+		if (typeof data.neighbors.lldp !== 'undefined')
+		{
+			var ifaces = data.neighbors.lldp[0].interface
+
+			// Fill table rows
+			if (typeof ifaces !== 'undefined') {
+				for (i = 0; i < ifaces.length; i++)
+					rows.push(lldpd_neighbors_add_row(i, ifaces[i]))
+			}
+		}
+		else
+			error = 1
+
+		cbi_update_table(nb_table, rows,
+			'<em><%:No information available%></em>')
+
+		nb_count.innerHTML = i
+		return error
+	}
+
+	function lldpd_statistics_add_row(i, sobj, iobj)
+	{
+		var row = []
+		var inner = ""
+
+		var folded
+		var unfolded
+
+		unfolded = lldpd_fmt_port_kvtable(iobj)
+		folded   = lldpd_fmt_port(iobj)
+
+		row.push(lldpd_folding_cell_add(
+			lldpd_cell_id(iobj.name), folded, unfolded, true, true))
+
+		row.push(lldpd_fmt_protocol(iobj.via))
+
+		row.push(lldpd_fmt_number(sobj.tx[0].tx))
+		row.push(lldpd_fmt_number(sobj.rx[0].rx))
+		row.push(lldpd_fmt_number(sobj.rx_discarded_cnt[0].rx_discarded_cnt))
+		row.push(lldpd_fmt_number(sobj.rx_unrecognized_cnt[0].rx_unrecognized_cnt))
+		row.push(lldpd_fmt_number(sobj.ageout_cnt[0].ageout_cnt))
+		row.push(lldpd_fmt_number(sobj.insert_cnt[0].insert_cnt))
+		row.push(lldpd_fmt_number(sobj.delete_cnt[0].delete_cnt))
+
+		return row;
+	}
+
+	function lldpd_statistics_update(data)
+	{
+		var error = 0
+		var statistics_table =
+			document.getElementById('lldpd-statistics')
+
+		var rows = []
+
+		if (typeof data.statistics.lldp !== 'undefined' &&
+		    typeof data.interfaces.lldp !== 'undefined')
+		{
+			var sifaces = data.statistics.lldp[0].interface
+			var ifaces  = data.interfaces.lldp[0].interface
+
+			if ((typeof sifaces !== 'undefined') &&
+			    (typeof  ifaces !== 'undefined')) {
+				for (var i = 0; i < sifaces.length; i++)
+					rows.push(lldpd_statistics_add_row(i, sifaces[i], ifaces[i]))
+			}
+		}
+		else
+			error = 1
+
+		cbi_update_table(statistics_table, rows,
+			'<em><%:No information available%></em>')
+
+		return error
+	}
+
+	function lldpd_chassis_update(data)
+	{
+		var error = 0;
+		var chassis_table =
+			document.getElementById('lldpd-chassis')
+
+		if (typeof data.chassis['local-chassis'] !== 'undefined' &&
+			typeof data.chassis['local-chassis'][0].chassis[0].name !== 'undefined')
+		{
+			chassis_table.innerHTML = lldpd_fmt_chassis_kvtable(
+				data.chassis['local-chassis'][0].chassis[0])
+		}
+		else
+		{
+			error = 1
+			chassis_table.innerHTML = '<em><%:No information available%></em>'
+		}
+
+		return error
+	}
+
+	XHR.poll(5, '<%=url('admin/services/lldpd/get_info')%>', null,
+		function(x, json)
+		{
+			var error = 0
+			
+			error += lldpd_neighbors_update(json)
+			error += lldpd_statistics_update(json)
+			error += lldpd_chassis_update(json)
+
+			console.log(error)
+
+			if (error > 0)
+				lldpd_error('<%:Failed to read information. Maybe LLDPd service is not running or restarting.%>')
+			else
+				lldpd_error_hide()
+		}
+	)
+//]]></script>
+<script type="text/javascript" src="<%=resource%>/lldpd/lldpd.js"></script>
+
+<%+lldpd/footer%>
+<%+footer%>

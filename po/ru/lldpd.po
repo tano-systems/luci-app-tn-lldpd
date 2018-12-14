@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: luci-app-lldpd\n"
-"PO-Revision-Date: 2018-09-01 12:31+0300\n"
+"PO-Revision-Date: 2018-12-15 01:12+0300\n"
 "Last-Translator: Anton Kikin <a.kikin@tano-systems.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -11,272 +11,583 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n"
 "%100<10 || n%100>=20) ? 1 : 2);\n"
 "POT-Creation-Date: \n"
-"X-Generator: Poedit 2.0.7\n"
+"X-Generator: Poedit 2.2\n"
 
 #: luasrc/view/lldpd/footer.htm:9
 msgid ""
-"&copy; 2018, Tano Systems, Anton Kikin &lt;<a href=\"mailto:a.kikin@tano-"
-"systems.com\">a.kikin@tano-systems.com</a>&gt;"
+"&copy; 2018, Tano Systems, Anton Kikin &lt;<a href=\"mailto:a.kikin@tano-systems.com"
+"\">a.kikin@tano-systems.com</a>&gt;"
 msgstr ""
-"&copy; 2018, Tano Systems, Антон Кикин &lt;<a href=\"mailto:a.kikin@tano-"
-"systems.com\">a.kikin@tano-systems.com</a>&gt;"
+"&copy; 2018, Tano Systems, Антон Кикин &lt;<a href=\"mailto:a.kikin@tano-systems.com"
+"\">a.kikin@tano-systems.com</a>&gt;"
 
-#: luasrc/model/cbi/lldpd/config.lua:114
-msgid ""
-"<abbr title=\"Cisco Discovery Protocol\">CDP</abbr> is a proprietary Data "
-"Link Layer protocol developed by Cisco Systems"
-msgstr ""
-"<abbr title=\"Cisco Discovery Protocol\">CDP</abbr> проприетарный протокол "
-"второго уровня, разработанный компанией Cisco Systems"
+#: luasrc/model/cbi/lldpd/config.lua:27
+msgid "Advanced Settings"
+msgstr "Дополнительные настройки"
 
-#: luasrc/model/cbi/lldpd/config.lua:130
-msgid ""
-"<abbr title=\"Extreme Discovery Protocol\">EDP</abbr> is a proprietary Data "
-"Link Layer protocol developed by Extreme Networks"
-msgstr ""
-"<abbr title=\"Extreme Discovery Protocol\">EDP</abbr> проприетарный протокол "
-"второго уровня, разработанный компанией Extreme Networks"
-
-#: luasrc/model/cbi/lldpd/config.lua:122
-msgid ""
-"<abbr title=\"Foundry Discovery Protocol\">FDP</abbr> is a proprietary Data "
-"Link Layer protocol developed by Foundry Networks"
-msgstr ""
-"<abbr title=\"Foundry Discovery Protocol\">FDP</abbr> проприетарный протокол "
-"второго уровня, разработанный компанией Foundry Networks"
-
-#: luasrc/model/cbi/lldpd/config.lua:142
-msgid ""
-"<abbr title=\"Nortel Discovery Protocol\">NDP</abbr> is a proprietary Data "
-"Link Layer protocol developed by Nortel"
-msgstr ""
-"<abbr title=\"Nortel Discovery Protocol\">NDP</abbr> проприетарный протокол "
-"второго уровня, разработанный компанией Nortel"
-
-#: luasrc/model/cbi/lldpd/config.lua:10
-msgid ""
-"<p>LLDPd is a implementation of IEEE 802.1ab (<abbr title=\"Link Layer "
-"Discovery Protocol\">LLDP</abbr>)</p>"
-msgstr ""
-"<p>LLDPd это программная реализация стандарта IEEE 802.1ab (<abbr title="
-"\"Link Layer Discovery Protocol\">LLDP</abbr>)</p>"
-
-#: luasrc/model/cbi/lldpd/config.lua:85
-msgid "Advanced settings"
-msgstr "Расширенные настройки"
-
-#: luasrc/view/lldpd/neighbors.htm:38 luasrc/view/lldpd/statistics.htm:35
+#: htdocs/luci-static/resources/lldpd/lldpd.js:144 luasrc/view/lldpd/status.htm:123
 msgid "Age"
 msgstr "Возраст"
 
-#: luasrc/view/lldpd/statistics.htm:91
+#: luasrc/view/lldpd/status.htm:65
 msgid "Ageout count"
 msgstr "Устарело"
 
-#: luasrc/view/lldpd/neighbors.htm:114
+#: luasrc/model/cbi/lldpd/config.lua:25
+msgid "Basic Settings"
+msgstr "Основные настройки"
+
+#: luasrc/model/cbi/lldpd/config.lua:306
+msgid "CDP protocol"
+msgstr "Протокол CDP"
+
+#: luasrc/model/cbi/lldpd/config.lua:321
+msgid "CDP version"
+msgstr "Версия протокола CDP"
+
+#: luasrc/model/cbi/lldpd/config.lua:323
+msgid "CDPv1 and CDPv2"
+msgstr "CDPv1 и CDPv2"
+
+#: htdocs/luci-static/resources/lldpd/lldpd.js:107
 msgid "Capabilities"
 msgstr "Возможности"
 
-#: luasrc/model/cbi/lldpd/config.lua:48
-msgid "Class"
-msgstr "Класс"
-
-#: luasrc/view/lldpd/neighbors.htm:165 luasrc/view/lldpd/statistics.htm:97
+#: luasrc/view/lldpd/status.htm:46 luasrc/view/lldpd/status.htm:71
+#: luasrc/view/lldpd/status.htm:82
 msgid "Collecting data..."
 msgstr "Сбор данных..."
 
-#: luasrc/view/lldpd/statistics.htm:93
+#: luasrc/model/cbi/lldpd/config.lua:208
+msgid "Communication Device Endpoints (Class III)"
+msgstr "Communication Device Endpoints (класс III)"
+
+#: luasrc/view/lldpd/status.htm:67
 msgid "Delete count"
 msgstr "Удалено"
 
-#: luasrc/model/cbi/lldpd/config.lua:27 luasrc/view/lldpd/neighbors.htm:49
-#: luasrc/view/lldpd/neighbors.htm:69
+#: htdocs/luci-static/resources/lldpd/lldpd.js:62
 msgid "Description"
 msgstr "Описание"
 
-#: luasrc/view/lldpd/neighbors.htm:161
+#: luasrc/model/cbi/lldpd/config.lua:215
+msgid "Disable LLDP-MED inventory TLV transmission"
+msgstr "Отключить отправку инвентарной информации LLDP-MED TLV"
+
+#: luasrc/view/lldpd/status.htm:41
 msgid "Discovered chassis"
 msgstr "Обнаруженное шасси"
 
-#: luasrc/view/lldpd/neighbors.htm:160
+#: luasrc/view/lldpd/status.htm:36
+msgid "Discovered neighbors table"
+msgstr "Таблица обнаруженных соседей"
+
+#: luasrc/view/lldpd/status.htm:42
 msgid "Discovered port"
 msgstr "Обнаруженный порт"
 
-#: luasrc/model/cbi/lldpd/config.lua:113
-msgid "Enable <abbr title=\"Cisco Discovery Protocol\">CDP</abbr>"
-msgstr "Включить <abbr title=\"Cisco Discovery Protocol\">CDP</abbr>"
+#: luasrc/view/lldpd/filter_select.htm:142
+msgid "E &mdash; enable filter"
+msgstr "E &mdash; включить фильтр"
 
-#: luasrc/model/cbi/lldpd/config.lua:129
-msgid "Enable <abbr title=\"Extreme Discovery Protocol\">EDP</abbr>"
-msgstr "Включить <abbr title=\"Extreme Discovery Protocol\">EDP</abbr>"
+#: luasrc/model/cbi/lldpd/config.lua:371
+msgid "EDP protocol"
+msgstr "Протокол EDP"
 
-#: luasrc/model/cbi/lldpd/config.lua:121
-msgid "Enable <abbr title=\"Foundry Discovery Protocol\">FDP</abbr>"
-msgstr "Включить <abbr title=\"Foundry Discovery Protocol\">FDP</abbr>"
+#: luasrc/model/cbi/lldpd/config.lua:309
+msgid "Enable CDP"
+msgstr "Включить CDP"
 
-#: luasrc/model/cbi/lldpd/config.lua:137
+#: luasrc/model/cbi/lldpd/config.lua:374
+msgid "Enable EDP"
+msgstr "Включить EDP"
+
+#: luasrc/model/cbi/lldpd/config.lua:352
+msgid "Enable FDP"
+msgstr "Включить FDP"
+
+#: luasrc/model/cbi/lldpd/config.lua:284
+msgid "Enable LLDP"
+msgstr "Включить LLDP"
+
+#: luasrc/model/cbi/lldpd/config.lua:396
+msgid "Enable SONMP"
+msgstr "Включить SONMP"
+
+#: luasrc/model/cbi/lldpd/config.lua:130
+msgid "Enable receive-only mode"
+msgstr "Включить режим «только приём»"
+
+#: luasrc/model/cbi/lldpd/config.lua:310
 msgid ""
-"Enable <abbr title=\"Nortel Discovery Protocol\">NDP</abbr> (<abbr title="
-"\"Bay Network Management Protocol\">BNMP</abbr>, <abbr title=\"Bay Discovery "
-"Protocol\">BDP</abbr>, <abbr title=\"Nortel Topology Discovery Protocol"
-"\">NTDP</abbr>, <abbr title=\"SynOptics Network Management Protocol\">SONMP</"
-"abbr>)"
+"Enable the support of CDP protocol to deal with Cisco routers that do not speak LLDP"
 msgstr ""
-"Включить <abbr title=\"Nortel Discovery Protocol\">NDP</abbr> (<abbr title="
-"\"Bay Network Management Protocol\">BNMP</abbr>, <abbr title=\"Bay Discovery "
-"Protocol\">BDP</abbr>, <abbr title=\"Nortel Topology Discovery Protocol"
-"\">NTDP</abbr>, <abbr title=\"SynOptics Network Management Protocol\">SONMP</"
-"abbr>)"
+"Включить поддержку протокола CDP для работы с маршрутизаторами Cisco, которые не "
+"имеют поддержки LLDP"
 
-#: luasrc/model/cbi/lldpd/config.lua:16
-msgid "General settings"
-msgstr "Основные настройки"
+#: luasrc/model/cbi/lldpd/config.lua:375
+msgid ""
+"Enable the support of EDP protocol to deal with Extreme routers and switches that do "
+"not speak LLDP."
+msgstr ""
+"Включить поддержку протокола EDP для работы с маршрутизаторами и коммутаторам "
+"Extreme, которые не имеют поддержки LLDP."
 
-#: luasrc/model/cbi/lldpd/config.lua:34
-msgid "Hostname"
-msgstr "Имя хоста"
+#: luasrc/model/cbi/lldpd/config.lua:353
+msgid ""
+"Enable the support of FDP protocol to deal with Foundry routers that do not speak "
+"LLDP"
+msgstr ""
+"Включить поддержку протокола FDP для работы с маршрутизаторами Foundry, которые не "
+"имеют поддержки LLDP"
 
-#: luasrc/view/lldpd/neighbors.htm:51 luasrc/view/lldpd/neighbors.htm:70
+#: luasrc/model/cbi/lldpd/config.lua:397
+msgid ""
+"Enable the support of SONMP protocol to deal with Nortel routers and switches that "
+"do not speak LLDP."
+msgstr ""
+"Включить поддержку протокола SONMP для работы с маршрутизаторами и коммутаторами "
+"Nortel, которые не имеют поддержки LLDP."
+
+#: luasrc/model/cbi/lldpd/config.lua:349
+msgid "FDP protocol"
+msgstr "Протокол FDP"
+
+#: luasrc/view/lldpd/status.htm:281
+msgid "Failed to read information. Maybe LLDPd service is not running or restarting."
+msgstr ""
+"Невозможно получить информацию. Возможно служба LLDPd не запущена или "
+"перезапускается."
+
+#: luasrc/view/lldpd/filter_select.htm:62
+msgid "Filter"
+msgstr "Фильтр"
+
+#: luasrc/model/cbi/lldpd/config.lua:239
+msgid "Force port ID subtype"
+msgstr "Использовать в качестве ID порта"
+
+#: luasrc/model/cbi/lldpd/config.lua:338
+msgid "Force sending CDPv2 packets"
+msgstr "Форсировать отправку CDPv2 пакетов"
+
+#: luasrc/model/cbi/lldpd/config.lua:292
+msgid "Force to send LLDP packets"
+msgstr "Форсировать отправку LLDP пакетов"
+
+#: luasrc/model/cbi/lldpd/config.lua:293
+msgid ""
+"Force to send LLDP packets even when there is no LLDP peer detected but there is a "
+"peer speaking another protocol detected. By default, LLDP packets are sent when "
+"there is a peer speaking LLDP detected or when there is no peer at all."
+msgstr ""
+"Принудительно отправлять пакеты LLDP, даже если соседей с поддержкой LLDP не "
+"обнаружено, но есть соседи, с поддержкой другого протокола. По умолчанию пакеты LLDP "
+"отправляются, когда обнаружен сосед с поддержкой LLDP или когда вообще нет "
+"обнаруженных соседей."
+
+#: luasrc/model/cbi/lldpd/config.lua:206
+msgid "Generic Endpoint (Class I)"
+msgstr "Generic Endpoint (класс I)"
+
+#: htdocs/luci-static/resources/lldpd/lldpd.js:64
 msgid "ID"
 msgstr "ID"
 
-#: luasrc/view/lldpd/neighbors.htm:52 luasrc/view/lldpd/neighbors.htm:71
+#: htdocs/luci-static/resources/lldpd/lldpd.js:63
 msgid "ID type"
 msgstr "Тип ID"
 
-#: luasrc/view/lldpd/statistics.htm:92
+#: htdocs/luci-static/resources/lldpd/lldpd.js:28
+msgid "IP address"
+msgstr "IP-адрес"
+
+#: luasrc/model/cbi/lldpd/config.lua:189
+msgid ""
+"If the path to the socket is set, then LLDPd will enable an SNMP subagent using "
+"AgentX protocol. This allows you to get information about local system and remote "
+"systems through SNMP."
+msgstr ""
+"Если указан путь к сокету, то LLDPd включит SNMP агент, используя протокол AgentX. "
+"Это позволяет получать информацию о локальной системе и удаленных системах через "
+"SNMP."
+
+#: luasrc/view/lldpd/filter_select.htm:63
+msgid "Incoming"
+msgstr "Входящие"
+
+#: luasrc/view/lldpd/status.htm:66
 msgid "Insert count"
 msgstr "Обнаружено"
 
-#: luasrc/view/lldpd/neighbors.htm:36 luasrc/view/lldpd/statistics.htm:33
-msgid "Interface"
-msgstr "Интерфейс"
+#: luasrc/model/cbi/lldpd/config.lua:246
+msgid "Interface MAC address"
+msgstr "MAC-адрес интерфейса"
 
-#: luasrc/model/cbi/lldpd/config.lua:89 luasrc/model/cbi/lldpd/config.lua:98
-msgid "Interfaces"
-msgstr "Интерфейсы"
+#: htdocs/luci-static/resources/lldpd/lldpd.js:24 luasrc/model/cbi/lldpd/config.lua:247
+msgid "Interface name"
+msgstr "Имя интерфейса"
 
-#: luasrc/controller/lldpd.lua:15 luasrc/controller/lldpd.lua:17
-msgid "LLDPd"
-msgstr "LLDPd"
+#: luasrc/controller/lldpd.lua:15
+msgid "LLDP"
+msgstr "LLDP"
+
+#: luasrc/model/cbi/lldpd/config.lua:281
+msgid "LLDP protocol"
+msgstr "Протокол LLDP"
+
+#: luasrc/model/cbi/lldpd/config.lua:203
+msgid "LLDP-MED device class"
+msgstr "Класс устройства LLDP-MED"
+
+#: luasrc/model/cbi/lldpd/config.lua:11
+msgid "LLDP: Configure"
+msgstr "LLDP: Настройки"
+
+#: luasrc/view/lldpd/status.htm:25
+msgid "LLDP: Status"
+msgstr "LLDP: Состояние"
 
 #: luasrc/view/lldpd/footer.htm:8
 msgid "LLDPd LuCI application (version %s)"
 msgstr "LuCI приложение управления LLDPd (версия %s)"
 
-#: luasrc/model/cbi/lldpd/config.lua:9
-msgid "LLDPd: Configure"
-msgstr "LLDPd: Настройки"
+#: luasrc/model/cbi/lldpd/config.lua:12
+msgid ""
+"LLDPd is a implementation of IEEE 802.1ab (<abbr title=\"Link Layer Discovery "
+"Protocol\">LLDP</abbr>)."
+msgstr ""
+"LLDPd это программная реализация стандарта IEEE 802.1ab (<abbr title=\"Link Layer "
+"Discovery Protocol\">LLDP</abbr>)."
 
-#: luasrc/view/lldpd/neighbors.htm:152
-msgid "LLDPd: Neighbors"
-msgstr "LLDPd: Соседи"
+#: luasrc/model/cbi/lldpd/config.lua:216
+msgid ""
+"LLDPd will still receive (and publish using SNMP if enabled) those LLDP-MED TLV but "
+"will not send them. Use this option if you don't want to transmit sensible "
+"information like serial numbers."
+msgstr ""
+"LLDPd будет по прежнему получать (и публиковать, используя SNMP, если он включен) "
+"информацию LLDP-MED TLV, но не будет отправлять. Используйте эту опцию, если вы не "
+"хотите передавать важную информацию, такую как серийные номера."
 
-#: luasrc/view/lldpd/statistics.htm:79
-msgid "LLDPd: Statistics"
-msgstr "LLDPd: Статистика"
+#: htdocs/luci-static/resources/lldpd/lldpd.js:26
+msgid "Local ID"
+msgstr "Локально заданный ID"
 
-#: luasrc/view/lldpd/neighbors.htm:159 luasrc/view/lldpd/statistics.htm:86
+#: luasrc/view/lldpd/status.htm:79
+msgid "Local chassis"
+msgstr "Локальное шасси"
+
+#: luasrc/view/lldpd/status.htm:81
+msgid "Local chassis information"
+msgstr "Информация о локальном шасси"
+
+#: luasrc/view/lldpd/status.htm:39 luasrc/view/lldpd/status.htm:59
 msgid "Local interface"
 msgstr "Локальный интерфейс"
 
-#: luasrc/model/cbi/lldpd/config.lua:41
-msgid "Location"
-msgstr "Расположение"
+#: luasrc/view/lldpd/status.htm:56
+msgid "Local interfaces statistics table"
+msgstr "Таблица статистики локальных интерфейсов"
 
-#: luasrc/view/lldpd/neighbors.htm:90
+#: htdocs/luci-static/resources/lldpd/lldpd.js:22
+msgid "MAC address"
+msgstr "MAC-адрес"
+
+#: htdocs/luci-static/resources/lldpd/lldpd.js:83
 msgid "Management IP(s)"
 msgstr "IP-адреса"
 
-#: luasrc/model/cbi/lldpd/config.lua:59
-msgid "Must be in range from 1 to 4"
-msgstr "Должно быть в диапазоне от 1 до 4"
+#: luasrc/model/cbi/lldpd/config.lua:69
+msgid "Management addresses of this system"
+msgstr "Адреса управления данной системы"
 
-#: luasrc/view/lldpd/neighbors.htm:68
+#: luasrc/model/cbi/lldpd/config.lua:207
+msgid "Media Endpoint (Class II)"
+msgstr "Media Endpoint (класс II)"
+
+#: luasrc/view/lldpd/filter_select.htm:144
+msgid "N &mdash; keep only one neighbor"
+msgstr "N &mdash; хранить только одного соседа"
+
+#: htdocs/luci-static/resources/lldpd/lldpd.js:61
+#: htdocs/luci-static/resources/lldpd/lldpd.js:143 luasrc/view/lldpd/status.htm:122
 msgid "Name"
 msgstr "Имя"
 
-#: luasrc/controller/lldpd.lua:19
-msgid "Neighbors"
-msgstr "Соседи"
+#: luasrc/view/lldpd/status.htm:34
+msgid "Neighbors table"
+msgstr "Таблица соседей"
 
-#: luasrc/view/lldpd/neighbors.htm:145 luasrc/view/lldpd/statistics.htm:74
+#: luasrc/model/cbi/lldpd/config.lua:209
+msgid "Network Connectivity Device (Class IV)"
+msgstr "Network Connectivity Device (класс IV)"
+
+#: luasrc/model/cbi/lldpd/config.lua:26
+msgid "Network Interfaces"
+msgstr "Сетевые интерфейсы"
+
+#: luasrc/model/cbi/lldpd/config.lua:147
+msgid "Network interfaces"
+msgstr "Сетевые интерфейсы"
+
+#: luasrc/model/cbi/lldpd/config.lua:163
+msgid "Network interfaces for chassis ID computing"
+msgstr "Сетевые интерфейсы, используемые для вычисления ID шасси (chassis ID)"
+
+#: luasrc/view/lldpd/status.htm:186 luasrc/view/lldpd/status.htm:243
+#: luasrc/view/lldpd/status.htm:263
 msgid "No information available"
 msgstr "Нет доступной информации"
 
-#: luasrc/view/lldpd/statistics.htm:36
+#: luasrc/model/cbi/lldpd/config.lua:16
+msgid "On this page you may configure LLDPd parameters."
+msgstr "На данной странице можно настроить параметры LLDPd."
+
+#: luasrc/model/cbi/lldpd/config.lua:324
+msgid "Only CDPv2"
+msgstr "Только CDPv2"
+
+#: luasrc/view/lldpd/filter_select.htm:64
+msgid "Outgoing"
+msgstr "Исходящие"
+
+#: luasrc/model/cbi/lldpd/config.lua:39
+msgid "Override system description with the provided description."
+msgstr "Переопределить описание системы заданным значением."
+
+#: luasrc/model/cbi/lldpd/config.lua:49
+msgid "Override system hostname with the provided value."
+msgstr "Переопределить имя системы заданным значением."
+
+#: luasrc/model/cbi/lldpd/config.lua:59
+msgid ""
+"Override the platform description with the provided value. The default description "
+"is the kernel name (Linux)."
+msgstr ""
+"Переопределить описание платформы заданным значением. По умолчанию используется имя "
+"используемого ядра (Linux)."
+
+#: luasrc/view/lldpd/filter_select.htm:143
+msgid "P &mdash; keep only one protocol"
+msgstr "P &mdash; хранить только один протокол"
+
+#: htdocs/luci-static/resources/lldpd/lldpd.js:153
 msgid "Port ID"
-msgstr "Порт"
+msgstr "ID порта"
 
-#: luasrc/view/lldpd/statistics.htm:37
+#: htdocs/luci-static/resources/lldpd/lldpd.js:150
 msgid "Port ID type"
-msgstr "Тип порта"
+msgstr "Тип ID порта"
 
-#: luasrc/view/lldpd/statistics.htm:38
+#: htdocs/luci-static/resources/lldpd/lldpd.js:157
 msgid "Port description"
 msgstr "Описание порта"
 
-#: luasrc/view/lldpd/neighbors.htm:37 luasrc/view/lldpd/statistics.htm:34
+#: luasrc/view/lldpd/status.htm:40 luasrc/view/lldpd/status.htm:60
 msgid "Protocol"
 msgstr "Протокол"
 
-#: luasrc/model/cbi/lldpd/config.lua:90
-msgid "Protocols"
-msgstr "Протоколы"
+#: luasrc/model/cbi/lldpd/config.lua:28
+msgid "Protocols Support"
+msgstr "Поддержка протоколов"
 
-#: luasrc/view/lldpd/statistics.htm:88
+#: luasrc/view/lldpd/status.htm:62
 msgid "Rx"
 msgstr "Rx"
 
-#: luasrc/view/lldpd/statistics.htm:89
+#: luasrc/view/lldpd/status.htm:63
 msgid "Rx discarded"
 msgstr "Rx (отброшено)"
 
-#: luasrc/view/lldpd/statistics.htm:90
+#: luasrc/view/lldpd/status.htm:64
 msgid "Rx unrecognized"
 msgstr "Rx (не распознано)"
 
-#: luasrc/model/cbi/lldpd/config.lua:75
+#: luasrc/model/cbi/lldpd/config.lua:188
 msgid "SNMP agentX socket path"
 msgstr "Путь к сокету SNMP agentX"
 
-#: luasrc/model/cbi/lldpd/config.lua:67
-msgid "Seconds"
-msgstr "Секунды"
+#: luasrc/model/cbi/lldpd/config.lua:393
+msgid "SONMP protocol"
+msgstr "Протокол SONMP"
 
-#: luasrc/controller/lldpd.lua:22
-msgid "Statistics"
-msgstr "Статистика"
+#: luasrc/model/cbi/lldpd/config.lua:331
+msgid "Send CDP packets even if no CDP peer detected"
+msgstr "Отправлять CDP пакеты даже если не обнаружено соседей с CDP протоколом"
 
-#: luasrc/view/lldpd/neighbors.htm:53 luasrc/view/lldpd/statistics.htm:39
+#: luasrc/model/cbi/lldpd/config.lua:386
+msgid "Send EDP packets even if no EDP peer detected"
+msgstr "Отправлять EDP пакеты даже если не обнаружено соседей с EDP протоколом"
+
+#: luasrc/model/cbi/lldpd/config.lua:364
+msgid "Send FDP packets even if no FDP peer detected"
+msgstr "Отправлять FDP пакеты даже если не обнаружено соседей с FDP протоколом"
+
+#: luasrc/model/cbi/lldpd/config.lua:408
+msgid "Send SONMP packets even if no SONMP peer detected"
+msgstr "Отправлять SONMP пакеты даже если не обнаружено соседей с SONMP протоколом"
+
+#: luasrc/controller/lldpd.lua:18
+msgid "Settings"
+msgstr "Настройки"
+
+#: luasrc/model/cbi/lldpd/config.lua:227
+msgid "Specify the behaviour when detecting multiple neighbors"
+msgstr "Поведение при обнаружении нескольких соседей"
+
+#: luasrc/model/cbi/lldpd/config.lua:70
+msgid ""
+"Specify the management addresses of this system. If not specified, the first IPv4 "
+"and the first IPv6 are used. If an exact IP address is provided, it is used as a "
+"management address without any check. If you want to blacklist IPv6 addresses, you "
+"can use <code>!*:*</code>. See more details about available patterns <a href="
+"\"https://vincentbernat.github.io/lldpd/usage.html\">here</a>."
+msgstr ""
+"Адреса управления данной системой. Если не указано, используется первый IPv4 и "
+"первый IPv6 адреса. Если указан конкретный IP-адрес, он будет использован как адрес "
+"управления без какой-либо проверки. Если вы хотите занести в черный список IPv6-"
+"адреса, вы можете использовать шаблон <code>! *: *</code>. Подробнее о доступных "
+"шаблонах читайте <a href=\"https://vincentbernat.github.io/lldpd/usage.html\">здесь</"
+"a>."
+
+#: luasrc/model/cbi/lldpd/config.lua:148
+msgid ""
+"Specify which interface to listen and send LLDPDU to.If no interfaces is specified, "
+"LLDPd will use all available physical interfaces."
+msgstr ""
+"Укажите какие интерфейсы должны прослушивать и отправлять LLDPDU. Если интерфейсы не "
+"указаны, LLDPd будет использовать все доступные физические интерфейсы."
+
+#: luasrc/model/cbi/lldpd/config.lua:164
+msgid ""
+"Specify which interfaces to use for computing chassis ID. If no interfaces is "
+"specified, all interfaces are considered. LLDPd will take the first MAC address from "
+"all the considered interfaces to compute the chassis ID."
+msgstr ""
+"Укажите какие интерфейсы необходимо использовать для вычисления идентификатора шасси "
+"(chassis ID). Если интерфейсы не указаны, будут иcпользованы все интерфейсы. LLDPd "
+"получит первый MAC-адрес из всех доступных интерфейсов для вычисления ID шасси."
+
+#: luasrc/view/lldpd/status.htm:54
+msgid "Statistics table"
+msgstr "Таблица статистики"
+
+#: luasrc/controller/lldpd.lua:17
+msgid "Status"
+msgstr "Состояние"
+
+#: luasrc/model/cbi/lldpd/config.lua:38
+msgid "System description"
+msgstr "Описание системы"
+
+#: luasrc/model/cbi/lldpd/config.lua:48
+msgid "System hostname"
+msgstr "Имя системы"
+
+#: luasrc/model/cbi/lldpd/config.lua:58
+msgid "System platform description"
+msgstr "Описание платформы"
+
+#: htdocs/luci-static/resources/lldpd/lldpd.js:160
+#: htdocs/luci-static/resources/lldpd/lldpd.js:162
 msgid "TTL"
 msgstr "TTL"
 
-#: luasrc/view/lldpd/statistics.htm:80
-msgid "This page allows you to see LLDPd interfaces statistics"
-msgstr "На данной странице можно просматривать статистику интерфейсов LLDPd"
-
-#: luasrc/view/lldpd/neighbors.htm:153
-msgid "This page allows you to see discovered neighbors by LLDPd"
+#: luasrc/model/cbi/lldpd/config.lua:228
+msgid ""
+"The default filter is 15. For more details see \"FILTERING NEIGHBORS\" section <a "
+"href=\"https://vincentbernat.github.io/lldpd/usage.html\">here</a>."
 msgstr ""
-"На данной странице можно просматривать информацию обнаруженных соседей LLDPd"
+"По умолчанию используется фильтр 15. Более подробную информацию о данной опции можно "
+"посмотреть в разделе «FILTERING NEIGHBORS» <a href=\"https://vincentbernat.github.io/"
+"lldpd/usage.html\">здесь</a>."
 
-#: luasrc/model/cbi/lldpd/config.lua:66
-msgid "Transmit interval"
-msgstr "Интервал отправки"
+#: luasrc/model/cbi/lldpd/config.lua:253
+msgid "The destination MAC address used to send LLDPDU"
+msgstr "MAC-адрес назначения, используемый для отправки LLDPDU"
 
-#: luasrc/view/lldpd/statistics.htm:87
+#: luasrc/model/cbi/lldpd/config.lua:254
+msgid ""
+"The destination MAC address used to send LLDPDU allows an agent to control the "
+"propagation of LLDPDUs. By default, the <code>01:80:c2:00:00:0e</code> MAC address "
+"is used and limit the propagation of the LLDPDU to the nearest bridge."
+msgstr ""
+"MAC-адрес назначения, используемый для отправки LLDPDU. Данный параметр позволяет "
+"агенту контролировать распространение LLDPDU. По умолчанию используется MAC-адрес "
+"<code>01:80:c2:00:00:0e</code> и ограничивает распространение LLDPDU до ближайшего "
+"моста."
+
+#: luasrc/model/cbi/lldpd/config.lua:86
+msgid ""
+"The transmit delay is the delay between two transmissions of LLDP PDU. The default "
+"value is 30 seconds."
+msgstr ""
+"Задержка между двумя передачами LLDP PDU. Значение по умолчанию составляет 30 секунд."
+
+#: luasrc/view/lldpd/status.htm:26
+msgid ""
+"This page allows you to see discovered LLDP neighbors, local interfaces statistics "
+"and local chassis information."
+msgstr ""
+"На данной странице вы можете посмотреть таблицу обнаруженных соседей LLDP, "
+"статистику локальных интерфейсов и информацию о локальном шасси."
+
+#: luasrc/model/cbi/lldpd/config.lua:108
+msgid ""
+"This value is used to compute the TTL of transmitted packets which is the product of "
+"this value and of the transmit delay. The default value is 4 and therefore the "
+"default TTL is 120 seconds."
+msgstr ""
+"Это значение используется для вычисления TTL переданных пакетов, которое является "
+"произведением этого значения и задержки передачи. Значение по умолчанию равно 4. "
+"Соответственно, значение TTL по умолчанию составляет 120 секунд."
+
+#: luasrc/model/cbi/lldpd/config.lua:85
+msgid "Transmit delay"
+msgstr "Задержка отправки"
+
+#: luasrc/model/cbi/lldpd/config.lua:100
+msgid "Transmit delay must be greater than 0"
+msgstr "Значение задержки отправки должно быть больше 0"
+
+#: luasrc/model/cbi/lldpd/config.lua:107
+msgid "Transmit hold value"
+msgstr "Значение «transmit hold»"
+
+#: luasrc/model/cbi/lldpd/config.lua:123
+msgid "Transmit hold value must be greater than 0"
+msgstr "Значение «transmit hold» должно быть больше 0"
+
+#: luasrc/view/lldpd/status.htm:61
 msgid "Tx"
 msgstr "Tx"
 
-#: luasrc/model/cbi/lldpd/config.lua:57
-msgid "Value is not a number"
-msgstr "Значение не является числом"
+#: htdocs/luci-static/resources/lldpd/lldpd.js:133
+msgid "Unknown"
+msgstr "Неизвестно"
 
-#: luasrc/view/lldpd/neighbors.htm:103 luasrc/view/lldpd/neighbors.htm:111
+#: luasrc/model/cbi/lldpd/config.lua:131
+msgid ""
+"With this option, LLDPd will not send any frames. It will only listen to neighbors."
+msgstr ""
+"С этой опцией LLDPd не будет отправлять какие-либо пакеты. LLDPd будет только "
+"прослушивать сеть для обнаружения соседей."
+
+#: luasrc/model/cbi/lldpd/config.lua:240
+msgid ""
+"With this option, you can force the port identifier to be the interface name or the "
+"MAC address."
+msgstr ""
+"Данная настройка позволяет принудительно использовать в качестве идентификатор порта "
+"имя интерфейса или MAC-адрес."
+
+#: htdocs/luci-static/resources/lldpd/lldpd.js:96
+#: htdocs/luci-static/resources/lldpd/lldpd.js:104
 msgid "disabled"
 msgstr "выключено"
 
-#: luasrc/view/lldpd/neighbors.htm:103 luasrc/view/lldpd/neighbors.htm:111
+#: htdocs/luci-static/resources/lldpd/lldpd.js:96
+#: htdocs/luci-static/resources/lldpd/lldpd.js:104
 msgid "enabled"
 msgstr "включено"

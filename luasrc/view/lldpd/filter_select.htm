@@ -1,3 +1,8 @@
+<%#
+ Copyright (c) 2018, Tano Systems. All Rights Reserved.
+ Anton Kikin <a.kikin@tano-systems.com>
+-%>
+
 <%
 --[[
 	Filter neighbors (-H)
@@ -34,16 +39,14 @@
 <%+cbi/valueheader%>
 
 <style>
-	table.lldpd-filter th {
-		font-weight: bold;
-	}
-
 	table.lldpd-filter td,
 	table.lldpd-filter th {
 		border: 1px solid #ccc !important;
 		padding: 2px 10px 2px 10px;
 		text-align: center;
 	}
+
+	table.lldpd-filter th { font-weight: bold; }
 
 	table.lldpd-filter tr.lldpd-filter-selected td {
 		background-color: #eeeeee;
@@ -122,7 +125,6 @@
 				attr("name", cbid) ..
 				attr("value", fid) ..
 				ifattr(selected == fid, "checked", "checked")%>
-				onchange="console.log('changed')"
 			/></td><td><%=fid%></td><%
 
 			for i = 1,6 do
@@ -137,9 +139,9 @@
 <%
 self.description = self.description or ''
 self.description =
-	'<ul><li>' .. translate("E &mdash; Enable filter;") .. '</li>' ..
-		'<li>' .. translate("P &mdash; Kept only one protocol;") .. '</li>' ..
-		'<li>' .. translate("N &mdash; Kept only one neighbor.") .. '</li>' ..
+	'<ul><li>' .. translate("E &mdash; enable filter") .. '</li>' ..
+		'<li>' .. translate("P &mdash; keep only one protocol") .. '</li>' ..
+		'<li>' .. translate("N &mdash; keep only one neighbor") .. '</li>' ..
 	'</ul>' .. self.description
 %>
 <%+cbi/valuefooter%>

@@ -14,20 +14,11 @@ function index()
 
 	entry({"admin", "services", "lldpd"}, firstchild(), _("LLDP"), 80)
 
-	entry({"admin", "services", "lldpd", "status"}, firstchild(), _("Status"), 10)
+	entry({"admin", "services", "lldpd", "status"}, template("lldpd/status"), _("Status"), 10)
 	entry({"admin", "services", "lldpd", "config"}, cbi("lldpd/config"), _("Settings"), 20)
 
-	entry({"admin", "services", "lldpd", "status", "neighbors"},
-		template("lldpd/neighbors"), _("Neighbors"), 10)
-
-	entry({"admin", "services", "lldpd", "status", "statistics"},
-		template("lldpd/statistics"), _("Statistics"), 20)
-
-	entry({"admin", "services", "lldpd", "get_neighbors"},
-		call("action_get_neighbors"))
-
-	entry({"admin", "services", "lldpd", "get_statistics"},
-		call("action_get_statistics"))
+	entry({"admin", "services", "lldpd", "get_info"},
+		call("action_get_info"))
 end
 
 -- LLDPCLI commands
@@ -40,24 +31,25 @@ function lldpcli_show(section, format)
 	return luci.util.exec("lldpcli show " .. section .. " -f " .. format)
 end
 
--- Neighbors page
+-- Info
 
-function action_get_neighbors()
-	luci.http.prepare_content("application/json")
-	luci.http.write(lldpcli_show("neighbors", "json0"))
-end
+function action_get_info()
 
--- Statistics page
-
-function action_get_statistics()
 	luci.http.prepare_content("application/json")
 	
 	luci.http.write('{"statistics":');
 	luci.http.write(lldpcli_show("statistics", "json0"))
 	luci.http.write(',');
 
+	luci.http.write('"neighbors":');
+	luci.http.write(lldpcli_show("neighbors", "json0"))
+	luci.http.write(',');
+
 	luci.http.write('"interfaces":');
 	luci.http.write(lldpcli_show("interfaces", "json0"))
+	luci.http.write(',');
+
+	luci.http.write('"chassis":');
+	luci.http.write(lldpcli_show("chassis", "json0"))
 	luci.http.write('}');
 end
-
