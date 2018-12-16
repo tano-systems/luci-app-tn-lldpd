@@ -3,6 +3,7 @@
 -- Anton Kikin <a.kikin@tano-systems.com>
 --
 
+local sys  = require "luci.sys"
 local util = require "luci.util"
 
 local m, s, o
@@ -32,6 +33,29 @@ s:tab("protocols", translate("Protocols Support"))
 -- Basic settings
 --
 -----------------------------------------------------------------------------------
+
+-- Service enable/disable
+o = s:taboption("basic", Flag, "enabled",
+	translate("Enable service")
+)
+
+o.rmempty = false
+
+function o.cfgvalue(self, section)
+	return sys.init.enabled("lldpd") and self.enabled or self.disabled
+end
+
+function o.write(self, section, value)
+	if value == "1" then
+		sys.init.enable("lldpd")
+		sys.call("/etc/init.d/lldpd start >/dev/null 2>&1")
+	else
+		sys.call("/etc/init.d/lldpd stop >/dev/null 2>&1")
+		sys.init.disable("lldpd")
+	end
+
+	return Flag.write(self, section, value)
+end
 
 -- System description
 o = s:taboption("basic", Value, "lldp_description",

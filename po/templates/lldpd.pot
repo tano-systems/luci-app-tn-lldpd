@@ -7,7 +7,7 @@ msgid ""
 "systems.com\">a.kikin@tano-systems.com</a>&gt;"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:27
+#: luasrc/model/cbi/lldpd/config.lua:28
 msgid "Advanced Settings"
 msgstr ""
 
@@ -20,19 +20,19 @@ msgstr ""
 msgid "Ageout count"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:25
+#: luasrc/model/cbi/lldpd/config.lua:26
 msgid "Basic Settings"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:306
+#: luasrc/model/cbi/lldpd/config.lua:330
 msgid "CDP protocol"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:321
+#: luasrc/model/cbi/lldpd/config.lua:345
 msgid "CDP version"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:323
+#: luasrc/model/cbi/lldpd/config.lua:347
 msgid "CDPv1 and CDPv2"
 msgstr ""
 
@@ -45,7 +45,7 @@ msgstr ""
 msgid "Collecting data..."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:208
+#: luasrc/model/cbi/lldpd/config.lua:232
 msgid "Communication Device Endpoints (Class III)"
 msgstr ""
 
@@ -57,7 +57,7 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:215
+#: luasrc/model/cbi/lldpd/config.lua:239
 msgid "Disable LLDP-MED inventory TLV transmission"
 msgstr ""
 
@@ -77,63 +77,67 @@ msgstr ""
 msgid "E &mdash; enable filter"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:371
+#: luasrc/model/cbi/lldpd/config.lua:395
 msgid "EDP protocol"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:309
+#: luasrc/model/cbi/lldpd/config.lua:333
 msgid "Enable CDP"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:374
+#: luasrc/model/cbi/lldpd/config.lua:398
 msgid "Enable EDP"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:352
+#: luasrc/model/cbi/lldpd/config.lua:376
 msgid "Enable FDP"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:284
+#: luasrc/model/cbi/lldpd/config.lua:308
 msgid "Enable LLDP"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:396
+#: luasrc/model/cbi/lldpd/config.lua:420
 msgid "Enable SONMP"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:130
+#: luasrc/model/cbi/lldpd/config.lua:154
 msgid "Enable receive-only mode"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:310
+#: luasrc/model/cbi/lldpd/config.lua:39
+msgid "Enable service"
+msgstr ""
+
+#: luasrc/model/cbi/lldpd/config.lua:334
 msgid ""
 "Enable the support of CDP protocol to deal with Cisco routers that do not "
 "speak LLDP"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:375
+#: luasrc/model/cbi/lldpd/config.lua:399
 msgid ""
 "Enable the support of EDP protocol to deal with Extreme routers and switches "
 "that do not speak LLDP."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:353
+#: luasrc/model/cbi/lldpd/config.lua:377
 msgid ""
 "Enable the support of FDP protocol to deal with Foundry routers that do not "
 "speak LLDP"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:397
+#: luasrc/model/cbi/lldpd/config.lua:421
 msgid ""
 "Enable the support of SONMP protocol to deal with Nortel routers and "
 "switches that do not speak LLDP."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:349
+#: luasrc/model/cbi/lldpd/config.lua:373
 msgid "FDP protocol"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:281
+#: luasrc/view/lldpd/status.htm:286
 msgid ""
 "Failed to read information. Maybe LLDPd service is not running or restarting."
 msgstr ""
@@ -142,19 +146,19 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:239
+#: luasrc/model/cbi/lldpd/config.lua:263
 msgid "Force port ID subtype"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:338
+#: luasrc/model/cbi/lldpd/config.lua:362
 msgid "Force sending CDPv2 packets"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:292
+#: luasrc/model/cbi/lldpd/config.lua:316
 msgid "Force to send LLDP packets"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:293
+#: luasrc/model/cbi/lldpd/config.lua:317
 msgid ""
 "Force to send LLDP packets even when there is no LLDP peer detected but "
 "there is a peer speaking another protocol detected. By default, LLDP packets "
@@ -162,7 +166,7 @@ msgid ""
 "peer at all."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:206
+#: luasrc/model/cbi/lldpd/config.lua:230
 msgid "Generic Endpoint (Class I)"
 msgstr ""
 
@@ -178,7 +182,7 @@ msgstr ""
 msgid "IP address"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:189
+#: luasrc/model/cbi/lldpd/config.lua:213
 msgid ""
 "If the path to the socket is set, then LLDPd will enable an SNMP subagent "
 "using AgentX protocol. This allows you to get information about local system "
@@ -193,12 +197,12 @@ msgstr ""
 msgid "Insert count"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:246
+#: luasrc/model/cbi/lldpd/config.lua:270
 msgid "Interface MAC address"
 msgstr ""
 
 #: htdocs/luci-static/resources/lldpd/lldpd.js:24
-#: luasrc/model/cbi/lldpd/config.lua:247
+#: luasrc/model/cbi/lldpd/config.lua:271
 msgid "Interface name"
 msgstr ""
 
@@ -206,15 +210,15 @@ msgstr ""
 msgid "LLDP"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:281
+#: luasrc/model/cbi/lldpd/config.lua:305
 msgid "LLDP protocol"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:203
+#: luasrc/model/cbi/lldpd/config.lua:227
 msgid "LLDP-MED device class"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:11
+#: luasrc/model/cbi/lldpd/config.lua:12
 msgid "LLDP: Configure"
 msgstr ""
 
@@ -226,13 +230,13 @@ msgstr ""
 msgid "LLDPd LuCI application (version %s)"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:12
+#: luasrc/model/cbi/lldpd/config.lua:13
 msgid ""
 "LLDPd is a implementation of IEEE 802.1ab (<abbr title=\"Link Layer "
 "Discovery Protocol\">LLDP</abbr>)."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:216
+#: luasrc/model/cbi/lldpd/config.lua:240
 msgid ""
 "LLDPd will still receive (and publish using SNMP if enabled) those LLDP-MED "
 "TLV but will not send them. Use this option if you don't want to transmit "
@@ -267,11 +271,11 @@ msgstr ""
 msgid "Management IP(s)"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:69
+#: luasrc/model/cbi/lldpd/config.lua:93
 msgid "Management addresses of this system"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:207
+#: luasrc/model/cbi/lldpd/config.lua:231
 msgid "Media Endpoint (Class II)"
 msgstr ""
 
@@ -289,32 +293,32 @@ msgstr ""
 msgid "Neighbors table"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:209
+#: luasrc/model/cbi/lldpd/config.lua:233
 msgid "Network Connectivity Device (Class IV)"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:26
+#: luasrc/model/cbi/lldpd/config.lua:27
 msgid "Network Interfaces"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:147
+#: luasrc/model/cbi/lldpd/config.lua:171
 msgid "Network interfaces"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:163
+#: luasrc/model/cbi/lldpd/config.lua:187
 msgid "Network interfaces for chassis ID computing"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:186 luasrc/view/lldpd/status.htm:243
-#: luasrc/view/lldpd/status.htm:263
+#: luasrc/view/lldpd/status.htm:188 luasrc/view/lldpd/status.htm:248
+#: luasrc/view/lldpd/status.htm:270
 msgid "No information available"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:16
+#: luasrc/model/cbi/lldpd/config.lua:17
 msgid "On this page you may configure LLDPd parameters."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:324
+#: luasrc/model/cbi/lldpd/config.lua:348
 msgid "Only CDPv2"
 msgstr ""
 
@@ -322,15 +326,15 @@ msgstr ""
 msgid "Outgoing"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:39
+#: luasrc/model/cbi/lldpd/config.lua:63
 msgid "Override system description with the provided description."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:49
+#: luasrc/model/cbi/lldpd/config.lua:73
 msgid "Override system hostname with the provided value."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:59
+#: luasrc/model/cbi/lldpd/config.lua:83
 msgid ""
 "Override the platform description with the provided value. The default "
 "description is the kernel name (Linux)."
@@ -356,7 +360,7 @@ msgstr ""
 msgid "Protocol"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:28
+#: luasrc/model/cbi/lldpd/config.lua:29
 msgid "Protocols Support"
 msgstr ""
 
@@ -372,27 +376,27 @@ msgstr ""
 msgid "Rx unrecognized"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:188
+#: luasrc/model/cbi/lldpd/config.lua:212
 msgid "SNMP agentX socket path"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:393
+#: luasrc/model/cbi/lldpd/config.lua:417
 msgid "SONMP protocol"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:331
+#: luasrc/model/cbi/lldpd/config.lua:355
 msgid "Send CDP packets even if no CDP peer detected"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:386
+#: luasrc/model/cbi/lldpd/config.lua:410
 msgid "Send EDP packets even if no EDP peer detected"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:364
+#: luasrc/model/cbi/lldpd/config.lua:388
 msgid "Send FDP packets even if no FDP peer detected"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:408
+#: luasrc/model/cbi/lldpd/config.lua:432
 msgid "Send SONMP packets even if no SONMP peer detected"
 msgstr ""
 
@@ -400,11 +404,11 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:227
+#: luasrc/model/cbi/lldpd/config.lua:251
 msgid "Specify the behaviour when detecting multiple neighbors"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:70
+#: luasrc/model/cbi/lldpd/config.lua:94
 msgid ""
 "Specify the management addresses of this system. If not specified, the first "
 "IPv4 and the first IPv6 are used. If an exact IP address is provided, it is "
@@ -414,13 +418,13 @@ msgid ""
 "\">here</a>."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:148
+#: luasrc/model/cbi/lldpd/config.lua:172
 msgid ""
 "Specify which interface to listen and send LLDPDU to.If no interfaces is "
 "specified, LLDPd will use all available physical interfaces."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:164
+#: luasrc/model/cbi/lldpd/config.lua:188
 msgid ""
 "Specify which interfaces to use for computing chassis ID. If no interfaces "
 "is specified, all interfaces are considered. LLDPd will take the first MAC "
@@ -435,15 +439,15 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:38
+#: luasrc/model/cbi/lldpd/config.lua:62
 msgid "System description"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:48
+#: luasrc/model/cbi/lldpd/config.lua:72
 msgid "System hostname"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:58
+#: luasrc/model/cbi/lldpd/config.lua:82
 msgid "System platform description"
 msgstr ""
 
@@ -452,18 +456,18 @@ msgstr ""
 msgid "TTL"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:228
+#: luasrc/model/cbi/lldpd/config.lua:252
 msgid ""
 "The default filter is 15. For more details see \"FILTERING NEIGHBORS\" "
 "section <a href=\"https://vincentbernat.github.io/lldpd/usage.html\">here</"
 "a>."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:253
+#: luasrc/model/cbi/lldpd/config.lua:277
 msgid "The destination MAC address used to send LLDPDU"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:254
+#: luasrc/model/cbi/lldpd/config.lua:278
 msgid ""
 "The destination MAC address used to send LLDPDU allows an agent to control "
 "the propagation of LLDPDUs. By default, the <code>01:80:c2:00:00:0e</code> "
@@ -471,7 +475,7 @@ msgid ""
 "bridge."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:86
+#: luasrc/model/cbi/lldpd/config.lua:110
 msgid ""
 "The transmit delay is the delay between two transmissions of LLDP PDU. The "
 "default value is 30 seconds."
@@ -483,26 +487,26 @@ msgid ""
 "statistics and local chassis information."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:108
+#: luasrc/model/cbi/lldpd/config.lua:132
 msgid ""
 "This value is used to compute the TTL of transmitted packets which is the "
 "product of this value and of the transmit delay. The default value is 4 and "
 "therefore the default TTL is 120 seconds."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:85
+#: luasrc/model/cbi/lldpd/config.lua:109
 msgid "Transmit delay"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:100
+#: luasrc/model/cbi/lldpd/config.lua:124
 msgid "Transmit delay must be greater than 0"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:107
+#: luasrc/model/cbi/lldpd/config.lua:131
 msgid "Transmit hold value"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:123
+#: luasrc/model/cbi/lldpd/config.lua:147
 msgid "Transmit hold value must be greater than 0"
 msgstr ""
 
@@ -514,13 +518,13 @@ msgstr ""
 msgid "Unknown"
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:131
+#: luasrc/model/cbi/lldpd/config.lua:155
 msgid ""
 "With this option, LLDPd will not send any frames. It will only listen to "
 "neighbors."
 msgstr ""
 
-#: luasrc/model/cbi/lldpd/config.lua:240
+#: luasrc/model/cbi/lldpd/config.lua:264
 msgid ""
 "With this option, you can force the port identifier to be the interface name "
 "or the MAC address."

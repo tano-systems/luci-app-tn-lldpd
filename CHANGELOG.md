@@ -8,6 +8,7 @@ All dates in this document are in `DD.MM.YYYY` format.
 
 ## [Unreleased]
 ### Added
+- Enable/disable service checkbox.
 - Additional JavaScript checks for case when LLDPd not started.
 
 ## [Version 1.2.0] (15.12.2018)
