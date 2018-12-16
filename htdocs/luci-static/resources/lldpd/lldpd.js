@@ -13,7 +13,7 @@ function lldpd_fmt_number(v)
 	if (parseInt(v))
 		return v
 
-	return '&ndash;'
+	return '&#8211;'
 }
 
 function lldpd_fmt_port_id_type(v)
@@ -33,15 +33,19 @@ function lldpd_fmt_port_id_type(v)
 function lldpd_fmt_protocol(v)
 {
 	if (v == 'unknown')
-		return "&ndash;"
+		return "&#8211;"
 	else if (v == 'LLDP')
-		return '<span class="alert-message success">' + v + '</span>'
+		return '<span class="lldpd-protocol-badge lldpd-protocol-lldp">' + v + '</span>'
 	else if ((v == 'CDPv1') || (v == 'CDPv2'))
-		return '<span class="alert-message info">' + v + '</span>'
-	else if ((v == 'FDP') || (v == 'EDP') || (v == 'SONMP'))
-		return '<span class="alert-message warning">' + v + '</span>'
+		return '<span class="lldpd-protocol-badge lldpd-protocol-cdp">' + v + '</span>'
+	else if (v == 'FDP')
+		return '<span class="lldpd-protocol-badge lldpd-protocol-fdp">' + v + '</span>'
+	else if (v == 'EDP')
+		return '<span class="lldpd-protocol-badge lldpd-protocol-edp">' + v + '</span>'
+	else if (v == 'SONMP')
+		return '<span class="lldpd-protocol-badge lldpd-protocol-sonmp">' + v + '</span>'
 	else
-		return '<span class="alert-message error">' + v + '</span>'
+		return '<span class="lldpd-protocol-badge">' + v + '</span>'
 }
 
 function lldpd_kvtable_add_row(description, value)
@@ -105,7 +109,6 @@ function lldpd_fmt_chassis_kvtable(ch)
 		}
 
 		unfolded += lldpd_kvtable_add_row(_("Capabilities"), caps)
-		unfolded += "</td></tr>"
 	}
 
 	unfolded += "</table>"

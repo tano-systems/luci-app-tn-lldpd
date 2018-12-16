@@ -20,6 +20,27 @@
 	table.lldpd-kvtable td:last-of-type { width: 100%; }
 
 	.lldpd-table img { cursor: pointer; }
+
+	.lldpd-protocol-badge {
+		display: inline-block;
+		width: fit-content !important;
+		padding: 3px 8px;
+		border-radius: 3px;
+		width: 100%;
+		background-color: #e6e6e6;
+		border: solid 1px #b9b9b9;
+		color: #595959;
+	}
+
+	.lldpd-protocol-badge.lldpd-protocol-lldp  { background-color: #b7efcf; border-color: #2abd69; color: #165e34; }
+	.lldpd-protocol-badge.lldpd-protocol-cdp   { background-color: #b2daf3; border-color: #46a6e2; color: #1a74ac; }
+	.lldpd-protocol-badge.lldpd-protocol-fdp   { background-color: #f9e3b3; border-color: #b7820f; color: #b7820f; }
+	.lldpd-protocol-badge.lldpd-protocol-edp   { background-color: #f9e3f9; border-color: #e380e3; color: #b70f82; }
+	.lldpd-protocol-badge.lldpd-protocol-sonmp { background-color: #ffcdb1; border-color: #fe8744; color: #d74d00; }
+
+	.lldpd-table span.alert-message {
+		line-height: 28px;
+	}
 </style>
 
 <h2 name="content"><%:LLDP: Status%></h2>

@@ -55,6 +55,15 @@
 
 <% local selected = tonumber((self:cfgvalue(section) or self.default)) %>
 
+<script type="text/javascript">//<![CDATA[
+	function lldpd_filter_onclick(row, fid) {
+		document.getElementById('<%=cbid .. "-"%>' + fid).checked = true;
+		for (var i = 0; i < 20; i++)
+			document.getElementById('<%=cbid .. "-tr-"%>' + i).className = '';
+		row.className = 'lldpd-filter-selected';
+	}
+//]]></script>
+
 <table class="lldpd-filter" id="<%=cbid%>-table" data-selected="<%=selected%>">
 	<thead>
 		<tr>
@@ -111,21 +120,15 @@
 			local i
 			local fid = idx - 1
 
-			%><tr id="<%=cbid .. "-tr-" .. fid%>" onclick="
-				document.getElementById('<%=cbid .. "-" .. fid%>').checked = true;
-				for (var i = 0; i < 20; i++)
-					document.getElementById('<%=cbid .. "-tr-"%>' + i).className = '';
-				this.className = 'lldpd-filter-selected';
-			"<%
-				if fid == selected then
-				%>class="lldpd-filter-selected"<%
-			end
+			%>
+			<tr id="<%=cbid .. "-tr-" .. fid%>" onclick="lldpd_filter_onclick(this, '<%=fid%>')" <%
+				if fid == selected then %>class="lldpd-filter-selected"<% end
 			%>><td><input class="cbi-input-radio" data-update="click change" type="radio"<%=
 				attr("id", cbid .. "-" .. fid) ..
 				attr("name", cbid) ..
 				attr("value", fid) ..
-				ifattr(selected == fid, "checked", "checked")%>
-			/></td><td><%=fid%></td><%
+				ifattr(selected == fid, "checked", "checked")
+			%>/></td><td><%=fid%></td><%
 
 			for i = 1,6 do
 				%><td><%=filter_value(f[i])%></td><%
@@ -136,6 +139,7 @@
 	%>
 	</tbody>
 </table>
+
 <%
 self.description = self.description or ''
 self.description =

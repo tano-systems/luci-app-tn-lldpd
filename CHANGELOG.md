@@ -8,8 +8,13 @@ All dates in this document are in `DD.MM.YYYY` format.
 
 ## [Unreleased]
 ### Added
+- Added support for the official OpenWrt and Material LuCI themes.
+  Previously supported only Bootstrap LuCI theme.
 - Enable/disable service checkbox.
 - Additional JavaScript checks for case when LLDPd not started.
+
+### Changed
+- Update screenshots for neighbors and statistics tables.
 
 ## [Version 1.2.0] (15.12.2018)
 ### Added
