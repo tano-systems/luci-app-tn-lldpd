@@ -6,10 +6,15 @@
 <%+header%>
 
 <style type="text/css">
-	table.lldpd-kvtable { border: 0; }
+	table.lldpd-kvtable { border: 0 }
 
 	table.lldpd-kvtable td {
 		padding: 2px 6px 2px 0px; background-color: inherit !important; line-height: 16px;
+		border: 0;
+	}
+
+	table.lldpd-kvtable tr {
+		background-color: inherit !important;
 	}
 
 	table.lldpd-kvtable td:first-of-type {
@@ -53,12 +58,12 @@
 	<h3 name="content"><%:Discovered neighbors table%> (<span id="lldpd-neighbors-count">0</span>)</h3>
 	<div class="table lldpd-table" id="lldpd-neighbors">
 		<div class="tr table-titles">
-			<div class="th top"><%:Local interface%></div>
-			<div class="th top"><%:Protocol%></div>
-			<div class="th top"><%:Discovered chassis%></div>
-			<div class="th top"><%:Discovered port%></div>
+			<div class="th left top"><%:Local interface%></div>
+			<div class="th left top"><%:Protocol%></div>
+			<div class="th left top"><%:Discovered chassis%></div>
+			<div class="th left top"><%:Discovered port%></div>
 		</div>
-		<div class="tr placeholder">
+		<div class="tr center placeholder">
 			<div class="td">
 				<em><%:Collecting data...%></em>
 			</div>
@@ -73,17 +78,17 @@
 	<h3 name="content"><%:Local interfaces statistics table%></h3>
 	<div class="table lldpd-table" id="lldpd-statistics">
 		<div class="tr table-titles">
-			<div class="th top"><%:Local interface%></div>
-			<div class="th top"><%:Protocol%></div>
-			<div class="th top"><%:Tx%></div>
-			<div class="th top"><%:Rx%></div>
-			<div class="th top"><%:Rx discarded%></div>
-			<div class="th top"><%:Rx unrecognized%></div>
-			<div class="th top"><%:Ageout count%></div>
-			<div class="th top"><%:Insert count%></div>
-			<div class="th top"><%:Delete count%></div>
+			<div class="th left top"><%:Local interface%></div>
+			<div class="th left top"><%:Protocol%></div>
+			<div class="th left top"><%:Tx%></div>
+			<div class="th left top"><%:Rx%></div>
+			<div class="th left top"><%:Rx discarded%></div>
+			<div class="th left top"><%:Rx unrecognized%></div>
+			<div class="th left top"><%:Ageout count%></div>
+			<div class="th left top"><%:Insert count%></div>
+			<div class="th left top"><%:Delete count%></div>
 		</div>
-		<div class="tr placeholder">
+		<div class="tr center placeholder">
 			<div class="td">
 				<em><%:Collecting data...%></em>
 			</div>
