@@ -15,6 +15,10 @@ All dates in this document are in `DD.MM.YYYY` format.
 
 ### Changed
 - Update screenshots for neighbors and statistics tables.
+- Badges with individual colors for all supported protocols in neighbors
+  and statistics tables. Previously inidividual badges will available
+  only for LLDP and CDP protocols. EDP, FDP and SONMP protocols had the
+  same colors for badges.
 
 ## [Version 1.2.0] (15.12.2018)
 ### Added
