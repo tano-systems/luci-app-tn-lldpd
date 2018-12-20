@@ -11,12 +11,12 @@ msgstr ""
 msgid "Advanced Settings"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:147
-#: luasrc/view/lldpd/status.htm:152
+#: htdocs/luci-static/resources/lldpd/lldpd.js:152
+#: luasrc/view/lldpd/status.htm:151
 msgid "Age"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:93
+#: luasrc/view/lldpd/status.htm:91
 msgid "Ageout count"
 msgstr ""
 
@@ -36,12 +36,12 @@ msgstr ""
 msgid "CDPv1 and CDPv2"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:111
+#: htdocs/luci-static/resources/lldpd/lldpd.js:116
 msgid "Capabilities"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:74 luasrc/view/lldpd/status.htm:99
-#: luasrc/view/lldpd/status.htm:110
+#: luasrc/view/lldpd/status.htm:72 luasrc/view/lldpd/status.htm:97
+#: luasrc/view/lldpd/status.htm:108
 msgid "Collecting data..."
 msgstr ""
 
@@ -49,11 +49,11 @@ msgstr ""
 msgid "Communication Device Endpoints (Class III)"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:95
+#: luasrc/view/lldpd/status.htm:93
 msgid "Delete count"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:66
+#: htdocs/luci-static/resources/lldpd/lldpd.js:71
 msgid "Description"
 msgstr ""
 
@@ -61,15 +61,15 @@ msgstr ""
 msgid "Disable LLDP-MED inventory TLV transmission"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:69
+#: luasrc/view/lldpd/status.htm:67
 msgid "Discovered chassis"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:64
+#: luasrc/view/lldpd/status.htm:62
 msgid "Discovered neighbors table"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:70
+#: luasrc/view/lldpd/status.htm:68
 msgid "Discovered port"
 msgstr ""
 
@@ -137,7 +137,7 @@ msgstr ""
 msgid "FDP protocol"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:310
+#: luasrc/view/lldpd/status.htm:312
 msgid ""
 "Failed to read information. Maybe LLDPd service is not running or restarting."
 msgstr ""
@@ -170,11 +170,11 @@ msgstr ""
 msgid "Generic Endpoint (Class I)"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:68
+#: htdocs/luci-static/resources/lldpd/lldpd.js:73
 msgid "ID"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:67
+#: htdocs/luci-static/resources/lldpd/lldpd.js:72
 msgid "ID type"
 msgstr ""
 
@@ -193,7 +193,7 @@ msgstr ""
 msgid "Incoming"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:94
+#: luasrc/view/lldpd/status.htm:92
 msgid "Insert count"
 msgstr ""
 
@@ -222,7 +222,7 @@ msgstr ""
 msgid "LLDP: Configure"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:53
+#: luasrc/view/lldpd/status.htm:51
 msgid "LLDP: Status"
 msgstr ""
 
@@ -247,19 +247,19 @@ msgstr ""
 msgid "Local ID"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:107
+#: luasrc/view/lldpd/status.htm:105
 msgid "Local chassis"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:109
+#: luasrc/view/lldpd/status.htm:107
 msgid "Local chassis information"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:67 luasrc/view/lldpd/status.htm:87
+#: luasrc/view/lldpd/status.htm:65 luasrc/view/lldpd/status.htm:85
 msgid "Local interface"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:84
+#: luasrc/view/lldpd/status.htm:82
 msgid "Local interfaces statistics table"
 msgstr ""
 
@@ -267,7 +267,7 @@ msgstr ""
 msgid "MAC address"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:87
+#: htdocs/luci-static/resources/lldpd/lldpd.js:92
 msgid "Management IP(s)"
 msgstr ""
 
@@ -283,13 +283,13 @@ msgstr ""
 msgid "N &mdash; keep only one neighbor"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:65
-#: htdocs/luci-static/resources/lldpd/lldpd.js:146
-#: luasrc/view/lldpd/status.htm:151
+#: htdocs/luci-static/resources/lldpd/lldpd.js:70
+#: htdocs/luci-static/resources/lldpd/lldpd.js:151
+#: luasrc/view/lldpd/status.htm:150
 msgid "Name"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:62
+#: luasrc/view/lldpd/status.htm:60
 msgid "Neighbors table"
 msgstr ""
 
@@ -309,8 +309,8 @@ msgstr ""
 msgid "Network interfaces for chassis ID computing"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:207 luasrc/view/lldpd/status.htm:272
-#: luasrc/view/lldpd/status.htm:294
+#: luasrc/view/lldpd/status.htm:207 luasrc/view/lldpd/status.htm:274
+#: luasrc/view/lldpd/status.htm:296
 msgid "No information available"
 msgstr ""
 
@@ -344,19 +344,19 @@ msgstr ""
 msgid "P &mdash; keep only one protocol"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:156
+#: htdocs/luci-static/resources/lldpd/lldpd.js:161
 msgid "Port ID"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:153
+#: htdocs/luci-static/resources/lldpd/lldpd.js:158
 msgid "Port ID type"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:160
+#: htdocs/luci-static/resources/lldpd/lldpd.js:165
 msgid "Port description"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:68 luasrc/view/lldpd/status.htm:88
+#: luasrc/view/lldpd/status.htm:66 luasrc/view/lldpd/status.htm:86
 msgid "Protocol"
 msgstr ""
 
@@ -364,15 +364,15 @@ msgstr ""
 msgid "Protocols Support"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:90
+#: luasrc/view/lldpd/status.htm:88
 msgid "Rx"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:91
+#: luasrc/view/lldpd/status.htm:89
 msgid "Rx discarded"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:92
+#: luasrc/view/lldpd/status.htm:90
 msgid "Rx unrecognized"
 msgstr ""
 
@@ -431,7 +431,7 @@ msgid ""
 "address from all the considered interfaces to compute the chassis ID."
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:82
+#: luasrc/view/lldpd/status.htm:80
 msgid "Statistics table"
 msgstr ""
 
@@ -451,8 +451,8 @@ msgstr ""
 msgid "System platform description"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:163
-#: htdocs/luci-static/resources/lldpd/lldpd.js:165
+#: htdocs/luci-static/resources/lldpd/lldpd.js:168
+#: htdocs/luci-static/resources/lldpd/lldpd.js:170
 msgid "TTL"
 msgstr ""
 
@@ -481,7 +481,7 @@ msgid ""
 "default value is 30 seconds."
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:54
+#: luasrc/view/lldpd/status.htm:52
 msgid ""
 "This page allows you to see discovered LLDP neighbors, local interfaces "
 "statistics and local chassis information."
@@ -510,11 +510,11 @@ msgstr ""
 msgid "Transmit hold value must be greater than 0"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:89
+#: luasrc/view/lldpd/status.htm:87
 msgid "Tx"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:136
+#: htdocs/luci-static/resources/lldpd/lldpd.js:141
 msgid "Unknown"
 msgstr ""
 
@@ -530,12 +530,12 @@ msgid ""
 "or the MAC address."
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:100
-#: htdocs/luci-static/resources/lldpd/lldpd.js:108
+#: htdocs/luci-static/resources/lldpd/lldpd.js:105
+#: htdocs/luci-static/resources/lldpd/lldpd.js:113
 msgid "disabled"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:100
-#: htdocs/luci-static/resources/lldpd/lldpd.js:108
+#: htdocs/luci-static/resources/lldpd/lldpd.js:105
+#: htdocs/luci-static/resources/lldpd/lldpd.js:113
 msgid "enabled"
 msgstr ""

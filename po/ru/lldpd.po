@@ -25,12 +25,12 @@ msgstr ""
 msgid "Advanced Settings"
 msgstr "Дополнительные настройки"
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:147
-#: luasrc/view/lldpd/status.htm:152
+#: htdocs/luci-static/resources/lldpd/lldpd.js:152
+#: luasrc/view/lldpd/status.htm:151
 msgid "Age"
 msgstr "Возраст"
 
-#: luasrc/view/lldpd/status.htm:93
+#: luasrc/view/lldpd/status.htm:91
 msgid "Ageout count"
 msgstr "Устарело"
 
@@ -50,12 +50,12 @@ msgstr "Версия протокола CDP"
 msgid "CDPv1 and CDPv2"
 msgstr "CDPv1 и CDPv2"
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:111
+#: htdocs/luci-static/resources/lldpd/lldpd.js:116
 msgid "Capabilities"
 msgstr "Возможности"
 
-#: luasrc/view/lldpd/status.htm:74 luasrc/view/lldpd/status.htm:99
-#: luasrc/view/lldpd/status.htm:110
+#: luasrc/view/lldpd/status.htm:72 luasrc/view/lldpd/status.htm:97
+#: luasrc/view/lldpd/status.htm:108
 msgid "Collecting data..."
 msgstr "Сбор данных..."
 
@@ -63,11 +63,11 @@ msgstr "Сбор данных..."
 msgid "Communication Device Endpoints (Class III)"
 msgstr "Communication Device Endpoints (класс III)"
 
-#: luasrc/view/lldpd/status.htm:95
+#: luasrc/view/lldpd/status.htm:93
 msgid "Delete count"
 msgstr "Удалено"
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:66
+#: htdocs/luci-static/resources/lldpd/lldpd.js:71
 msgid "Description"
 msgstr "Описание"
 
@@ -75,15 +75,15 @@ msgstr "Описание"
 msgid "Disable LLDP-MED inventory TLV transmission"
 msgstr "Отключить отправку инвентарной информации LLDP-MED TLV"
 
-#: luasrc/view/lldpd/status.htm:69
+#: luasrc/view/lldpd/status.htm:67
 msgid "Discovered chassis"
 msgstr "Обнаруженное шасси"
 
-#: luasrc/view/lldpd/status.htm:64
+#: luasrc/view/lldpd/status.htm:62
 msgid "Discovered neighbors table"
 msgstr "Таблица обнаруженных соседей"
 
-#: luasrc/view/lldpd/status.htm:70
+#: luasrc/view/lldpd/status.htm:68
 msgid "Discovered port"
 msgstr "Обнаруженный порт"
 
@@ -159,7 +159,7 @@ msgstr ""
 msgid "FDP protocol"
 msgstr "Протокол FDP"
 
-#: luasrc/view/lldpd/status.htm:310
+#: luasrc/view/lldpd/status.htm:312
 msgid ""
 "Failed to read information. Maybe LLDPd service is not running or restarting."
 msgstr ""
@@ -198,11 +198,11 @@ msgstr ""
 msgid "Generic Endpoint (Class I)"
 msgstr "Generic Endpoint (класс I)"
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:68
+#: htdocs/luci-static/resources/lldpd/lldpd.js:73
 msgid "ID"
 msgstr "ID"
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:67
+#: htdocs/luci-static/resources/lldpd/lldpd.js:72
 msgid "ID type"
 msgstr "Тип ID"
 
@@ -224,7 +224,7 @@ msgstr ""
 msgid "Incoming"
 msgstr "Входящие"
 
-#: luasrc/view/lldpd/status.htm:94
+#: luasrc/view/lldpd/status.htm:92
 msgid "Insert count"
 msgstr "Обнаружено"
 
@@ -253,7 +253,7 @@ msgstr "Класс устройства LLDP-MED"
 msgid "LLDP: Configure"
 msgstr "LLDP: Настройки"
 
-#: luasrc/view/lldpd/status.htm:53
+#: luasrc/view/lldpd/status.htm:51
 msgid "LLDP: Status"
 msgstr "LLDP: Состояние"
 
@@ -284,19 +284,19 @@ msgstr ""
 msgid "Local ID"
 msgstr "Локально заданный ID"
 
-#: luasrc/view/lldpd/status.htm:107
+#: luasrc/view/lldpd/status.htm:105
 msgid "Local chassis"
 msgstr "Локальное шасси"
 
-#: luasrc/view/lldpd/status.htm:109
+#: luasrc/view/lldpd/status.htm:107
 msgid "Local chassis information"
 msgstr "Информация о локальном шасси"
 
-#: luasrc/view/lldpd/status.htm:67 luasrc/view/lldpd/status.htm:87
+#: luasrc/view/lldpd/status.htm:65 luasrc/view/lldpd/status.htm:85
 msgid "Local interface"
 msgstr "Локальный интерфейс"
 
-#: luasrc/view/lldpd/status.htm:84
+#: luasrc/view/lldpd/status.htm:82
 msgid "Local interfaces statistics table"
 msgstr "Таблица статистики локальных интерфейсов"
 
@@ -304,7 +304,7 @@ msgstr "Таблица статистики локальных интерфей�
 msgid "MAC address"
 msgstr "MAC-адрес"
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:87
+#: htdocs/luci-static/resources/lldpd/lldpd.js:92
 msgid "Management IP(s)"
 msgstr "IP-адреса"
 
@@ -320,13 +320,13 @@ msgstr "Media Endpoint (класс II)"
 msgid "N &mdash; keep only one neighbor"
 msgstr "N &mdash; хранить только одного соседа"
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:65
-#: htdocs/luci-static/resources/lldpd/lldpd.js:146
-#: luasrc/view/lldpd/status.htm:151
+#: htdocs/luci-static/resources/lldpd/lldpd.js:70
+#: htdocs/luci-static/resources/lldpd/lldpd.js:151
+#: luasrc/view/lldpd/status.htm:150
 msgid "Name"
 msgstr "Имя"
 
-#: luasrc/view/lldpd/status.htm:62
+#: luasrc/view/lldpd/status.htm:60
 msgid "Neighbors table"
 msgstr "Таблица соседей"
 
@@ -346,8 +346,8 @@ msgstr "Сетевые интерфейсы"
 msgid "Network interfaces for chassis ID computing"
 msgstr "Сетевые интерфейсы, используемые для вычисления ID шасси (chassis ID)"
 
-#: luasrc/view/lldpd/status.htm:207 luasrc/view/lldpd/status.htm:272
-#: luasrc/view/lldpd/status.htm:294
+#: luasrc/view/lldpd/status.htm:207 luasrc/view/lldpd/status.htm:274
+#: luasrc/view/lldpd/status.htm:296
 msgid "No information available"
 msgstr "Нет доступной информации"
 
@@ -383,19 +383,19 @@ msgstr ""
 msgid "P &mdash; keep only one protocol"
 msgstr "P &mdash; хранить только один протокол"
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:156
+#: htdocs/luci-static/resources/lldpd/lldpd.js:161
 msgid "Port ID"
 msgstr "ID порта"
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:153
+#: htdocs/luci-static/resources/lldpd/lldpd.js:158
 msgid "Port ID type"
 msgstr "Тип ID порта"
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:160
+#: htdocs/luci-static/resources/lldpd/lldpd.js:165
 msgid "Port description"
 msgstr "Описание порта"
 
-#: luasrc/view/lldpd/status.htm:68 luasrc/view/lldpd/status.htm:88
+#: luasrc/view/lldpd/status.htm:66 luasrc/view/lldpd/status.htm:86
 msgid "Protocol"
 msgstr "Протокол"
 
@@ -403,15 +403,15 @@ msgstr "Протокол"
 msgid "Protocols Support"
 msgstr "Поддержка протоколов"
 
-#: luasrc/view/lldpd/status.htm:90
+#: luasrc/view/lldpd/status.htm:88
 msgid "Rx"
 msgstr "Rx"
 
-#: luasrc/view/lldpd/status.htm:91
+#: luasrc/view/lldpd/status.htm:89
 msgid "Rx discarded"
 msgstr "Rx (отброшено)"
 
-#: luasrc/view/lldpd/status.htm:92
+#: luasrc/view/lldpd/status.htm:90
 msgid "Rx unrecognized"
 msgstr "Rx (не распознано)"
 
@@ -484,7 +484,7 @@ msgstr ""
 "иcпользованы все интерфейсы. LLDPd получит первый MAC-адрес из всех "
 "доступных интерфейсов для вычисления ID шасси."
 
-#: luasrc/view/lldpd/status.htm:82
+#: luasrc/view/lldpd/status.htm:80
 msgid "Statistics table"
 msgstr "Таблица статистики"
 
@@ -504,8 +504,8 @@ msgstr "Имя системы"
 msgid "System platform description"
 msgstr "Описание платформы"
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:163
-#: htdocs/luci-static/resources/lldpd/lldpd.js:165
+#: htdocs/luci-static/resources/lldpd/lldpd.js:168
+#: htdocs/luci-static/resources/lldpd/lldpd.js:170
 msgid "TTL"
 msgstr "TTL"
 
@@ -543,7 +543,7 @@ msgstr ""
 "Задержка между двумя передачами LLDP PDU. Значение по умолчанию составляет "
 "30 секунд."
 
-#: luasrc/view/lldpd/status.htm:54
+#: luasrc/view/lldpd/status.htm:52
 msgid ""
 "This page allows you to see discovered LLDP neighbors, local interfaces "
 "statistics and local chassis information."
@@ -578,11 +578,11 @@ msgstr "Значение «transmit hold»"
 msgid "Transmit hold value must be greater than 0"
 msgstr "Значение «transmit hold» должно быть больше 0"
 
-#: luasrc/view/lldpd/status.htm:89
+#: luasrc/view/lldpd/status.htm:87
 msgid "Tx"
 msgstr "Tx"
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:136
+#: htdocs/luci-static/resources/lldpd/lldpd.js:141
 msgid "Unknown"
 msgstr "Неизвестно"
 
@@ -602,12 +602,12 @@ msgstr ""
 "Данная настройка позволяет принудительно использовать в качестве "
 "идентификатор порта имя интерфейса или MAC-адрес."
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:100
-#: htdocs/luci-static/resources/lldpd/lldpd.js:108
+#: htdocs/luci-static/resources/lldpd/lldpd.js:105
+#: htdocs/luci-static/resources/lldpd/lldpd.js:113
 msgid "disabled"
 msgstr "выключено"
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:100
-#: htdocs/luci-static/resources/lldpd/lldpd.js:108
+#: htdocs/luci-static/resources/lldpd/lldpd.js:105
+#: htdocs/luci-static/resources/lldpd/lldpd.js:113
 msgid "enabled"
 msgstr "включено"

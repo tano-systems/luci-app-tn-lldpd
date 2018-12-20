@@ -20,6 +20,7 @@ All dates in this document are in `DD.MM.YYYY` format.
   only for LLDP and CDP protocols. EDP, FDP and SONMP protocols had the
   same colors for badges.
 - Changed icons for show/hide additional information.
+- Fold and unfold table cells when clicking on any place in the row.
 
 ## [Version 1.2.0] (15.12.2018)
 ### Added

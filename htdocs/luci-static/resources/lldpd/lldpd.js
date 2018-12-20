@@ -3,7 +3,7 @@
  * Anton Kikin <a.kikin@tano-systems.com>
  */
 
-function lldpd_cell_id(str)
+function lldpd_id(str)
 {
 	return str.replace(/[^a-z0-9]/gi, '-')
 }
@@ -28,6 +28,11 @@ function lldpd_fmt_port_id_type(v)
 		return _("IP address")
 
 	return v
+}
+
+function lldpd_fmt_age(v)
+{
+	return '<nobr>' + v + '</nobr>'
 }
 
 function lldpd_fmt_protocol(v)
@@ -144,7 +149,7 @@ function lldpd_fmt_port_kvtable(port)
 
 	unfolded = '<table class="lldpd-kvtable">'
 	unfolded += lldpd_kvtable_add_row(_("Name"), port.name)
-	unfolded += lldpd_kvtable_add_row(_("Age"), port.age)
+	unfolded += lldpd_kvtable_add_row(_("Age"), lldpd_fmt_age(port.age))
 
 	if (typeof port.port !== 'undefined')
 	{
@@ -199,71 +204,171 @@ function lldpd_fmt_port(port)
 	return folded
 }
 
-var lldpd_cell_folded = []
+var lldpd_row_folded = []
 
 function lldpd_folding_img_file(folded) {
 	return L.resource('lldpd/details_' +
 		(folded ? 'show' : 'hide') + '.svg')
 }
 
-function lldpd_folding_icon(cell_id)
+function lldpd_folding_toggle(row, row_id)
 {
-	var img = L.resource('lldpd/details_' +
-		(lldpd_cell_folded[cell_id] ? 'hide' : 'show') + '.svg')
-
-	return '<img width="16px" src="' +
-		lldpd_folding_img_file(lldpd_cell_folded[cell_id]) +
-		'" onclick="lldpd_folding_toggle(this, \'' + cell_id + '\')" />'
-}
-
-function lldpd_folding_toggle(img, cell_id)
-{
-	var e_folded   = document.querySelectorAll("[id='lldpd-cell-" + cell_id + "-folded']");
-	var e_unfolded = document.querySelectorAll("[id='lldpd-cell-" + cell_id + "-unfolded']");
+	var e_img      = document.getElementById("lldpd-fold-img-" + row_id);
+	var e_folded   = document.querySelectorAll("[id='lldpd-cell-" + row_id + "-folded']");
+	var e_unfolded = document.querySelectorAll("[id='lldpd-cell-" + row_id + "-unfolded']");
 
 	if (e_folded.length != e_unfolded.length)
 		return
 
-	var do_fold = (e_folded[0].style.display === "none")
-	lldpd_cell_folded[cell_id] = do_fold
+	var do_fold = e_folded[0].classList.contains('lldpd-cell-hidden')
+	lldpd_row_folded[row_id] = do_fold
 
 	for (var i = 0; i < e_folded.length; i++)
 	{
-		e_folded[i].style.display = do_fold ? "block" : "none"
-		e_unfolded[i].style.display = do_fold ? "none"  : "block"
+		if (do_fold)
+		{
+			e_folded[i].classList.remove("lldpd-cell-hidden")
+			e_folded[i].classList.add("lldpd-cell-visible")
+			e_unfolded[i].classList.remove("lldpd-cell-visible")
+			e_unfolded[i].classList.add("lldpd-cell-hidden")
+		}
+		else
+		{
+			e_folded[i].classList.remove("lldpd-cell-visible")
+			e_folded[i].classList.add("lldpd-cell-hidden")
+			e_unfolded[i].classList.remove("lldpd-cell-hidden")
+			e_unfolded[i].classList.add("lldpd-cell-visible")
+		}
 	}
 
-	img.src = lldpd_folding_img_file(do_fold)
+	e_img.src = lldpd_folding_img_file(do_fold)
 }
 
-function lldpd_folding_cell_add(cell_id, folded, unfolded, icon, default_folded)
+function lldpd_folding_row(row_id, cells_folded, cells_unfolded, default_folded)
 {
-	var cell = ''
+	var row = []
+	var len = cells_folded.length
+	var i
 
-	if (typeof lldpd_cell_folded[cell_id] == 'undefined')
-		lldpd_cell_folded[cell_id] = default_folded
+	if (!len || (cells_folded.length != cells_unfolded.length))
+		return null
 
-	cell += '<div style="display: flex; flex-wrap: nowrap">'
+	if (typeof lldpd_row_folded[row_id] == 'undefined')
+		lldpd_row_folded[row_id] = default_folded
 
-	/* Fold/unfold icon */
-	if (icon)
+	for (i = 0; i < len; i++)
 	{
-		cell += '<div style="padding: 0 8px 0 0">'
-		cell += lldpd_folding_icon(cell_id)
+		var cell = ''
+
+		if (i == 0)
+		{
+			cell += '<div style="display: flex; flex-wrap: nowrap">'
+
+			// Fold/unfold icon
+			cell += '<div style="padding: 0 8px 0 0">'
+			cell += '<img id="lldpd-fold-img-' + row_id + '" width="16px" src="' +
+				lldpd_folding_img_file(lldpd_row_folded[row_id]) + '" />'
+
+			cell += '</div><div>'
+		}
+
+		if ((cells_unfolded[i] !== null) && (cells_folded[i] !== null))
+		{
+			cell += '<div id="lldpd-cell-' + row_id + '-folded" ' +
+				'class="lldpd-cell-' + (lldpd_row_folded[row_id] ? 'visible' : 'hidden') + '">'
+			cell += cells_folded[i]
+			cell += '</div>'
+
+			cell += '<div id="lldpd-cell-' + row_id + '-unfolded" ' +
+				'class="lldpd-cell-' + (lldpd_row_folded[row_id] ? 'hidden' : 'visible') + '">'
+			cell += cells_unfolded[i]
+			cell += '</div>'
+		}
+		else
+		{
+			cell += (cells_folded[i] == null)
+				? cells_unfolded[i]
+				: cells_folded[i]
+		}
+
+		if (i == 0)
+			cell += '</div></div>'
+
 		cell += '</div>'
+
+		row.push(cell)
 	}
 
-	cell += '<div id="lldpd-cell-' + cell_id + '-folded" ' +
-		'style="display:' + (lldpd_cell_folded[cell_id] ? 'block' : 'none') + '">'
-	cell += folded
-	cell += '</div>'
+	return row
+}
 
-	cell += '<div id="lldpd-cell-' + cell_id + '-unfolded" ' +
-		'style="display:' + (lldpd_cell_folded[cell_id] ? 'none' : 'block') + '">'
-	cell += unfolded
-	cell += '</div>'
+function lldpd_update_table(table, data, placeholder) {
+	var target = isElem(table) ? table : document.querySelector(table);
 
-	cell += '</div>'
+	if (!isElem(target))
+		return;
 
-	return cell
+	target.querySelectorAll('.tr.table-titles, .cbi-section-table-titles').forEach(function(thead) {
+		var titles = [];
+
+		thead.querySelectorAll('.th').forEach(function(th) {
+			titles.push(th);
+		});
+
+		if (Array.isArray(data)) {
+			var n = 0, rows = target.querySelectorAll('.tr');
+
+			data.forEach(function(row) {
+				var id = row[0]
+				var trow = E('div', { 'class': 'tr', 'onclick': 'lldpd_folding_toggle(this, \'' + id + '\')' });
+
+				for (var i = 0; i < titles.length; i++) {
+					var text = (titles[i].innerText || '').trim();
+					var td = trow.appendChild(E('div', {
+						'class': titles[i].className,
+						'data-title': (text !== '') ? text : null
+					}, row[i + 1] || ''));
+
+					td.classList.remove('th');
+					td.classList.add('td');
+				}
+
+				trow.classList.add('cbi-rowstyle-%d'.format((n++ % 2) ? 2 : 1));
+
+				if (rows[n])
+					target.replaceChild(trow, rows[n]);
+				else
+					target.appendChild(trow);
+			});
+
+			while (rows[++n])
+				target.removeChild(rows[n]);
+
+			if (placeholder && target.firstElementChild === target.lastElementChild) {
+				var trow = target.appendChild(E('div', { 'class': 'tr placeholder' }));
+				var td = trow.appendChild(E('div', { 'class': titles[0].className }, placeholder));
+
+				td.classList.remove('th');
+				td.classList.add('td');
+			}
+		}
+		else {
+			thead.parentNode.style.display = 'none';
+
+			thead.parentNode.querySelectorAll('.tr, .cbi-section-table-row').forEach(function(trow) {
+				if (trow !== thead) {
+					var n = 0;
+					trow.querySelectorAll('.th, .td').forEach(function(td) {
+						if (n < titles.length) {
+							var text = (titles[n++].innerText || '').trim();
+							if (text !== '')
+								td.setAttribute('data-title', text);
+						}
+					});
+				}
+			});
+
+			thead.parentNode.style.display = '';
+		}
+	});
 }
