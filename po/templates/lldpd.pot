@@ -4,19 +4,19 @@ msgstr "Content-Type: text/plain; charset=UTF-8"
 #: luasrc/view/lldpd/footer.htm:9
 msgid ""
 "&copy; 2018, Tano Systems, Anton Kikin &lt;<a href=\"mailto:a.kikin@tano-"
-"systems.com\">a.kikin@tano-systems.com</a>&gt;"
+"systems.com\"><nobr>a.kikin@tano-systems.com</nobr></a>&gt;"
 msgstr ""
 
 #: luasrc/model/cbi/lldpd/config.lua:28
 msgid "Advanced Settings"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:144
-#: luasrc/view/lldpd/status.htm:123
+#: htdocs/luci-static/resources/lldpd/lldpd.js:147
+#: luasrc/view/lldpd/status.htm:152
 msgid "Age"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:65
+#: luasrc/view/lldpd/status.htm:93
 msgid "Ageout count"
 msgstr ""
 
@@ -36,12 +36,12 @@ msgstr ""
 msgid "CDPv1 and CDPv2"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:107
+#: htdocs/luci-static/resources/lldpd/lldpd.js:111
 msgid "Capabilities"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:46 luasrc/view/lldpd/status.htm:71
-#: luasrc/view/lldpd/status.htm:82
+#: luasrc/view/lldpd/status.htm:74 luasrc/view/lldpd/status.htm:99
+#: luasrc/view/lldpd/status.htm:110
 msgid "Collecting data..."
 msgstr ""
 
@@ -49,11 +49,11 @@ msgstr ""
 msgid "Communication Device Endpoints (Class III)"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:67
+#: luasrc/view/lldpd/status.htm:95
 msgid "Delete count"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:62
+#: htdocs/luci-static/resources/lldpd/lldpd.js:66
 msgid "Description"
 msgstr ""
 
@@ -61,19 +61,19 @@ msgstr ""
 msgid "Disable LLDP-MED inventory TLV transmission"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:41
+#: luasrc/view/lldpd/status.htm:69
 msgid "Discovered chassis"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:36
+#: luasrc/view/lldpd/status.htm:64
 msgid "Discovered neighbors table"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:42
+#: luasrc/view/lldpd/status.htm:70
 msgid "Discovered port"
 msgstr ""
 
-#: luasrc/view/lldpd/filter_select.htm:142
+#: luasrc/view/lldpd/filter_select.htm:146
 msgid "E &mdash; enable filter"
 msgstr ""
 
@@ -137,12 +137,12 @@ msgstr ""
 msgid "FDP protocol"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:286
+#: luasrc/view/lldpd/status.htm:310
 msgid ""
 "Failed to read information. Maybe LLDPd service is not running or restarting."
 msgstr ""
 
-#: luasrc/view/lldpd/filter_select.htm:62
+#: luasrc/view/lldpd/filter_select.htm:71
 msgid "Filter"
 msgstr ""
 
@@ -170,11 +170,11 @@ msgstr ""
 msgid "Generic Endpoint (Class I)"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:64
+#: htdocs/luci-static/resources/lldpd/lldpd.js:68
 msgid "ID"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:63
+#: htdocs/luci-static/resources/lldpd/lldpd.js:67
 msgid "ID type"
 msgstr ""
 
@@ -189,11 +189,11 @@ msgid ""
 "and remote systems through SNMP."
 msgstr ""
 
-#: luasrc/view/lldpd/filter_select.htm:63
+#: luasrc/view/lldpd/filter_select.htm:72
 msgid "Incoming"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:66
+#: luasrc/view/lldpd/status.htm:94
 msgid "Insert count"
 msgstr ""
 
@@ -222,7 +222,7 @@ msgstr ""
 msgid "LLDP: Configure"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:25
+#: luasrc/view/lldpd/status.htm:53
 msgid "LLDP: Status"
 msgstr ""
 
@@ -247,19 +247,19 @@ msgstr ""
 msgid "Local ID"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:79
+#: luasrc/view/lldpd/status.htm:107
 msgid "Local chassis"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:81
+#: luasrc/view/lldpd/status.htm:109
 msgid "Local chassis information"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:39 luasrc/view/lldpd/status.htm:59
+#: luasrc/view/lldpd/status.htm:67 luasrc/view/lldpd/status.htm:87
 msgid "Local interface"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:56
+#: luasrc/view/lldpd/status.htm:84
 msgid "Local interfaces statistics table"
 msgstr ""
 
@@ -267,7 +267,7 @@ msgstr ""
 msgid "MAC address"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:83
+#: htdocs/luci-static/resources/lldpd/lldpd.js:87
 msgid "Management IP(s)"
 msgstr ""
 
@@ -279,17 +279,17 @@ msgstr ""
 msgid "Media Endpoint (Class II)"
 msgstr ""
 
-#: luasrc/view/lldpd/filter_select.htm:144
+#: luasrc/view/lldpd/filter_select.htm:148
 msgid "N &mdash; keep only one neighbor"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:61
-#: htdocs/luci-static/resources/lldpd/lldpd.js:143
-#: luasrc/view/lldpd/status.htm:122
+#: htdocs/luci-static/resources/lldpd/lldpd.js:65
+#: htdocs/luci-static/resources/lldpd/lldpd.js:146
+#: luasrc/view/lldpd/status.htm:151
 msgid "Name"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:34
+#: luasrc/view/lldpd/status.htm:62
 msgid "Neighbors table"
 msgstr ""
 
@@ -309,8 +309,8 @@ msgstr ""
 msgid "Network interfaces for chassis ID computing"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:188 luasrc/view/lldpd/status.htm:248
-#: luasrc/view/lldpd/status.htm:270
+#: luasrc/view/lldpd/status.htm:207 luasrc/view/lldpd/status.htm:272
+#: luasrc/view/lldpd/status.htm:294
 msgid "No information available"
 msgstr ""
 
@@ -322,7 +322,7 @@ msgstr ""
 msgid "Only CDPv2"
 msgstr ""
 
-#: luasrc/view/lldpd/filter_select.htm:64
+#: luasrc/view/lldpd/filter_select.htm:73
 msgid "Outgoing"
 msgstr ""
 
@@ -340,23 +340,23 @@ msgid ""
 "description is the kernel name (Linux)."
 msgstr ""
 
-#: luasrc/view/lldpd/filter_select.htm:143
+#: luasrc/view/lldpd/filter_select.htm:147
 msgid "P &mdash; keep only one protocol"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:153
+#: htdocs/luci-static/resources/lldpd/lldpd.js:156
 msgid "Port ID"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:150
+#: htdocs/luci-static/resources/lldpd/lldpd.js:153
 msgid "Port ID type"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:157
+#: htdocs/luci-static/resources/lldpd/lldpd.js:160
 msgid "Port description"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:40 luasrc/view/lldpd/status.htm:60
+#: luasrc/view/lldpd/status.htm:68 luasrc/view/lldpd/status.htm:88
 msgid "Protocol"
 msgstr ""
 
@@ -364,15 +364,15 @@ msgstr ""
 msgid "Protocols Support"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:62
+#: luasrc/view/lldpd/status.htm:90
 msgid "Rx"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:63
+#: luasrc/view/lldpd/status.htm:91
 msgid "Rx discarded"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:64
+#: luasrc/view/lldpd/status.htm:92
 msgid "Rx unrecognized"
 msgstr ""
 
@@ -431,7 +431,7 @@ msgid ""
 "address from all the considered interfaces to compute the chassis ID."
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:54
+#: luasrc/view/lldpd/status.htm:82
 msgid "Statistics table"
 msgstr ""
 
@@ -451,8 +451,8 @@ msgstr ""
 msgid "System platform description"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:160
-#: htdocs/luci-static/resources/lldpd/lldpd.js:162
+#: htdocs/luci-static/resources/lldpd/lldpd.js:163
+#: htdocs/luci-static/resources/lldpd/lldpd.js:165
 msgid "TTL"
 msgstr ""
 
@@ -481,7 +481,7 @@ msgid ""
 "default value is 30 seconds."
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:26
+#: luasrc/view/lldpd/status.htm:54
 msgid ""
 "This page allows you to see discovered LLDP neighbors, local interfaces "
 "statistics and local chassis information."
@@ -510,11 +510,11 @@ msgstr ""
 msgid "Transmit hold value must be greater than 0"
 msgstr ""
 
-#: luasrc/view/lldpd/status.htm:61
+#: luasrc/view/lldpd/status.htm:89
 msgid "Tx"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:133
+#: htdocs/luci-static/resources/lldpd/lldpd.js:136
 msgid "Unknown"
 msgstr ""
 
@@ -530,12 +530,12 @@ msgid ""
 "or the MAC address."
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:96
-#: htdocs/luci-static/resources/lldpd/lldpd.js:104
+#: htdocs/luci-static/resources/lldpd/lldpd.js:100
+#: htdocs/luci-static/resources/lldpd/lldpd.js:108
 msgid "disabled"
 msgstr ""
 
-#: htdocs/luci-static/resources/lldpd/lldpd.js:96
-#: htdocs/luci-static/resources/lldpd/lldpd.js:104
+#: htdocs/luci-static/resources/lldpd/lldpd.js:100
+#: htdocs/luci-static/resources/lldpd/lldpd.js:108
 msgid "enabled"
 msgstr ""
