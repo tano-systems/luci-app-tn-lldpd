@@ -19,6 +19,7 @@ All dates in this document are in `DD.MM.YYYY` format.
   and statistics tables. Previously inidividual badges will available
   only for LLDP and CDP protocols. EDP, FDP and SONMP protocols had the
   same colors for badges.
+- Changed icons for show/hide additional information.
 
 ## [Version 1.2.0] (15.12.2018)
 ### Added
