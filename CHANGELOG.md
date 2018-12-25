@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 All dates in this document are in `DD.MM.YYYY` format.
 
-## [Unreleased]
+## [Version 1.2.1] (25.12.2018)
 ### Added
 - Added support for the official OpenWrt and Material LuCI themes.
   Previously supported only Bootstrap LuCI theme.
@@ -59,6 +59,7 @@ All dates in this document are in `DD.MM.YYYY` format.
 
 Initial release
 
+[Version 1.2.1]: https://github.com/tano-systems/luci-app-lldpd/releases/tag/v1.2.1
 [Version 1.2.0]: https://github.com/tano-systems/luci-app-lldpd/releases/tag/v1.2.0
 [Version 1.1.1]: https://github.com/tano-systems/luci-app-lldpd/releases/tag/v1.1.1
 [Version 1.1.0]: https://github.com/tano-systems/luci-app-lldpd/releases/tag/v1.1.0
