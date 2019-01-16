@@ -219,11 +219,11 @@ msgid "LLDP-MED device class"
 msgstr ""
 
 #: luasrc/model/cbi/lldpd/config.lua:12
-msgid "LLDP: Configure"
+msgid "LLDPd Settings"
 msgstr ""
 
 #: luasrc/view/lldpd/status.htm:51
-msgid "LLDP: Status"
+msgid "LLDPd Status"
 msgstr ""
 
 #: luasrc/view/lldpd/footer.htm:8

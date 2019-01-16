@@ -9,7 +9,7 @@ local util = require "luci.util"
 local m, s, o
 
 m = Map("lldpd",
-	translate("LLDP: Configure"),
+	translate("LLDPd Settings"),
 	translate(
 		"LLDPd is a implementation of IEEE 802.1ab " ..
 		"(<abbr title=\"Link Layer Discovery Protocol\">LLDP</abbr>)."

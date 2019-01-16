@@ -6,6 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 All dates in this document are in `DD.MM.YYYY` format.
 
+## Unreleased
+### Changed
+- Changed application pages titles.
+- All tables wrapped into div with class "table-wrapper".
+
 ## [Version 1.2.1] (25.12.2018)
 ### Added
 - Added support for the official OpenWrt and Material LuCI themes.

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: luci-app-lldpd\n"
-"PO-Revision-Date: 2018-12-20 14:36+0300\n"
+"PO-Revision-Date: 2019-01-16 21:32+0300\n"
 "Last-Translator: Anton Kikin <a.kikin@tano-systems.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -250,12 +250,12 @@ msgid "LLDP-MED device class"
 msgstr "Класс устройства LLDP-MED"
 
 #: luasrc/model/cbi/lldpd/config.lua:12
-msgid "LLDP: Configure"
-msgstr "LLDP: Настройки"
+msgid "LLDPd Settings"
+msgstr "Настройки LLDPd"
 
 #: luasrc/view/lldpd/status.htm:51
-msgid "LLDP: Status"
-msgstr "LLDP: Состояние"
+msgid "LLDPd Status"
+msgstr "Состояние LLDPd"
 
 #: luasrc/view/lldpd/footer.htm:8
 msgid "LLDPd LuCI application (version %s)"
