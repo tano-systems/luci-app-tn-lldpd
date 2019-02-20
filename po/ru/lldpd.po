@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: luci-app-lldpd\n"
-"PO-Revision-Date: 2019-01-16 21:32+0300\n"
+"PO-Revision-Date: 2019-02-20 17:30+0300\n"
 "Last-Translator: Anton Kikin <a.kikin@tano-systems.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -15,10 +15,10 @@ msgstr ""
 
 #: luasrc/view/lldpd/footer.htm:9
 msgid ""
-"&copy; 2018, Tano Systems, Anton Kikin &lt;<a href=\"mailto:a.kikin@tano-"
-"systems.com\"><nobr>a.kikin@tano-systems.com</nobr></a>&gt;"
+"&copy; 2018&ndash;2019, Tano Systems, Anton Kikin &lt;<a href=\"mailto:a."
+"kikin@tano-systems.com\"><nobr>a.kikin@tano-systems.com</nobr></a>&gt;"
 msgstr ""
-"&copy; 2018, Tano Systems, Антон Кикин &lt;<a href=\"mailto:a.kikin@tano-"
+"&copy; 2018&ndash;2019, Tano Systems, Антон Кикин &lt;<a href=\"mailto:a.kikin@tano-"
 "systems.com\"><nobr>a.kikin@tano-systems.com</nobr></a>&gt;"
 
 #: luasrc/model/cbi/lldpd/config.lua:28
@@ -26,11 +26,11 @@ msgid "Advanced Settings"
 msgstr "Дополнительные настройки"
 
 #: htdocs/luci-static/resources/lldpd/lldpd.js:152
-#: luasrc/view/lldpd/status.htm:151
+#: luasrc/view/lldpd/status.htm:161
 msgid "Age"
 msgstr "Возраст"
 
-#: luasrc/view/lldpd/status.htm:91
+#: luasrc/view/lldpd/status.htm:101
 msgid "Ageout count"
 msgstr "Устарело"
 
@@ -54,8 +54,8 @@ msgstr "CDPv1 и CDPv2"
 msgid "Capabilities"
 msgstr "Возможности"
 
-#: luasrc/view/lldpd/status.htm:72 luasrc/view/lldpd/status.htm:97
-#: luasrc/view/lldpd/status.htm:108
+#: luasrc/view/lldpd/status.htm:82 luasrc/view/lldpd/status.htm:107
+#: luasrc/view/lldpd/status.htm:118
 msgid "Collecting data..."
 msgstr "Сбор данных..."
 
@@ -63,7 +63,7 @@ msgstr "Сбор данных..."
 msgid "Communication Device Endpoints (Class III)"
 msgstr "Communication Device Endpoints (класс III)"
 
-#: luasrc/view/lldpd/status.htm:93
+#: luasrc/view/lldpd/status.htm:103
 msgid "Delete count"
 msgstr "Удалено"
 
@@ -75,15 +75,15 @@ msgstr "Описание"
 msgid "Disable LLDP-MED inventory TLV transmission"
 msgstr "Отключить отправку инвентарной информации LLDP-MED TLV"
 
-#: luasrc/view/lldpd/status.htm:67
+#: luasrc/view/lldpd/status.htm:77
 msgid "Discovered chassis"
 msgstr "Обнаруженное шасси"
 
-#: luasrc/view/lldpd/status.htm:62
+#: luasrc/view/lldpd/status.htm:72
 msgid "Discovered neighbors table"
 msgstr "Таблица обнаруженных соседей"
 
-#: luasrc/view/lldpd/status.htm:68
+#: luasrc/view/lldpd/status.htm:78
 msgid "Discovered port"
 msgstr "Обнаруженный порт"
 
@@ -159,7 +159,7 @@ msgstr ""
 msgid "FDP protocol"
 msgstr "Протокол FDP"
 
-#: luasrc/view/lldpd/status.htm:312
+#: luasrc/view/lldpd/status.htm:322
 msgid ""
 "Failed to read information. Maybe LLDPd service is not running or restarting."
 msgstr ""
@@ -224,7 +224,7 @@ msgstr ""
 msgid "Incoming"
 msgstr "Входящие"
 
-#: luasrc/view/lldpd/status.htm:92
+#: luasrc/view/lldpd/status.htm:102
 msgid "Insert count"
 msgstr "Обнаружено"
 
@@ -249,17 +249,17 @@ msgstr "Протокол LLDP"
 msgid "LLDP-MED device class"
 msgstr "Класс устройства LLDP-MED"
 
+#: luasrc/view/lldpd/footer.htm:8
+msgid "LLDPd LuCI application (version %s)"
+msgstr "LuCI приложение управления LLDPd (версия %s)"
+
 #: luasrc/model/cbi/lldpd/config.lua:12
 msgid "LLDPd Settings"
 msgstr "Настройки LLDPd"
 
-#: luasrc/view/lldpd/status.htm:51
+#: luasrc/view/lldpd/status.htm:61
 msgid "LLDPd Status"
 msgstr "Состояние LLDPd"
-
-#: luasrc/view/lldpd/footer.htm:8
-msgid "LLDPd LuCI application (version %s)"
-msgstr "LuCI приложение управления LLDPd (версия %s)"
 
 #: luasrc/model/cbi/lldpd/config.lua:13
 msgid ""
@@ -284,19 +284,19 @@ msgstr ""
 msgid "Local ID"
 msgstr "Локально заданный ID"
 
-#: luasrc/view/lldpd/status.htm:105
+#: luasrc/view/lldpd/status.htm:115
 msgid "Local chassis"
 msgstr "Локальное шасси"
 
-#: luasrc/view/lldpd/status.htm:107
+#: luasrc/view/lldpd/status.htm:117
 msgid "Local chassis information"
 msgstr "Информация о локальном шасси"
 
-#: luasrc/view/lldpd/status.htm:65 luasrc/view/lldpd/status.htm:85
+#: luasrc/view/lldpd/status.htm:75 luasrc/view/lldpd/status.htm:95
 msgid "Local interface"
 msgstr "Локальный интерфейс"
 
-#: luasrc/view/lldpd/status.htm:82
+#: luasrc/view/lldpd/status.htm:92
 msgid "Local interfaces statistics table"
 msgstr "Таблица статистики локальных интерфейсов"
 
@@ -322,11 +322,11 @@ msgstr "N &mdash; хранить только одного соседа"
 
 #: htdocs/luci-static/resources/lldpd/lldpd.js:70
 #: htdocs/luci-static/resources/lldpd/lldpd.js:151
-#: luasrc/view/lldpd/status.htm:150
+#: luasrc/view/lldpd/status.htm:160
 msgid "Name"
 msgstr "Имя"
 
-#: luasrc/view/lldpd/status.htm:60
+#: luasrc/view/lldpd/status.htm:70
 msgid "Neighbors table"
 msgstr "Таблица соседей"
 
@@ -346,8 +346,8 @@ msgstr "Сетевые интерфейсы"
 msgid "Network interfaces for chassis ID computing"
 msgstr "Сетевые интерфейсы, используемые для вычисления ID шасси (chassis ID)"
 
-#: luasrc/view/lldpd/status.htm:207 luasrc/view/lldpd/status.htm:274
-#: luasrc/view/lldpd/status.htm:296
+#: luasrc/view/lldpd/status.htm:217 luasrc/view/lldpd/status.htm:284
+#: luasrc/view/lldpd/status.htm:306
 msgid "No information available"
 msgstr "Нет доступной информации"
 
@@ -395,7 +395,7 @@ msgstr "Тип ID порта"
 msgid "Port description"
 msgstr "Описание порта"
 
-#: luasrc/view/lldpd/status.htm:66 luasrc/view/lldpd/status.htm:86
+#: luasrc/view/lldpd/status.htm:76 luasrc/view/lldpd/status.htm:96
 msgid "Protocol"
 msgstr "Протокол"
 
@@ -403,15 +403,15 @@ msgstr "Протокол"
 msgid "Protocols Support"
 msgstr "Поддержка протоколов"
 
-#: luasrc/view/lldpd/status.htm:88
+#: luasrc/view/lldpd/status.htm:98
 msgid "Rx"
 msgstr "Rx"
 
-#: luasrc/view/lldpd/status.htm:89
+#: luasrc/view/lldpd/status.htm:99
 msgid "Rx discarded"
 msgstr "Rx (отброшено)"
 
-#: luasrc/view/lldpd/status.htm:90
+#: luasrc/view/lldpd/status.htm:100
 msgid "Rx unrecognized"
 msgstr "Rx (не распознано)"
 
@@ -484,7 +484,7 @@ msgstr ""
 "иcпользованы все интерфейсы. LLDPd получит первый MAC-адрес из всех "
 "доступных интерфейсов для вычисления ID шасси."
 
-#: luasrc/view/lldpd/status.htm:80
+#: luasrc/view/lldpd/status.htm:90
 msgid "Statistics table"
 msgstr "Таблица статистики"
 
@@ -543,7 +543,7 @@ msgstr ""
 "Задержка между двумя передачами LLDP PDU. Значение по умолчанию составляет "
 "30 секунд."
 
-#: luasrc/view/lldpd/status.htm:52
+#: luasrc/view/lldpd/status.htm:62
 msgid ""
 "This page allows you to see discovered LLDP neighbors, local interfaces "
 "statistics and local chassis information."
@@ -578,7 +578,7 @@ msgstr "Значение «transmit hold»"
 msgid "Transmit hold value must be greater than 0"
 msgstr "Значение «transmit hold» должно быть больше 0"
 
-#: luasrc/view/lldpd/status.htm:87
+#: luasrc/view/lldpd/status.htm:97
 msgid "Tx"
 msgstr "Tx"
 
