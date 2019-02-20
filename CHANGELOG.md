@@ -10,6 +10,7 @@ All dates in this document are in `DD.MM.YYYY` format.
 ### Changed
 - Changed application pages titles.
 - All tables wrapped into div with class "table-wrapper".
+- Use polling interval from LuCI configuration (luci.main.pollinterval)
 
 ## [Version 1.2.1] (25.12.2018)
 ### Added

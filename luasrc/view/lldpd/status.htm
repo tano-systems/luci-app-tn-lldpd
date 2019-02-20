@@ -309,7 +309,7 @@
 		return error
 	}
 
-	XHR.poll(5, '<%=url('admin/services/lldpd/get_info')%>', null,
+	XHR.poll(-1, '<%=url('admin/services/lldpd/get_info')%>', null,
 		function(x, json)
 		{
 			var error = 0
