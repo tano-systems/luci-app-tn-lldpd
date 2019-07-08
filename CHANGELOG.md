@@ -13,6 +13,7 @@ All dates in this document are in `DD.MM.YYYY` format.
 - Use polling interval from LuCI configuration (luci.main.pollinterval)
 
 ### Fixed
+- Fixed possible simultaneous folding/unfolding of multiple rows.
 - Dropped unnecessary data from the "discovered port" column
   of the neighbors table.
 

@@ -149,7 +149,18 @@
 		var cells_folded = []
 		var cells_unfolded = []
 
-		var id = lldpd_id(obj.name + '-' + obj.rid)
+		var new_id = obj.name + '-' + obj.rid;
+
+		if (typeof obj.port !== 'undefined')
+		{
+			if (typeof obj.port[0].id !== 'undefined')
+				new_id += "-" + obj.port[0].id[0].value
+
+			if (typeof obj.port[0].descr !== 'undefined')
+				new_id += "-" + obj.port[0].descr[0].value
+		}
+
+		var id = lldpd_id(new_id)
 
 		//
 		// Interface
