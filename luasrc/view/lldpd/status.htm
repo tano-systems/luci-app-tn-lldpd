@@ -179,7 +179,7 @@
 		// Port
 		//
 		cells_folded[3]   = lldpd_fmt_port(obj)
-		cells_unfolded[3] = lldpd_fmt_port_kvtable(obj)
+		cells_unfolded[3] = lldpd_fmt_port_kvtable(obj, true)
 
 		row.push(id)
 		return row.concat(lldpd_folding_row(id, cells_folded, cells_unfolded, true))
@@ -229,7 +229,7 @@
 		var id = lldpd_id(iobj.name)
 
 		cells_folded[0]   = lldpd_fmt_port(iobj)
-		cells_unfolded[0] = lldpd_fmt_port_kvtable(iobj)
+		cells_unfolded[0] = lldpd_fmt_port_kvtable(iobj, false)
 
 		cells_folded[1]   = lldpd_fmt_protocol(iobj.via)
 		cells_unfolded[1] = null

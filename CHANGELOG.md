@@ -12,6 +12,10 @@ All dates in this document are in `DD.MM.YYYY` format.
 - All tables wrapped into div with class "table-wrapper".
 - Use polling interval from LuCI configuration (luci.main.pollinterval)
 
+### Fixed
+- Dropped unnecessary data from the "discovered port" column
+  of the neighbors table.
+
 ## [Version 1.2.1] (25.12.2018)
 ### Added
 - Added support for the official OpenWrt and Material LuCI themes.

@@ -143,13 +143,17 @@ function lldpd_fmt_chassis(ch)
 	return folded
 }
 
-function lldpd_fmt_port_kvtable(port)
+function lldpd_fmt_port_kvtable(port, only_id_and_ttl)
 {
 	var unfolded = ''
 
 	unfolded = '<table class="lldpd-kvtable">'
-	unfolded += lldpd_kvtable_add_row(_("Name"), port.name)
-	unfolded += lldpd_kvtable_add_row(_("Age"), lldpd_fmt_age(port.age))
+
+	if (!only_id_and_ttl)
+	{
+		unfolded += lldpd_kvtable_add_row(_("Name"), port.name)
+		unfolded += lldpd_kvtable_add_row(_("Age"), lldpd_fmt_age(port.age))
+	}
 
 	if (typeof port.port !== 'undefined')
 	{
