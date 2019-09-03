@@ -124,154 +124,158 @@
 <script type="text/javascript">//<![CDATA[
 
 	function lldpd_error(msg) {
-		var d = document.getElementById('lldpd-error')
-		d.innerHTML = msg
+		var d = document.getElementById('lldpd-error');
+		d.innerHTML = msg;
 
 		if (!msg || (msg == ''))
 		{
-			d.innerHTML = ''
-			d.style.display = "none"
+			d.innerHTML = '';
+			d.style.display = "none";
 		}
 		else
 		{
-			d.innerHTML = msg
-			d.style.display = "block"
+			d.innerHTML = msg;
+			d.style.display = "block";
 		}
 	}
 
 	function lldpd_error_hide() {
-		lldpd_error(null)
+		lldpd_error(null);
 	}
 
 	function lldpd_neighbors_add_row(i, obj)
 	{
-		var row = []
-		var cells_folded = []
-		var cells_unfolded = []
+		var row = [];
+		var cells_folded = [];
+		var cells_unfolded = [];
+
+		if (typeof obj === 'undefined')
+			obj.name = 'Unknown';
 
 		var new_id = obj.name + '-' + obj.rid;
 
 		if (typeof obj.port !== 'undefined')
 		{
 			if (typeof obj.port[0].id !== 'undefined')
-				new_id += "-" + obj.port[0].id[0].value
+				new_id += "-" + obj.port[0].id[0].value;
 
 			if (typeof obj.port[0].descr !== 'undefined')
-				new_id += "-" + obj.port[0].descr[0].value
+				new_id += "-" + obj.port[0].descr[0].value;
 		}
 
-		var id = lldpd_id(new_id)
+		var id = lldpd_id(new_id);
 
 		//
 		// Interface
 		//
-		cells_folded[0] = '%s'.format(obj.name)
+		cells_folded[0] = '%s'.format(obj.name);
 
-		cells_unfolded[0] = '<table class="lldpd-kvtable">'
-		cells_unfolded[0] += lldpd_kvtable_add_row("<%:Name%>", obj.name)
-		cells_unfolded[0] += lldpd_kvtable_add_row("<%:Age%>", lldpd_fmt_age(obj.age))
-		cells_unfolded[0] += "</table>"
+		cells_unfolded[0] = '<table class="lldpd-kvtable">';
+		cells_unfolded[0] += lldpd_kvtable_add_row("<%:Name%>", obj.name);
+		cells_unfolded[0] += lldpd_kvtable_add_row("<%:Age%>", lldpd_fmt_age(obj.age));
+		cells_unfolded[0] += "</table>";
 
 		//
 		// Protocol
 		//
-		cells_folded[1] = lldpd_fmt_protocol(obj.via)
-		cells_unfolded[1] = null
+		cells_folded[1] = lldpd_fmt_protocol(obj.via);
+		cells_unfolded[1] = null;
 
 		//
 		// Chassis
 		//
-		var ch = obj.chassis[0]
+		var ch = obj.chassis[0];
 
-		cells_folded[2]   = lldpd_fmt_chassis(ch)
-		cells_unfolded[2] = lldpd_fmt_chassis_kvtable(ch)
+		cells_folded[2]   = lldpd_fmt_chassis(ch);
+		cells_unfolded[2] = lldpd_fmt_chassis_kvtable(ch);
 
 		//
 		// Port
 		//
-		cells_folded[3]   = lldpd_fmt_port(obj)
-		cells_unfolded[3] = lldpd_fmt_port_kvtable(obj, true)
+		cells_folded[3]   = lldpd_fmt_port(obj);
+		cells_unfolded[3] = lldpd_fmt_port_kvtable(obj, true);
 
-		row.push(id)
-		return row.concat(lldpd_folding_row(id, cells_folded, cells_unfolded, true))
+		row.push(id);
+		return row.concat(lldpd_folding_row(id, cells_folded, cells_unfolded, true));
 	}
 
 	function lldpd_neighbors_update(data)
 	{
-		var error = 0
-		var i = 0
+		var error = 0;
+		var i = 0;
 
 		var nb_table =
-			document.getElementById('lldpd-neighbors')
+			document.getElementById('lldpd-neighbors');
 
 		var nb_count =
-			document.getElementById('lldpd-neighbors-count')
+			document.getElementById('lldpd-neighbors-count');
 
-		var rows = []
+		var rows = [];
 
 		if (data &&
 		    typeof data.neighbors !== 'undefined' &&
 		    typeof data.neighbors.lldp !== 'undefined')
 		{
-			var ifaces = data.neighbors.lldp[0].interface
+			var ifaces = data.neighbors.lldp[0].interface;
 
 			// Fill table rows
 			if (typeof ifaces !== 'undefined') {
 				for (i = 0; i < ifaces.length; i++)
-					rows.push(lldpd_neighbors_add_row(i, ifaces[i]))
+					rows.push(lldpd_neighbors_add_row(i, ifaces[i]));
 			}
+		} else {
+			if (!data)
+				error = 1;
 		}
-		else
-			error = 1
 
 		lldpd_update_table(nb_table, rows,
-			'<em><%:No information available%></em>')
+			'<em><%:No information available%></em>');
 
-		nb_count.innerHTML = i
-		return error
+		nb_count.innerHTML = i;
+		return error;
 	}
 
 	function lldpd_statistics_add_row(i, sobj, iobj)
 	{
-		var row = []
-		var cells_folded   = []
-		var cells_unfolded = []
+		var row = [];
+		var cells_folded   = [];
+		var cells_unfolded = [];
 
-		var id = lldpd_id(iobj.name)
+		var id = lldpd_id(iobj.name);
 
-		cells_folded[0]   = lldpd_fmt_port(iobj)
-		cells_unfolded[0] = lldpd_fmt_port_kvtable(iobj, false)
+		cells_folded[0]   = lldpd_fmt_port(iobj);
+		cells_unfolded[0] = lldpd_fmt_port_kvtable(iobj, false);
 
-		cells_folded[1]   = lldpd_fmt_protocol(iobj.via)
-		cells_unfolded[1] = null
+		cells_folded[1]   = lldpd_fmt_protocol(iobj.via);
+		cells_unfolded[1] = null;
 
-		cells_folded[2] = lldpd_fmt_number(sobj.tx[0].tx)
-		cells_folded[3] = lldpd_fmt_number(sobj.rx[0].rx)
-		cells_folded[4] = lldpd_fmt_number(sobj.rx_discarded_cnt[0].rx_discarded_cnt)
-		cells_folded[5] = lldpd_fmt_number(sobj.rx_unrecognized_cnt[0].rx_unrecognized_cnt)
-		cells_folded[6] = lldpd_fmt_number(sobj.ageout_cnt[0].ageout_cnt)
-		cells_folded[7] = lldpd_fmt_number(sobj.insert_cnt[0].insert_cnt)
-		cells_folded[8] = lldpd_fmt_number(sobj.delete_cnt[0].delete_cnt)
+		cells_folded[2] = lldpd_fmt_number(sobj.tx[0].tx);
+		cells_folded[3] = lldpd_fmt_number(sobj.rx[0].rx);
+		cells_folded[4] = lldpd_fmt_number(sobj.rx_discarded_cnt[0].rx_discarded_cnt);
+		cells_folded[5] = lldpd_fmt_number(sobj.rx_unrecognized_cnt[0].rx_unrecognized_cnt);
+		cells_folded[6] = lldpd_fmt_number(sobj.ageout_cnt[0].ageout_cnt);
+		cells_folded[7] = lldpd_fmt_number(sobj.insert_cnt[0].insert_cnt);
+		cells_folded[8] = lldpd_fmt_number(sobj.delete_cnt[0].delete_cnt);
 
-		cells_unfolded[2] = null
-		cells_unfolded[3] = null
-		cells_unfolded[4] = null
-		cells_unfolded[5] = null
-		cells_unfolded[6] = null
-		cells_unfolded[7] = null
-		cells_unfolded[8] = null
+		cells_unfolded[2] = null;
+		cells_unfolded[3] = null;
+		cells_unfolded[4] = null;
+		cells_unfolded[5] = null;
+		cells_unfolded[6] = null;
+		cells_unfolded[7] = null;
+		cells_unfolded[8] = null ;
 
-		row.push(id)
-		return row.concat(lldpd_folding_row(id, cells_folded, cells_unfolded, true))
+		row.push(id);
+		return row.concat(lldpd_folding_row(id, cells_folded, cells_unfolded, true));
 	}
 
 	function lldpd_statistics_update(data)
 	{
-		var error = 0
+		var error = 0;
 		var statistics_table =
-			document.getElementById('lldpd-statistics')
+			document.getElementById('lldpd-statistics');
 
-		var rows = []
+		var rows = [];
 
 		if (data &&
 		    typeof data.statistics !== 'undefined' &&
@@ -279,20 +283,21 @@
 		    typeof data.statistics.lldp !== 'undefined' &&
 		    typeof data.interfaces.lldp !== 'undefined')
 		{
-			var sifaces = data.statistics.lldp[0].interface
-			var ifaces  = data.interfaces.lldp[0].interface
+			var sifaces = data.statistics.lldp[0].interface;
+			var ifaces  = data.interfaces.lldp[0].interface;
 
 			if ((typeof sifaces !== 'undefined') &&
 			    (typeof  ifaces !== 'undefined')) {
 				for (var i = 0; i < sifaces.length; i++)
-					rows.push(lldpd_statistics_add_row(i, sifaces[i], ifaces[i]))
+					rows.push(lldpd_statistics_add_row(i, sifaces[i], ifaces[i]));
 			}
+		} else {
+			if (!data)
+				error = 1;
 		}
-		else
-			error = 1
 
 		lldpd_update_table(statistics_table, rows,
-			'<em><%:No information available%></em>')
+			'<em><%:No information available%></em>');
 
 		return error
 	}
@@ -301,7 +306,7 @@
 	{
 		var error = 0;
 		var chassis_table =
-			document.getElementById('lldpd-chassis')
+			document.getElementById('lldpd-chassis');
 
 		if (data &&
 		    typeof data.chassis !== 'undefined' &&
@@ -309,30 +314,32 @@
 		    typeof data.chassis['local-chassis'][0].chassis[0].name !== 'undefined')
 		{
 			chassis_table.innerHTML = lldpd_fmt_chassis_kvtable(
-				data.chassis['local-chassis'][0].chassis[0])
+				data.chassis['local-chassis'][0].chassis[0]);
 		}
 		else
 		{
-			error = 1
-			chassis_table.innerHTML = '<em><%:No information available%></em>'
+			if (!data)
+				error = 1;
+
+			chassis_table.innerHTML = '<em><%:No information available%></em>';
 		}
 
-		return error
+		return error;
 	}
 
 	XHR.poll(-1, '<%=url('admin/services/lldpd/get_info')%>', null,
 		function(x, json)
 		{
-			var error = 0
+			var error = 0;
 
-			error += lldpd_neighbors_update(json)
-			error += lldpd_statistics_update(json)
-			error += lldpd_chassis_update(json)
+			error += lldpd_neighbors_update(json);
+			error += lldpd_statistics_update(json);
+			error += lldpd_chassis_update(json);
 
 			if (error > 0)
-				lldpd_error('<%:Failed to read information. Maybe LLDPd service is not running or restarting.%>')
+				lldpd_error('<%:Failed to read information. Maybe LLDPd service is not running or restarting.%>');
 			else
-				lldpd_error_hide()
+				lldpd_error_hide();
 		}
 	)
 //]]></script>
