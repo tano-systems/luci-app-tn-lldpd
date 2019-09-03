@@ -12,7 +12,7 @@ use old luci-app-lldpd [version 1.0.0].
 
 Starting with [version 1.2.0], in order for all available settings to work correctly,
 you must use the modified procd initialization script for lldpd, that can be founded
-in [meta-tano-openwrt](https://github.com/tano-systems/meta-tano-openwrt.git) OpenEmbedded layer.
+in [meta-tanowrt](https://github.com/tano-systems/meta-tanowrt.git) OpenEmbedded layer.
 
 ## Supported languages
 - Russian
