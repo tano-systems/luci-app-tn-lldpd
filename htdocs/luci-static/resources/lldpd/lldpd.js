@@ -76,10 +76,18 @@ function lldpd_fmt_chassis_kvtable(ch)
 	var unfolded = ''
 
 	unfolded += '<table class="lldpd-kvtable">';
-	unfolded += lldpd_kvtable_add_row(_("Name"), ch.name[0].value);
-	unfolded += lldpd_kvtable_add_row(_("Description"), ch.descr[0].value);
-	unfolded += lldpd_kvtable_add_row(_("ID type"), lldpd_fmt_port_id_type(ch.id[0].type));
-	unfolded += lldpd_kvtable_add_row(_("ID"), ch.id[0].value);
+
+	if (typeof ch.name !== 'undefined')
+		unfolded += lldpd_kvtable_add_row(_("Name"), ch.name[0].value);
+
+	if (typeof ch.descr !== 'undefined')
+		unfolded += lldpd_kvtable_add_row(_("Description"), ch.descr[0].value);
+
+	if (typeof ch.id !== 'undefined')
+	{
+		unfolded += lldpd_kvtable_add_row(_("ID type"), lldpd_fmt_port_id_type(ch.id[0].type));
+		unfolded += lldpd_kvtable_add_row(_("ID"), ch.id[0].value);
+	}
 
 	// Management addresses
 	if (typeof ch["mgmt-ip"] !== 'undefined')
@@ -134,17 +142,22 @@ function lldpd_fmt_chassis(ch)
 {
 	var folded = '';
 
-	if (typeof ch.name[0].value !== 'undefined' &&
+	if (typeof ch.name !== 'undefined' &&
+	    typeof ch.descr !== 'undefined' &&
+	    typeof ch.name[0].value !== 'undefined' &&
 	    typeof ch.descr[0].value !== 'undefined')
 	{
 		folded += '<strong>' + ch.name[0].value + '</strong>';
 		folded += '<br />' + ch.descr[0].value;
 	}
-	else if (typeof ch.name[0].value !== 'undefined')
+	else if (typeof ch.name !== 'undefined' &&
+	         typeof ch.name[0].value !== 'undefined')
 		folded += '<strong>' + ch.name[0].value + '</strong>';
-	else if (typeof ch.descr[0].value !== 'undefined')
+	else if (typeof ch.descr !== 'undefined' &&
+	         typeof ch.descr[0].value !== 'undefined')
 		folded += ch.descr[0].value;
-	else if (typeof ch.id[0].value !== 'undefined')
+	else if (typeof ch.id !== 'undefined' &&
+	         typeof ch.id[0].value !== 'undefined')
 		folded += ch.id[0].value;
 	else
 		folded += _('Unknown');
