@@ -12,6 +12,7 @@ All dates in this document are in `DD.MM.YYYY` format.
 - All tables wrapped into div with class "table-wrapper".
 - Use polling interval from LuCI configuration (luci.main.pollinterval)
 - Added spinner for messages about waiting for data.
+- Removed useless ucitrack definition
 
 ### Fixed
 - Fixed possible simultaneous folding/unfolding of multiple rows.
