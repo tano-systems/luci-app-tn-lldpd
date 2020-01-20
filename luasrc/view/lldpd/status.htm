@@ -345,5 +345,12 @@
 //]]></script>
 <script type="text/javascript" src="<%=resource%>/lldpd/lldpd.js?v=076ba6e70ec36de93fe00e85943e3767"></script>
 
-<%+lldpd/footer%>
+<%
+	local uci = require("luci.model.uci").cursor()
+	local hide_footer = uci:get_bool("luci", "app_tn_lldpd", "hide_footer") or false
+	if hide_footer == false then
+%>
+	<%+lldpd/footer%>
+<%	end %>
+
 <%+footer%>

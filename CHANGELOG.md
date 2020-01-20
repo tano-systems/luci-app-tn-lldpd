@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 All dates in this document are in `DD.MM.YYYY` format.
 
 ## Unreleased
+### Added
+- Allow to hide footer by UCI option 'luci.app_tn_lldpd.hide_footer'
+
 ### Changed
 - Changed application pages titles.
 - All tables wrapped into div with class "table-wrapper".

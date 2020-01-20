@@ -437,7 +437,10 @@ o:depends("enable_sonmp", true)
 
 -----------------------------------------------------------------------------------
 
-s = m:section(SimpleSection, nil)
-s.template = "lldpd/footer"
+local hide_footer = m.uci:get_bool("luci", "app_tn_lldpd", "hide_footer") or false
+if hide_footer == false then
+	s = m:section(SimpleSection, nil)
+	s.template = "lldpd/footer"
+end
 
 return m
