@@ -23,6 +23,7 @@ All dates in this document are in `DD.MM.YYYY` format.
 - Dropped unnecessary data from the "discovered port" column
   of the neighbors table.
 - Minor HTML markup fixes.
+- Handle JSON.parse() exceptions.
 
 ## [Version 1.2.1] (25.12.2018)
 ### Added

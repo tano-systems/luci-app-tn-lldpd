@@ -332,7 +332,11 @@
 			timeout: 0
 		}).then(function(r) {
 			var error = 0;
-			var json = JSON.parse(r.responseText);
+			var json = null;
+
+			try {
+				json = JSON.parse(r.responseText);
+			} catch(e) {}
 
 			error += lldpd_neighbors_update(json);
 			error += lldpd_statistics_update(json);
