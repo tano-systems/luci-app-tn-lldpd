@@ -327,10 +327,12 @@
 		return error;
 	}
 
-	XHR.poll(-1, '<%=url('admin/services/lldpd/get_info')%>', null,
-		function(x, json)
-		{
+	L.Poll.add(function() {
+		return L.Request.get(L.url('admin/services/lldpd/get_info'), null, {
+			timeout: 0
+		}).then(function(r) {
 			var error = 0;
+			var json = JSON.parse(r.responseText);
 
 			error += lldpd_neighbors_update(json);
 			error += lldpd_statistics_update(json);
@@ -340,8 +342,8 @@
 				lldpd_error('<%:Failed to read information. Maybe LLDPd service is not running or restarting.%>');
 			else
 				lldpd_error_hide();
-		}
-	)
+		});
+	})
 //]]></script>
 <script type="text/javascript" src="<%=resource%>/lldpd/lldpd.js?v=076ba6e70ec36de93fe00e85943e3767"></script>
 

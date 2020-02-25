@@ -16,6 +16,7 @@ All dates in this document are in `DD.MM.YYYY` format.
 - Use polling interval from LuCI configuration (luci.main.pollinterval)
 - Added spinner for messages about waiting for data.
 - Removed useless ucitrack definition
+- Use L.Poll.add() instead of deprecated XHR.Poll() for data polling.
 
 ### Fixed
 - Fixed possible simultaneous folding/unfolding of multiple rows.
