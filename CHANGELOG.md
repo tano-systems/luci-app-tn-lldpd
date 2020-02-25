@@ -22,6 +22,7 @@ All dates in this document are in `DD.MM.YYYY` format.
 - Fixed possible simultaneous folding/unfolding of multiple rows.
 - Dropped unnecessary data from the "discovered port" column
   of the neighbors table.
+- Minor HTML markup fixes.
 
 ## [Version 1.2.1] (25.12.2018)
 ### Added

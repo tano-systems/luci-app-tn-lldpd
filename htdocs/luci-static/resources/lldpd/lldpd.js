@@ -320,8 +320,6 @@ function lldpd_folding_row(row_id, cells_folded, cells_unfolded, default_folded)
 		if (i == 0)
 			cell += '</div></div>';
 
-		cell += '</div>';
-
 		row.push(cell);
 	}
 
