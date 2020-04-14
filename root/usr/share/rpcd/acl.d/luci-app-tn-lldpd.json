@@ -1,0 +1,11 @@
+{
+	"luci-app-tn-lldpd": {
+		"description": "Grant UCI access for luci-app-tn-lldpd",
+		"read": {
+			"uci": [ "lldpd", "luci" ]
+		},
+		"write": {
+			"uci": [ "lldpd" ]
+		}
+	}
+}

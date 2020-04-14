@@ -8,6 +8,7 @@ All dates in this document are in `DD.MM.YYYY` format.
 
 ## Unreleased
 ### Added
+- Added ACL rules for latest LuCI support
 - Allow to hide footer by UCI option 'luci.app_tn_lldpd.hide_footer'
 
 ### Changed
