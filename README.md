@@ -8,7 +8,7 @@ in LuCI web interface.
 Package depends on lldpd package.
 
 LLDPd LuCI application developed for LuCI 18.06 branch. For OpenWrt/LEDE 17.01
-use old luci-app-lldpd [version 1.0.0].
+use old luci-app-tn-lldpd [version 1.0.0].
 
 Starting with [version 1.2.0], in order for all available settings to work correctly,
 you must use the modified procd initialization script for lldpd, that can be founded
@@ -45,5 +45,5 @@ in [meta-tanowrt](https://github.com/tano-systems/meta-tanowrt.git) OpenEmbedded
 #### Protocols support
 ![Protocols support](screenshots/luci-app-lldpd-settings-protocols.png?raw=true "Protocols support")
 
-[version 1.2.0]: https://github.com/tano-systems/luci-app-lldpd/releases/tag/v1.2.0
-[version 1.0.0]: https://github.com/tano-systems/luci-app-lldpd/releases/tag/v1.0.0
+[version 1.2.0]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v1.2.0
+[version 1.0.0]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v1.0.0

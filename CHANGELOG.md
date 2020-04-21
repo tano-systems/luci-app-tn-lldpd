@@ -6,7 +6,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 All dates in this document are in `DD.MM.YYYY` format.
 
-## Unreleased
+## [Unreleased]
+
+*Nothing yet*
+
+## [Version 1.3.0] (21.04.2020)
 ### Added
 - Added ACL rules for latest LuCI support
 - Allow to hide footer by UCI option 'luci.app_tn_lldpd.hide_footer'
@@ -79,8 +83,10 @@ All dates in this document are in `DD.MM.YYYY` format.
 
 Initial release
 
-[Version 1.2.1]: https://github.com/tano-systems/luci-app-lldpd/releases/tag/v1.2.1
-[Version 1.2.0]: https://github.com/tano-systems/luci-app-lldpd/releases/tag/v1.2.0
-[Version 1.1.1]: https://github.com/tano-systems/luci-app-lldpd/releases/tag/v1.1.1
-[Version 1.1.0]: https://github.com/tano-systems/luci-app-lldpd/releases/tag/v1.1.0
-[Version 1.0.0]: https://github.com/tano-systems/luci-app-lldpd/releases/tag/v1.0.0
+[Unreleased]: https://github.com/tano-systems/luci-app-tn-lldpd/tree/master
+[Version 1.2.2]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v1.2.2
+[Version 1.2.1]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v1.2.1
+[Version 1.2.0]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v1.2.0
+[Version 1.1.1]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v1.1.1
+[Version 1.1.0]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v1.1.0
+[Version 1.0.0]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v1.0.0
