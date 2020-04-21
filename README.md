@@ -1,49 +1,46 @@
 # LuCI support for LLDP daemon
 
 ## Description
-This package allows you to control LLDPd and view discovered neighbors by LLDPd
-in LuCI web interface.
+This application allows you to configure LLDPd and view discovered neighbors and statistics over LuCI web interface.
 
 ## Dependencies
-Package depends on lldpd package.
+This LuCI application requires the installed lldpd package with customized procd initialization scripts, which can be founded in the recipes of the OpenEmbedded layer of the [TanoWrt Linux Distribution](https://github.com/tano-systems/meta-tanowrt).
 
-LLDPd LuCI application developed for LuCI 18.06 branch. For OpenWrt/LEDE 17.01
-use old luci-app-tn-lldpd [version 1.0.0].
+Master branch of this repository requires latest LuCI revision with client side rendering feature. Support for older LuCI releases (e.g. for version 18.06.x, 19.07.x) is left in the [1.x](https://github.com/tano-systems/luci-app-tn-mstpd/tree/1.x) branch of this repository.
 
-Starting with [version 1.2.0], in order for all available settings to work correctly,
-you must use the modified procd initialization script for lldpd, that can be founded
-in [meta-tanowrt](https://github.com/tano-systems/meta-tanowrt.git) OpenEmbedded layer.
-
-## Supported languages
+## Supported Languages
 - Russian
 - English
+
+## Supported (tested) LuCI Themes
+- [luci-theme-tano](https://github.com/tano-systems/luci-theme-tano) ([screenshots](#screenshots) are taken with this theme)
+- luci-theme-bootstrap
+- luci-theme-openwrt-2020
+- luci-theme-openwrt
 
 ## Screenshots
 
 ### Status
 
-#### Discovered neighbors
-![Discovered neighbors](screenshots/luci-app-lldpd-status-neighbors.png?raw=true "Discovered neighbors")
+#### Discovered Neighbors
+![Discovered Neighbors](screenshots/luci-app-tn-lldpd-status-neighbors.png?raw=true)
 
-#### Local interfaces statistics
-![Local interfaces statistics](screenshots/luci-app-lldpd-status-statistics.png?raw=true "Local interfaces statistics")
-
-#### Local chassis information
-![Local chassis](screenshots/luci-app-lldpd-status-chassis.png?raw=true "Local chassis")
+#### Local Interfaces Statistics
+![Local Interfaces Statistics](screenshots/luci-app-tn-lldpd-status-statistics.png?raw=true)
 
 ### Settings
 
-#### Basic settings
-![Basic settings](screenshots/luci-app-lldpd-settings-basic.png?raw=true "Basic settings")
+#### Basic Settings
+![Basic Settings](screenshots/luci-app-tn-lldpd-settings-basic.png?raw=true)
 
-#### Network interfaces settings
-![Network interfaces](screenshots/luci-app-lldpd-settings-interfaces.png?raw=true "Network interfaces")
+#### Network Interfaces Settings
+![Network Interfaces](screenshots/luci-app-tn-lldpd-settings-interfaces.png?raw=true)
 
-#### Advanced settings
-![Advanced settings](screenshots/luci-app-lldpd-settings-advanced.png?raw=true "Advanced settings")
+#### Advanced Settings
+![Advanced Settings](screenshots/luci-app-tn-lldpd-settings-advanced.png?raw=true)
 
-#### Protocols support
-![Protocols support](screenshots/luci-app-lldpd-settings-protocols.png?raw=true "Protocols support")
+#### Protocols Support
+![Protocols Support](screenshots/luci-app-tn-lldpd-settings-protocols.png?raw=true)
 
 [version 1.2.0]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v1.2.0
 [version 1.0.0]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v1.0.0
