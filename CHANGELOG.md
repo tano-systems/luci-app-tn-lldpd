@@ -11,6 +11,7 @@ All dates in this document are in `DD.MM.YYYY` format.
 *Nothing yet*
 
 ## [Version 2.0.0] (22.04.2020)
+### Changed
 - Coverted to client side rendering.
 
 ## [Version 1.3.0] (21.04.2020)

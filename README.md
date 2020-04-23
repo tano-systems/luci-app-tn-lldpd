@@ -6,7 +6,7 @@ This application allows you to configure LLDPd and view discovered neighbors and
 ## Dependencies
 This LuCI application requires the installed lldpd package with customized procd initialization scripts, which can be founded in the recipes of the OpenEmbedded layer of the [TanoWrt Linux Distribution](https://github.com/tano-systems/meta-tanowrt).
 
-Master branch of this repository requires latest LuCI revision with client side rendering feature. Support for older LuCI releases (e.g. for version 18.06.x, 19.07.x) is left in the [1.x](https://github.com/tano-systems/luci-app-tn-mstpd/tree/1.x) branch of this repository.
+Master branch of this repository requires latest LuCI revision with client side rendering feature. Support for older LuCI releases (e.g. for version 18.06.x, 19.07.x) is left in the [v1.x](https://github.com/tano-systems/luci-app-tn-mstpd/tree/v1.x) branch of this repository.
 
 ## Supported Languages
 - Russian
