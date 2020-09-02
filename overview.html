@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="ru" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>1. Обзор &mdash; Документация luci-app-tn-lldpd 2.0.0</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="2. Конфигурация" href="configuration.html" />
+    <link rel="prev" title="LuCI приложение luci-app-tn-lldpd" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> luci-app-tn-lldpd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">1. Обзор</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1.1. Зависимости</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">1.2. Поддержка языков</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#luci">1.3. Поддержка тем оформления LuCI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">1.4. Возможности</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.4.1. Конфигурация</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">1.4.2. Мониторинг состояния</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">1.5. Лицензия</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">2. Конфигурация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="status.html">3. Мониторинг состояния</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">4. Глоссарий</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">luci-app-tn-lldpd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>1. Обзор</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/overview.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>1. Обзор<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<div class="sidebar docutils container">
+<img alt="_images/tano-logo.png" class="align-center" src="_images/tano-logo.png" />
+</div>
+<p>luci-app-tn-lldpd — <a class="reference external" href="https://github.com/openwrt/luci">LuCI</a> приложение поддержки системной службы
+<a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> операционной системы <a class="reference external" href="https://github.com/tano-systems/meta-tanowrt">TanoWrt</a>. Исходный код приложения размещен в репозитории
+GitHub по ссылке <a class="reference external" href="https://github.com/tano-systems/luci-app-tn-lldpd">https://github.com/tano-systems/luci-app-tn-lldpd</a>.</p>
+<div class="section" id="id2">
+<h2>1.1. Зависимости<a class="headerlink" href="#id2" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Для корректной работы приложения требуется установленная служба <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a>
+с правильными инициализационными скриптами procd, с поддержкой всех требуемых
+UCI-опций.</p>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">Приложение разработано для поддержки управления службой <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> из
+веб-интерфейса управления операционной системы <a class="reference external" href="https://github.com/tano-systems/meta-tanowrt">TanoWrt</a>. В связи с этим,
+для поддержки некоторых из возможностей приложения требуются доработанные
+(по сравнению с оригинальными скриптами из оперционной системы <a class="reference external" href="https://openwrt.org">OpenWrt</a>)
+инициализационные скрипты procd для службы <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a>. Данные скрипты расположены
+в репозитории OpenEmbedded слоя операционной системы <a class="reference external" href="https://github.com/tano-systems/meta-tanowrt">TanoWrt</a> в составе
+рецепта службы <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> (см. <a class="reference external" href="https://github.com/tano-systems/meta-tanowrt/tree/master/meta-tanowrt/recipes-networking/lldpd/lldpd/files">https://github.com/tano-systems/meta-tanowrt/tree/master/meta-tanowrt/recipes-networking/lldpd/lldpd/files</a>).</p>
+</div>
+<p>Для корректной работы приложения требуется версия веб-интерфейса управления LuCI
+с поддержкой рендеринга на стороне клиента.</p>
+</div>
+<div class="section" id="id3">
+<h2>1.2. Поддержка языков<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h2>
+<p>LuCI приложение luci-app-tn-lldpd имеет поддержку следующих
+языков для интерфейса пользователя:</p>
+<ul class="simple">
+<li>Английский (English)</li>
+<li>Русский (Russian)</li>
+</ul>
+</div>
+<div class="section" id="luci">
+<h2>1.3. Поддержка тем оформления LuCI<a class="headerlink" href="#luci" title="Ссылка на этот заголовок">¶</a></h2>
+<p>LuCI приложение luci-app-tn-lldpd корректно отображается с использованием следующих тем оформления
+веб-интерфейса управления LuCI:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/tano-systems/luci-theme-tano">luci-theme-tano</a></li>
+<li>luci-theme-bootstrap</li>
+<li>luci-theme-openwrt-2020</li>
+<li>luci-theme-openwrt</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">Все скриншоты в данной документации сделаны с использованием
+темы оформления <a class="reference external" href="https://github.com/tano-systems/luci-theme-tano">luci-theme-tano</a>.</p>
+</div>
+<p>Корректная работа приложения на других темах оформления не гарантируется.</p>
+</div>
+<div class="section" id="id5">
+<h2>1.4. Возможности<a class="headerlink" href="#id5" title="Ссылка на этот заголовок">¶</a></h2>
+<div class="section" id="id6">
+<h3>1.4.1. Конфигурация<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h3>
+<ul class="simple">
+<li>конфигурация временных интервалов отправки пакетов;</li>
+<li>конфигурация режима «только приём»;</li>
+<li>выбор сетевых интерфейсов, для которых активируется служба <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a>;</li>
+<li>выбор сетевых интерфейсов для вычисления идентификатора локального шасси;</li>
+<li>конфигурация интеграции со службой <a class="reference internal" href="glossary.html#term-snmp"><span class="xref std std-term">SNMP</span></a>;</li>
+<li>конфигурация класса <a class="reference internal" href="glossary.html#term-lldp-med"><span class="xref std std-term">LLDP-MED</span></a> устройства;</li>
+<li>конфигурация фильтра для случаев обнаружения нескольких соседей на одном интерфейсе;</li>
+<li>конфигурация поддержки протоколов:<ul>
+<li><a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a>;</li>
+<li><a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a> (версии 1 и 2);</li>
+<li><a class="reference internal" href="glossary.html#term-fdp"><span class="xref std std-term">FDP</span></a>;</li>
+<li><a class="reference internal" href="glossary.html#term-edp"><span class="xref std std-term">EDP</span></a>;</li>
+<li><a class="reference internal" href="glossary.html#term-sonmp"><span class="xref std std-term">SONMP</span></a> (<a class="reference internal" href="glossary.html#term-ntdp"><span class="xref std std-term">NTDP</span></a>, <a class="reference internal" href="glossary.html#term-bnmp"><span class="xref std std-term">BNMP</span></a>, <a class="reference internal" href="glossary.html#term-ndp"><span class="xref std std-term">NDP</span></a>, <a class="reference internal" href="glossary.html#term-bdp"><span class="xref std std-term">BDP</span></a>);</li>
+</ul>
+</li>
+<li>и др.</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>1.4.2. Мониторинг состояния<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h3>
+<ul class="simple">
+<li>просмотр статистики для каждого локального интерфейса:<ul>
+<li>используемый протокол на интерфейсе;</li>
+<li>количество отправленных пакетов;</li>
+<li>количество принятых пакетов;</li>
+<li>количество отброшенных пакетов на отправке;</li>
+<li>количество нераспознанных пакетов на приёме;</li>
+<li>количество устареваний записей;</li>
+<li>количество удаленных записей;</li>
+<li>количество добавленных записей;</li>
+</ul>
+</li>
+<li>просмотр информации об обнаруженных соседях для каждого локального интерфейса<ul>
+<li>используемый протокол на интерфейсе;</li>
+<li>подробная информация об обнаруженном шасси на интерфейсе;</li>
+<li>подробная информация по порту удаленного устройства.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>1.5. Лицензия<a class="headerlink" href="#id8" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Исходный код приложения распространяется под открытой лицензией <a class="reference external" href="https://github.com/tano-systems/luci-app-tn-lldpd/blob/master/LICENSE">MIT</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="configuration.html" class="btn btn-neutral float-right" title="2. Конфигурация" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="LuCI приложение luci-app-tn-lldpd" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Предыдущая</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Авторские права 2020, Tano Systems LLC
+
+    </p>
+  </div>
+    
+    
+    
+    Собрано при помощи <a href="http://sphinx-doc.org/">Sphinx</a> с использованием
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">темы,</a>
+    
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

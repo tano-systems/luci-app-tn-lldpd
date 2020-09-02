@@ -1,0 +1,1403 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="ru" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2. Конфигурация &mdash; Документация luci-app-tn-lldpd 2.0.0</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="3. Мониторинг состояния" href="status.html" />
+    <link rel="prev" title="1. Обзор" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> luci-app-tn-lldpd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">1. Обзор</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2. Конфигурация</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sec-config-general">2.1. Основные настройки</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.1.1. Включить службу</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">2.1.2. Описание системы</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sec-config-general-sysname">2.1.3. Имя системы</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sec-config-general-sysdescr">2.1.4. Описание платформы</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sec-config-general-mgmt-ip">2.1.5. Адреса управления данной системы</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">2.1.6. Задержка отправки</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#transmit-hold">2.1.7. Значение «transmit hold»</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">2.1.8. Включить режим «только приём»</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sec-config-network">2.2. Сетевые интерфейсы</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id12">2.2.1. Сетевые интерфейсы</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sec-config-network-mgmt-ifaces">2.2.2. Сетевые интерфейсы, используемые для вычисления ID шасси (chassis ID)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sec-config-advanced">2.3. Дополнительные настройки</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#snmp-agentx">2.3.1. Путь к сокету SNMP agentX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lldp-med">2.3.2. Класс устройства LLDP-MED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lldp-med-tlv">2.3.3. Отключить отправку инвентарной информации LLDP-MED TLV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">2.3.4. Поведение при обнаружении нескольких соседей</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sec-config-advanced-portidsubtype">2.3.5. Использовать в качестве ID порта</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mac-lldpdu">2.3.6. MAC-адрес назначения, используемый для отправки LLDPDU</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sec-config-protocols">2.4. Поддержка протоколов</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#lldp">2.4.1. Протокол LLDP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id16">2.4.1.1. Включить LLDP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">2.4.1.2. Форсировать отправку LLDP пакетов</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cdp">2.4.2. Протокол CDP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">2.4.2.1. Включить CDP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">2.4.2.2. Версия протокола CDP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dp-dp">2.4.2.3. Отправлять СDP пакеты даже если не обнаружено соседей с СDP протоколом</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cdpv2">2.4.2.4. Форсировать отправку CDPv2 пакетов</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#fdp">2.4.3. Протокол FDP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id20">2.4.3.1. Включить FDP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fdp-fdp">2.4.3.2. Отправлять FDP пакеты даже если не обнаружено соседей с FDP протоколом</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#edp">2.4.4. Протокол EDP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id21">2.4.4.1. Включить EDP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edp-edp">2.4.4.2. Отправлять EDP пакеты даже если не обнаружено соседей с EDP протоколом</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sonmp">2.4.5. Протокол SONMP</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id22">2.4.5.1. Включить SONMP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sonmp-sonmp">2.4.5.2. Отправлять SONMP пакеты даже если не обнаружено соседей с SONMP протоколом</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="status.html">3. Мониторинг состояния</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">4. Глоссарий</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">luci-app-tn-lldpd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>2. Конфигурация</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/configuration.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>2. Конфигурация<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Конфигурация службы <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> осуществляется в подразделе «Настройки»
+(раздел главного меню <span class="menuselection">Службы ‣ LLDP</span>).</p>
+<a class="with-border reference internal image-reference" href="_images/config-page.png"><img alt="_images/config-page.png" class="with-border" src="_images/config-page.png" style="width: 700px;" /></a>
+<p>Страница настрек разделена на следующие вкладки:</p>
+<ul class="simple">
+<li>«Основные настройки» (см. <a class="reference internal" href="#sec-config-general"><span class="std std-numref">Раздел 2.1</span></a>)</li>
+<li>«Сетевые интерфейсы» (см. <a class="reference internal" href="#sec-config-network"><span class="std std-numref">Раздел 2.2</span></a>)</li>
+<li>«Дополнительные настройки» (см. <a class="reference internal" href="#sec-config-advanced"><span class="std std-numref">Раздел 2.3</span></a>)</li>
+<li>«Поддержка протоколов» (см. <a class="reference internal" href="#sec-config-protocols"><span class="std std-numref">Раздел 2.4</span></a>)</li>
+</ul>
+<div class="section" id="sec-config-general">
+<span id="id2"></span><h2>2.1. Основные настройки<a class="headerlink" href="#sec-config-general" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Внешний вид вкладки «Основные настройки» показан на <a class="reference internal" href="#fig-config-tab-general"><span class="std std-numref">Рис. 2.1</span></a>.</p>
+<div class="figure" id="id23">
+<span id="fig-config-tab-general"></span><a class="with-border reference internal image-reference" href="_images/config-tab-general.png"><img alt="_images/config-tab-general.png" class="with-border" src="_images/config-tab-general.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 2.1 </span><span class="caption-text">Вкладка «Основные настройки»</span></p>
+</div>
+<div class="section" id="id3">
+<h3>2.1.1. Включить службу<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><em>включено</em></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><em>нет</em></td>
+</tr>
+</tbody>
+</table>
+<p>Включение или отключение автоматического запуска службы <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> при запуске системы.</p>
+</div>
+<div class="section" id="id4">
+<h3>2.1.2. Описание системы<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><em>нет</em></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.lldp_description</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Текстовое описание системы. Данное значение будет передаваться другим устройствам
+по сети через включенные протоколы обнаружения.</p>
+</div>
+<div class="section" id="sec-config-general-sysname">
+<span id="id5"></span><h3>2.1.3. Имя системы<a class="headerlink" href="#sec-config-general-sysname" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><em>нет</em></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.lldp_hostname</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Имя системы. Данное значение будет передаваться другим устройствам
+по сети через включенные протоколы обнаружения.</p>
+</div>
+<div class="section" id="sec-config-general-sysdescr">
+<span id="id6"></span><h3>2.1.4. Описание платформы<a class="headerlink" href="#sec-config-general-sysdescr" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><em>нет</em></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.lldp_platform</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Текстовое описание платформы. Данное значение будет передаваться другим устройствам
+по сети через включенные протоколы обнаружения.</p>
+<p>Если значение не указано, будет использовано имя ядра системы (Linux).</p>
+</div>
+<div class="section" id="sec-config-general-mgmt-ip">
+<span id="id7"></span><h3>2.1.5. Адреса управления данной системы<a class="headerlink" href="#sec-config-general-mgmt-ip" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><em>нет</em></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.lldp_sys_mgmt_ip</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Адреса управления данной системой. Если не указано, используется первый IPv4
+и первый IPv6 адреса. Если указан конкретный IP-адрес, он будет использован как адрес
+управления без какой-либо проверки. Если необходимо занести в черный список
+IPv6-адреса, можно использовать шаблон <code class="docutils literal notranslate"><span class="pre">!</span> <span class="pre">*:</span> <span class="pre">*</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">Подробная информация о доступных шаблонах данного параметра
+приведена в <a class="reference external" href="https://vincentbernat.github.io/lldpd/usage.html">официальной документации</a>
+службы <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a>.</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>2.1.6. Задержка отправки<a class="headerlink" href="#id9" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">30</span></code></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.lldp_tx_interval</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Задержка между двумя передачами LLDP PDU. Значение по умолчанию
+составляет 30 секунд.</p>
+</div>
+<div class="section" id="transmit-hold">
+<h3>2.1.7. Значение «transmit hold»<a class="headerlink" href="#transmit-hold" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span></code></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.lldp_tx_hold</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Это значение используется для вычисления TTL переданных пакетов,
+которое является произведением этого значения и задержки передачи.
+Значение по умолчанию равно 4. Соответственно, значение TTL по
+умолчанию составляет 120 секунд.</p>
+</div>
+<div class="section" id="id10">
+<h3>2.1.8. Включить режим «только приём»<a class="headerlink" href="#id10" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">0</span></code> (отключено)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.readonly_mode</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Управление режимом «только приём». В режиме «только приём»
+служба <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> не выполняет отправку пакетов. Выполняется
+только приём и анализ пакетов.</p>
+</div>
+</div>
+<div class="section" id="sec-config-network">
+<span id="id11"></span><h2>2.2. Сетевые интерфейсы<a class="headerlink" href="#sec-config-network" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Внешний вид вкладки «Сетевые интерфейсы» показан на <a class="reference internal" href="#fig-config-tab-network"><span class="std std-numref">Рис. 2.2</span></a>.</p>
+<div class="figure" id="id24">
+<span id="fig-config-tab-network"></span><a class="with-border reference internal image-reference" href="_images/config-tab-network.png"><img alt="_images/config-tab-network.png" class="with-border" src="_images/config-tab-network.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 2.2 </span><span class="caption-text">Вкладка «Сетевые интерфейсы»</span></p>
+</div>
+<div class="section" id="id12">
+<h3>2.2.1. Сетевые интерфейсы<a class="headerlink" href="#id12" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><em>нет</em></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.interface</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Выбор сетевых интерфейсов, которые будут прослушивать и
+отправлять пакеты <a class="reference internal" href="glossary.html#term-lldpdu"><span class="xref std std-term">LLDPDU</span></a>. Если не указан ни один интерфейс,
+служба <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> будет использовать все доступные физические интерфейсы.</p>
+</div>
+<div class="section" id="sec-config-network-mgmt-ifaces">
+<span id="id-chassis-id"></span><h3>2.2.2. Сетевые интерфейсы, используемые для вычисления ID шасси (chassis ID)<a class="headerlink" href="#sec-config-network-mgmt-ifaces" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><em>нет</em></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.cid_interface</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Выбор сетевых интерфейсов, которые должны использоваться для
+вычисления идентификатора шасси (chassis ID). Если интерфейсы
+не указаны, будут иcпользованы все интерфейсы. В этом случае,
+служба <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> будет использовать первый MAC-адрес из всех доступных
+интерфейсов для вычисления ID шасси.</p>
+</div>
+</div>
+<div class="section" id="sec-config-advanced">
+<span id="id13"></span><h2>2.3. Дополнительные настройки<a class="headerlink" href="#sec-config-advanced" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Внешний вид вкладки «Дополнительные настройки» показан на <a class="reference internal" href="#fig-config-tab-advanced"><span class="std std-numref">Рис. 2.3</span></a>.</p>
+<div class="figure" id="id25">
+<span id="fig-config-tab-advanced"></span><a class="with-border reference internal image-reference" href="_images/config-tab-advanced.png"><img alt="_images/config-tab-advanced.png" class="with-border" src="_images/config-tab-advanced.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 2.3 </span><span class="caption-text">Вкладка «Дополнительные настройки»</span></p>
+</div>
+<div class="section" id="snmp-agentx">
+<h3>2.3.1. Путь к сокету SNMP agentX<a class="headerlink" href="#snmp-agentx" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">/var/run/agentx.sock</span></code></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.agentxsocket</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Если указан путь к сокету <a class="reference internal" href="glossary.html#term-snmp"><span class="xref std std-term">SNMP</span></a> агента, то служба
+<a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> включит <a class="reference internal" href="glossary.html#term-snmp"><span class="xref std std-term">SNMP</span></a> агент, используя протокол AgentX.
+Это позволяет получать информацию о локальной системе и
+удаленных системах по протоколу <a class="reference internal" href="glossary.html#term-snmp"><span class="xref std std-term">SNMP</span></a>.</p>
+</div>
+<div class="section" id="lldp-med">
+<h3>2.3.2. Класс устройства LLDP-MED<a class="headerlink" href="#lldp-med" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span></code></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.lldp_class</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Выбор класса устройства LLDP-MED.</p>
+<p>Доступные значения приведены в таблице:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="79%" />
+<col width="21%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Значение LuCI</th>
+<th class="head">Значение UCI</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Generic Endpoint (класс I)</td>
+<td><code class="docutils literal notranslate"><span class="pre">1</span></code></td>
+</tr>
+<tr class="row-odd"><td>Media Endpoint (класс II)</td>
+<td><code class="docutils literal notranslate"><span class="pre">2</span></code></td>
+</tr>
+<tr class="row-even"><td>Communication Device Endpoints (класс III)</td>
+<td><code class="docutils literal notranslate"><span class="pre">3</span></code></td>
+</tr>
+<tr class="row-odd"><td>Network Connectivity Device (класс IV)</td>
+<td><code class="docutils literal notranslate"><span class="pre">4</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="lldp-med-tlv">
+<h3>2.3.3. Отключить отправку инвентарной информации LLDP-MED TLV<a class="headerlink" href="#lldp-med-tlv" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">0</span></code> (отключено)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.lldpmed_no_inventory</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Отключение отправки инвентарной информации <a class="reference internal" href="glossary.html#term-lldp-med"><span class="xref std std-term">LLDP-MED</span></a> <a class="reference internal" href="glossary.html#term-tlv"><span class="xref std std-term">TLV</span></a>.</p>
+<p>Служба <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> будет по прежнему получать (и публиковать,
+используя <a class="reference internal" href="glossary.html#term-snmp"><span class="xref std std-term">SNMP</span></a>, если он включен) информацию <a class="reference internal" href="glossary.html#term-lldp-med"><span class="xref std std-term">LLDP-MED</span></a> <a class="reference internal" href="glossary.html#term-tlv"><span class="xref std std-term">TLV</span></a>,
+но не будет отправлять. Используйте эту опцию, если вы не
+хотите передавать важную информацию, такую как серийные номера.</p>
+</div>
+<div class="section" id="id14">
+<h3>2.3.4. Поведение при обнаружении нескольких соседей<a class="headerlink" href="#id14" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">15</span></code></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.filter</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Определяет поведение при обнаружении нескольких соседей на одном порту.</p>
+<p>В гетерогенных сетях вы можете видеть несколько различных хостов на
+одном и том же порту, даже если к этому порту физически подключен только один.
+Например, если у вас есть коммутатор Nortel с запущенным <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a>, который
+подключен к коммутатору Cisco, работающему по протоколу <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a>, и ваш
+хост подключен к Cisco коммутатору, вы увидите также и Nortel коммутутор,
+потому что <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a> кадры будут перенаправляться коммутатором Cisco.</p>
+<p>Входящая и исходящая фильтрация не связаны между собой.
+Входящая фильтрация позволяет скрывать некоторые удаленные порты,
+чтобы вы могли точно знать, какое оборудование находится по другую
+сторону сетевого кабеля. Фильтрация исходящих кадров позволит запретить
+использование некоторых протоколов, чтобы избежать флудинга сети протоколами,
+которые никак не обрабатываются ближайшим оборудованием.</p>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">Следует иметь в виду, что без фильтрации служба <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> будет
+«общаться» по всем протоколам, для которых был получен хотя бы
+один кадр, а <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a> — нет.</p>
+</div>
+<p>При включении входящей фильтрации служба <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> попытается выбрать
+один протокол и отфильтровать соседей, использующих другие протоколы.
+Для выбора протокола правило заключается в том, чтобы взять менее используемый
+протокол. Если на одном порту вы получаете 12 соседей <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a> и 1 соседа <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a>,
+это значит, что удаленный коммутатор «общается» на <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a> и не фильтрует <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a>.
+Поэтому выбирается <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a>. При включении исходящей фильтрации служба <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a>
+также попытается выбрать один протокол и будет «общаться» только по этому
+протоколу. Фильтрация производится по портам. Каждый порт может иметь
+различный протокол.</p>
+<p>При включении фильтрации имеется два дополнительных критерия:</p>
+<ul class="simple">
+<li>разрешение выбрать один или несколько протоколов (в случае ничьей);</li>
+<li>разрешение выбрать одного или нескольких соседей.</li>
+</ul>
+<p>Даже если разрешено несколько протоколов, правило выбора протоколов
+с меньшим количеством соседей все равно применяется. Если служба <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a>
+выбирает <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a> и <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a>, это означает, что у них одинаковое количество соседей.
+Выбор соседей происходит случайным образом. Входящая фильтрация будет
+выбирать набор соседей, которые будут отображаться. Исходящая фильтрация
+будет использовать выбранный набор соседей, чтобы решить, какие протоколы
+использовать: если выбранный сосед «общается» через <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a>,
+а другой — через <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a>, то <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> будет «общаться»
+и через <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a>, и через <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a> на этом порту.</p>
+<p>Есть несколько граничных случаев. Типичный пример — коммутатор, «общающийся»
+на двух протоколах (например, <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a> и <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a>). Вы хотите получить информацию
+по лучшему протоколу, но хотите «общаться» на обоих протоколах, потому что
+некоторые инструменты используют таблицу <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a>, а другие — <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a>.</p>
+<p>В таблице ниже приведены все возможные значения фильтрации.
+Значение по умолчанию равно 15, что соответствует граничному случаю,
+описанному выше. Столбец «filter» означает, что фильтрация включена.
+Столбец «1proto» говорит о том, что будет сохранен только один протокол.
+Столбец «1neigh» говорит о том, что будет сохранен только один сосед.</p>
+<table border="1" class="docutils" id="id26">
+<caption><span class="caption-number">Таблица 2.1 </span><span class="caption-text">Возможные значения фильтрации входящих и исходящих пакетов</span><a class="headerlink" href="#id26" title="Постоянная ссылка на таблицу">¶</a></caption>
+<colgroup>
+<col width="20%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head" rowspan="2">Значение</th>
+<th class="head" colspan="3">Входящая фильтрация</th>
+<th class="head" colspan="3">Исходящая фильтрация</th>
+</tr>
+<tr class="row-even"><th class="head">filter</th>
+<th class="head">1proto</th>
+<th class="head">1neigh</th>
+<th class="head">filter</th>
+<th class="head">1proto</th>
+<th class="head">1neigh</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-odd"><td>0</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>1</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>2</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>3</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>4</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>5</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>6</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>7</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>8</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>9</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>10</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>✔</td>
+</tr>
+<tr class="row-even"><td>11</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>12</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>✔</td>
+</tr>
+<tr class="row-even"><td>13</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>14</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>✔</td>
+</tr>
+<tr class="row-even"><td>15</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>16</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>✔</td>
+</tr>
+<tr class="row-even"><td>17</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>18</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>✔</td>
+</tr>
+<tr class="row-even"><td>19</td>
+<td>✔</td>
+<td>&#160;</td>
+<td>&#160;</td>
+<td>✔</td>
+<td>✔</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="sec-config-advanced-portidsubtype">
+<span id="id"></span><h3>2.3.5. Использовать в качестве ID порта<a class="headerlink" href="#sec-config-advanced-portidsubtype" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">macaddress</span></code></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.lldp_portidsubtype</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Позволяет выбрать что использовать в качестве идентификатора
+порта — MAC-адрес или имя интерфейса.</p>
+<p>Доступные значения приведены в таблице:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="13%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Значение LuCI</th>
+<th class="head">Значение UCI</th>
+<th class="head">Описание</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>MAC-адрес интерфейса</td>
+<td><code class="docutils literal notranslate"><span class="pre">macaddress</span></code></td>
+<td>В качестве идентификатора порта будет использован MAC-адрес интерфейса</td>
+</tr>
+<tr class="row-odd"><td>Имя интерфейса</td>
+<td><code class="docutils literal notranslate"><span class="pre">ifname</span></code></td>
+<td>В качестве идентификатора порта будет использовано имя интерфейса</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mac-lldpdu">
+<h3>2.3.6. MAC-адрес назначения, используемый для отправки LLDPDU<a class="headerlink" href="#mac-lldpdu" title="Ссылка на этот заголовок">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">nearest-bridge</span></code></td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.lldp_agenttype</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>MAC-адрес назначения, используемый для отправки <a class="reference internal" href="glossary.html#term-lldpdu"><span class="xref std std-term">LLDPDU</span></a>. Данный параметр позволяет
+агенту контролировать распространение <a class="reference internal" href="glossary.html#term-lldpdu"><span class="xref std std-term">LLDPDU</span></a>. По умолчанию используется MAC-адрес
+<code class="docutils literal notranslate"><span class="pre">01:80:c2:00:00:0e</span></code> и ограничивает распространение <a class="reference internal" href="glossary.html#term-lldpdu"><span class="xref std std-term">LLDPDU</span></a> до ближайшего моста.</p>
+<p>Доступные значения приведены в таблице:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="19%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Значение LuCI</th>
+<th class="head">Значение UCI</th>
+<th class="head">Описание</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>01:80:c2:00:00:0e (nearest-bridge)</td>
+<td><code class="docutils literal notranslate"><span class="pre">nearest-bridge</span></code></td>
+<td><a class="reference internal" href="glossary.html#term-lldpdu"><span class="xref std std-term">LLDPDU</span></a> будут отпавляться на MAC-адрес <code class="docutils literal notranslate"><span class="pre">01:80:c2:00:00:0e</span></code></td>
+</tr>
+<tr class="row-odd"><td>01:80:c2:00:00:03 (nearest-nontpmr-bridge)</td>
+<td><code class="docutils literal notranslate"><span class="pre">nearest-nontpmr-bridge</span></code></td>
+<td><a class="reference internal" href="glossary.html#term-lldpdu"><span class="xref std std-term">LLDPDU</span></a> будут отпавляться на MAC-адрес <code class="docutils literal notranslate"><span class="pre">01:80:c2:00:00:03</span></code></td>
+</tr>
+<tr class="row-even"><td>01:80:c2:00:00:00 (nearest-customer-bridge)</td>
+<td><code class="docutils literal notranslate"><span class="pre">nearest-customer-bridge</span></code></td>
+<td><a class="reference internal" href="glossary.html#term-lldpdu"><span class="xref std std-term">LLDPDU</span></a> будут отпавляться на MAC-адрес <code class="docutils literal notranslate"><span class="pre">01:80:c2:00:00:00</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="sec-config-protocols">
+<span id="id15"></span><h2>2.4. Поддержка протоколов<a class="headerlink" href="#sec-config-protocols" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Вкладка «Поддержка протоколов» дополнительно разделена на подвкладки
+для настроек каждого из поддерживаемых протоколов:</p>
+<ul class="simple">
+<li><a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a> (см. <a class="reference internal" href="#sec-config-protocols-lldp"><span class="std std-numref">Раздел 2.4.1</span></a>);</li>
+<li><a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a> (см. <a class="reference internal" href="#sec-config-protocols-cdp"><span class="std std-numref">Раздел 2.4.2</span></a>);</li>
+<li><a class="reference internal" href="glossary.html#term-fdp"><span class="xref std std-term">FDP</span></a> (см. <a class="reference internal" href="#sec-config-protocols-fdp"><span class="std std-numref">Раздел 2.4.3</span></a>);</li>
+<li><a class="reference internal" href="glossary.html#term-edp"><span class="xref std std-term">EDP</span></a> (см. <a class="reference internal" href="#sec-config-protocols-edp"><span class="std std-numref">Раздел 2.4.4</span></a>);</li>
+<li><a class="reference internal" href="glossary.html#term-sonmp"><span class="xref std std-term">SONMP</span></a>, <a class="reference internal" href="glossary.html#term-ntdp"><span class="xref std std-term">NTDP</span></a>, <a class="reference internal" href="glossary.html#term-bnmp"><span class="xref std std-term">BNMP</span></a>, <a class="reference internal" href="glossary.html#term-ndp"><span class="xref std std-term">NDP</span></a>, <a class="reference internal" href="glossary.html#term-bdp"><span class="xref std std-term">BDP</span></a> (см. <a class="reference internal" href="#sec-config-protocols-sonmp"><span class="std std-numref">Раздел 2.4.5</span></a>).</li>
+</ul>
+<div class="section" id="lldp">
+<span id="sec-config-protocols-lldp"></span><h3>2.4.1. Протокол LLDP<a class="headerlink" href="#lldp" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Внешний вид вкладки с настройками протокола <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a> показан
+на <a class="reference internal" href="#fig-config-tab-protocols-lldp"><span class="std std-numref">Рис. 2.4</span></a>.</p>
+<div class="figure" id="id27">
+<span id="fig-config-tab-protocols-lldp"></span><a class="with-border reference internal image-reference" href="_images/config-tab-protocols-lldp.png"><img alt="_images/config-tab-protocols-lldp.png" class="with-border" src="_images/config-tab-protocols-lldp.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 2.4 </span><span class="caption-text">Вкладка «Поддержка протоколов». Настройки протокола <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a></span></p>
+</div>
+<div class="section" id="id16">
+<h4>2.4.1.1. Включить LLDP<a class="headerlink" href="#id16" title="Ссылка на этот заголовок">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">1</span></code> (включено)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.enable_lldp</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Включить поддержку протокола <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a>.</p>
+</div>
+<div class="section" id="id17">
+<h4>2.4.1.2. Форсировать отправку LLDP пакетов<a class="headerlink" href="#id17" title="Ссылка на этот заголовок">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">0</span></code>  (отключено)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.force_lldp</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Принудительно отправлять пакеты <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a>, даже если соседей
+с поддержкой <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a> не обнаружено, но есть соседи, с поддержкой
+другого протокола. По умолчанию, пакеты <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a> отправляются,
+когда обнаружен сосед с поддержкой <a class="reference internal" href="glossary.html#term-lldp"><span class="xref std std-term">LLDP</span></a> или когда вообще
+нет обнаруженных соседей.</p>
+</div>
+</div>
+<div class="section" id="cdp">
+<span id="sec-config-protocols-cdp"></span><h3>2.4.2. Протокол CDP<a class="headerlink" href="#cdp" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Внешний вид вкладки с настройками протокола <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a> показан
+на <a class="reference internal" href="#fig-config-tab-protocols-cdp"><span class="std std-numref">Рис. 2.5</span></a>.</p>
+<div class="figure" id="id28">
+<span id="fig-config-tab-protocols-cdp"></span><a class="with-border reference internal image-reference" href="_images/config-tab-protocols-cdp.png"><img alt="_images/config-tab-protocols-cdp.png" class="with-border" src="_images/config-tab-protocols-cdp.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 2.5 </span><span class="caption-text">Вкладка «Поддержка протоколов». Настройки протокола <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a></span></p>
+</div>
+<div class="section" id="id18">
+<h4>2.4.2.1. Включить CDP<a class="headerlink" href="#id18" title="Ссылка на этот заголовок">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">1</span></code> (включено)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.enable_cdp</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Включить поддержку протокола <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a>.</p>
+</div>
+<div class="section" id="id19">
+<h4>2.4.2.2. Версия протокола CDP<a class="headerlink" href="#id19" title="Ссылка на этот заголовок">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">cdpv1v2</span></code> (CDPv1 и CDPv2)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.cdp_version</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Выбор режима поддерживамых версий протокола <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a>.</p>
+<p>Доступные значения приведены в таблице:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="11%" />
+<col width="66%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Значение LuCI</th>
+<th class="head">Значение UCI</th>
+<th class="head">Описание</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CDPv1 и CDPv2</td>
+<td><code class="docutils literal notranslate"><span class="pre">cdpv1v2</span></code></td>
+<td>поддерживается протокол <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a> версий 1 и 2</td>
+</tr>
+<tr class="row-odd"><td>Только CDPv2</td>
+<td><code class="docutils literal notranslate"><span class="pre">cdpv2</span></code></td>
+<td>поддерживается только версия 2 протокола <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dp-dp">
+<h4>2.4.2.3. Отправлять СDP пакеты даже если не обнаружено соседей с СDP протоколом<a class="headerlink" href="#dp-dp" title="Ссылка на этот заголовок">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">0</span></code> (отключено)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.force_cdp</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Если опция включена, то пакеты <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a> будут отправляться вне зависимости
+от того, обнаружен ли сосед с поддержкой протокола <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a>.</p>
+</div>
+<div class="section" id="cdpv2">
+<h4>2.4.2.4. Форсировать отправку CDPv2 пакетов<a class="headerlink" href="#cdpv2" title="Ссылка на этот заголовок">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">0</span></code> (отключено)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.force_cdpv2</span></code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">Опция доступна только в случае выбора «CDPv1 и CDPv2» для опции «Версия протокола CDP»
+и включенной опции «Отправлять СDP пакеты даже если не обнаружено соседей с СDP протоколом».</p>
+</div>
+<p>Если опция включена, то будут принудительно отправляться пакеты протокола <a class="reference internal" href="glossary.html#term-cdp"><span class="xref std std-term">CDP</span></a>
+версии 2.</p>
+</div>
+</div>
+<div class="section" id="fdp">
+<span id="sec-config-protocols-fdp"></span><h3>2.4.3. Протокол FDP<a class="headerlink" href="#fdp" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Внешний вид вкладки с настройками протокола <a class="reference internal" href="glossary.html#term-fdp"><span class="xref std std-term">FDP</span></a> показан
+на <a class="reference internal" href="#fig-config-tab-protocols-fdp"><span class="std std-numref">Рис. 2.6</span></a>.</p>
+<div class="figure" id="id29">
+<span id="fig-config-tab-protocols-fdp"></span><a class="with-border reference internal image-reference" href="_images/config-tab-protocols-fdp.png"><img alt="_images/config-tab-protocols-fdp.png" class="with-border" src="_images/config-tab-protocols-fdp.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 2.6 </span><span class="caption-text">Вкладка «Поддержка протоколов». Настройки протокола <a class="reference internal" href="glossary.html#term-fdp"><span class="xref std std-term">FDP</span></a></span></p>
+</div>
+<div class="section" id="id20">
+<h4>2.4.3.1. Включить FDP<a class="headerlink" href="#id20" title="Ссылка на этот заголовок">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">1</span></code> (включено)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.enable_fdp</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Включить поддержку протокола <a class="reference internal" href="glossary.html#term-fdp"><span class="xref std std-term">FDP</span></a>.</p>
+</div>
+<div class="section" id="fdp-fdp">
+<h4>2.4.3.2. Отправлять FDP пакеты даже если не обнаружено соседей с FDP протоколом<a class="headerlink" href="#fdp-fdp" title="Ссылка на этот заголовок">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">0</span></code> (отключено)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.force_fdp</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Если опция включена, то пакеты <a class="reference internal" href="glossary.html#term-fdp"><span class="xref std std-term">FDP</span></a> будут отправляться вне зависимости
+от того, обнаружен ли сосед с поддержкой протокола <a class="reference internal" href="glossary.html#term-fdp"><span class="xref std std-term">FDP</span></a>.</p>
+</div>
+</div>
+<div class="section" id="edp">
+<span id="sec-config-protocols-edp"></span><h3>2.4.4. Протокол EDP<a class="headerlink" href="#edp" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Внешний вид вкладки с настройками протокола <a class="reference internal" href="glossary.html#term-edp"><span class="xref std std-term">EDP</span></a> показан
+на <a class="reference internal" href="#fig-config-tab-protocols-edp"><span class="std std-numref">Рис. 2.7</span></a>.</p>
+<div class="figure" id="id30">
+<span id="fig-config-tab-protocols-edp"></span><a class="with-border reference internal image-reference" href="_images/config-tab-protocols-edp.png"><img alt="_images/config-tab-protocols-edp.png" class="with-border" src="_images/config-tab-protocols-edp.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 2.7 </span><span class="caption-text">Вкладка «Поддержка протоколов». Настройки протокола <a class="reference internal" href="glossary.html#term-edp"><span class="xref std std-term">EDP</span></a></span></p>
+</div>
+<div class="section" id="id21">
+<h4>2.4.4.1. Включить EDP<a class="headerlink" href="#id21" title="Ссылка на этот заголовок">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">1</span></code> (включено)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.enable_edp</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Включить поддержку протокола <a class="reference internal" href="glossary.html#term-edp"><span class="xref std std-term">EDP</span></a>.</p>
+</div>
+<div class="section" id="edp-edp">
+<h4>2.4.4.2. Отправлять EDP пакеты даже если не обнаружено соседей с EDP протоколом<a class="headerlink" href="#edp-edp" title="Ссылка на этот заголовок">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">0</span></code> (отключено)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.force_edp</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Если опция включена, то пакеты <a class="reference internal" href="glossary.html#term-edp"><span class="xref std std-term">EDP</span></a> будут отправляться
+вне зависимости от того, обнаружен ли сосед с поддержкой
+протокола <a class="reference internal" href="glossary.html#term-edp"><span class="xref std std-term">EDP</span></a>.</p>
+</div>
+</div>
+<div class="section" id="sonmp">
+<span id="sec-config-protocols-sonmp"></span><h3>2.4.5. Протокол SONMP<a class="headerlink" href="#sonmp" title="Ссылка на этот заголовок">¶</a></h3>
+<p>Внешний вид вкладки с настройками протокола <a class="reference internal" href="glossary.html#term-sonmp"><span class="xref std std-term">SONMP</span></a> показан
+на <a class="reference internal" href="#fig-config-tab-protocols-sonmp"><span class="std std-numref">Рис. 2.8</span></a>.</p>
+<div class="figure" id="id31">
+<span id="fig-config-tab-protocols-sonmp"></span><a class="with-border reference internal image-reference" href="_images/config-tab-protocols-sonmp.png"><img alt="_images/config-tab-protocols-sonmp.png" class="with-border" src="_images/config-tab-protocols-sonmp.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 2.8 </span><span class="caption-text">Вкладка «Поддержка протоколов». Настройки протокола <a class="reference internal" href="glossary.html#term-sonmp"><span class="xref std std-term">SONMP</span></a></span></p>
+</div>
+<div class="section" id="id22">
+<h4>2.4.5.1. Включить SONMP<a class="headerlink" href="#id22" title="Ссылка на этот заголовок">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">1</span></code> (включено)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.enable_sonmp</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Включить поддержку протокола <a class="reference internal" href="glossary.html#term-sonmp"><span class="xref std std-term">SONMP</span></a>.</p>
+</div>
+<div class="section" id="sonmp-sonmp">
+<h4>2.4.5.2. Отправлять SONMP пакеты даже если не обнаружено соседей с SONMP протоколом<a class="headerlink" href="#sonmp-sonmp" title="Ссылка на этот заголовок">¶</a></h4>
+<table border="1" class="docutils">
+<colgroup>
+<col width="42%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Значение по умолчанию</td>
+<td><code class="docutils literal notranslate"><span class="pre">0</span></code> (отключено)</td>
+</tr>
+<tr class="row-odd"><td>UCI-опция</td>
+<td><code class="docutils literal notranslate"><span class="pre">lldpd.config.force_sonmp</span></code></td>
+</tr>
+</tbody>
+</table>
+<p>Если опция включена, то пакеты <a class="reference internal" href="glossary.html#term-sonmp"><span class="xref std std-term">SONMP</span></a> будут отправляться вне зависимости
+от того, обнаружен ли сосед с поддержкой протокола <a class="reference internal" href="glossary.html#term-sonmp"><span class="xref std std-term">SONMP</span></a>.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="status.html" class="btn btn-neutral float-right" title="3. Мониторинг состояния" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral float-left" title="1. Обзор" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Предыдущая</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Авторские права 2020, Tano Systems LLC
+
+    </p>
+  </div>
+    
+    
+    
+    Собрано при помощи <a href="http://sphinx-doc.org/">Sphinx</a> с использованием
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">темы,</a>
+    
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

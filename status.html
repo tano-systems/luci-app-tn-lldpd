@@ -1,0 +1,534 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="ru" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3. Мониторинг состояния &mdash; Документация luci-app-tn-lldpd 2.0.0</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/theme_overrides.css" type="text/css" />
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/translations.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="4. Глоссарий" href="glossary.html" />
+    <link rel="prev" title="2. Конфигурация" href="configuration.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> luci-app-tn-lldpd
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">1. Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">2. Конфигурация</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Мониторинг состояния</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sec-status-neighbors">3.1. Таблица обнаруженных соседей</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.1.1. Компактный режим отображения</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.1.2. Расширенный режим отображения</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#sec-status-stats">3.2. Таблица статистики интерфейсов</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3.2.1. Компактный режим отображения</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3.2.2. Расширенный режим отображения</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">4. Глоссарий</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">luci-app-tn-lldpd</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>3. Мониторинг состояния</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/status.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>3. Мониторинг состояния<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<p>Мониторинг состояния службы <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> осуществляется в подразделе «Состояние»
+(раздел главного меню <span class="menuselection">Службы ‣ LLDP</span>).</p>
+<a class="with-border reference internal image-reference" href="_images/status-page.png"><img alt="_images/status-page.png" class="with-border" src="_images/status-page.png" style="width: 700px;" /></a>
+<p>В самом начале страницы «Состояние» отображается подраздел с информацией
+о локальном шасси в виде таблицы. Описание параметров локального
+шасси приведено в таблице ниже (<a class="reference internal" href="#table-local-chassis-params"><span class="std std-numref">Таблица 3.1</span></a>).</p>
+<span id="table-local-chassis-params"></span><table border="1" class="colwidths-given docutils" id="id8">
+<caption><span class="caption-number">Таблица 3.1 </span><span class="caption-text">Параметры локального шасси</span><a class="headerlink" href="#id8" title="Постоянная ссылка на таблицу">¶</a></caption>
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Описание</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Имя</td>
+<td>Имя системы. Конфигурируется при помощи опции,
+описанной в разделе <a class="reference internal" href="configuration.html#sec-config-general-sysname"><span class="std std-ref">Имя системы</span></a>.</td>
+</tr>
+<tr class="row-odd"><td>Описание</td>
+<td>Идентификатор. Может быть сконфигурирован при помощи
+опции <a class="reference internal" href="configuration.html#sec-config-general-sysdescr"><span class="std std-ref">Описание платформы</span></a>.</td>
+</tr>
+<tr class="row-even"><td>ID</td>
+<td>Описание системы. Конфигурируется при помощи опции
+<a class="reference internal" href="configuration.html#sec-config-network-mgmt-ifaces"><span class="std std-ref">Сетевые интерфейсы, используемые для вычисления ID шасси (chassis ID)</span></a>.</td>
+</tr>
+<tr class="row-odd"><td>Тип ID</td>
+<td>Тип идентификатора (MAC-адрес или имя интерфейса).
+Конфигурируется при помощи опции <a class="reference internal" href="configuration.html#sec-config-advanced-portidsubtype"><span class="std std-ref">Использовать в качестве ID порта</span></a>.</td>
+</tr>
+<tr class="row-even"><td>IP-адреса</td>
+<td>Список IP-адресов управления данной системой. Может быть сконфигурировано
+при помощи опции <a class="reference internal" href="configuration.html#sec-config-general-mgmt-ip"><span class="std std-ref">Адреса управления данной системы</span></a></td>
+</tr>
+<tr class="row-odd"><td>Возможности</td>
+<td>Список возможностей данной системы. Значение не конфигурируется.</td>
+</tr>
+</tbody>
+</table>
+<p>Далее на странице «Состояние» расположены таблицы обнаруженных соседей
+(см. <a class="reference internal" href="#sec-status-neighbors"><span class="std std-numref">Раздел 3.1</span></a>) и статистики интерфейсов
+(см. <a class="reference internal" href="#sec-status-stats"><span class="std std-numref">Раздел 3.2</span></a>) в соответствующих вкладках.</p>
+<div class="section" id="sec-status-neighbors">
+<span id="id2"></span><h2>3.1. Таблица обнаруженных соседей<a class="headerlink" href="#sec-status-neighbors" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Пример внешнего вида вкладки с таблицей обнаруженных соседей приведен
+на рисунке ниже (<a class="reference internal" href="#fig-status-tab-neighbors"><span class="std std-numref">Рис. 3.1</span></a>).</p>
+<div class="figure" id="id9">
+<span id="fig-status-tab-neighbors"></span><a class="with-border reference internal image-reference" href="_images/status-tab-neighbors.png"><img alt="_images/status-tab-neighbors.png" class="with-border" src="_images/status-tab-neighbors.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 3.1 </span><span class="caption-text">Таблица обнаруженных соседей</span></p>
+</div>
+<p>Строки таблицы имеют два режима отображения информации — компактный
+(см. <a class="reference internal" href="#fig-status-neighbor-collapsed"><span class="std std-numref">Рис. 3.2</span></a>) и расширенный
+(см. <a class="reference internal" href="#fig-status-neighbor-expanded"><span class="std std-numref">Рис. 3.3</span></a>).
+Переключение между режимами производится однократным нажатием на любом месте строки.</p>
+<div class="figure" id="id10">
+<span id="fig-status-neighbor-collapsed"></span><a class="with-border reference internal image-reference" href="_images/neighbor-collapsed.png"><img alt="_images/neighbor-collapsed.png" class="with-border" src="_images/neighbor-collapsed.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 3.2 </span><span class="caption-text">Компактный режим отображения информации таблицы соседей</span></p>
+</div>
+<div class="figure" id="id11">
+<span id="fig-status-neighbor-expanded"></span><a class="with-border reference internal image-reference" href="_images/neighbor-expanded.png"><img alt="_images/neighbor-expanded.png" class="with-border" src="_images/neighbor-expanded.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 3.3 </span><span class="caption-text">Расширенный режим отображения информации таблицы соседей</span></p>
+</div>
+<div class="section" id="id3">
+<h3>3.1.1. Компактный режим отображения<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h3>
+<p>В компактном режиме отображения, в столбцах таблицы отображаются следующие
+данные для обнаруженных соседей:</p>
+<ul class="simple">
+<li>столбец «Локальный интерфейс» — имя локального интерфейса,
+на котором обнаружено соседнее устройство;</li>
+<li>столбец «Протокол» — протокол, с использованием которого обнаружено соседнее устройство;</li>
+<li>столбец «Обнаруженное шасси» — строка описания шасси обнаруженного устройства;</li>
+<li>столбец «Обнаруженный порт» — информация о порте обнаруженного устройства (описание порта и его идентификатор).</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>3.1.2. Расширенный режим отображения<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h3>
+<p>В расширенном режиме отображения информации в столбцах таблицы
+отображается дополнительная информация:</p>
+<ul>
+<li><p class="first">столбец «Локальный интерфейс»</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Описание</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Имя</td>
+<td>Имя локального интерфейса, на котором обнаружено соседнее устройство.</td>
+</tr>
+<tr class="row-odd"><td>Возраст</td>
+<td>Время работы интерфейса. Время обнуляется при перезапуске службы <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> или
+при потере подключения (линка) на интерфейсе.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">столбец «Протокол» — аналогично отображению в компактном режиме.</p>
+</li>
+<li><p class="first">столбец «Обнаруженное шасси»</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Описание</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Имя</td>
+<td>Имя шасси обнаруженного устройства.</td>
+</tr>
+<tr class="row-odd"><td>Описание</td>
+<td>Текстовая строка с описанием шасси обнаруженного устройства.</td>
+</tr>
+<tr class="row-even"><td>ID</td>
+<td>Идентификатор обнаруженного шасси.</td>
+</tr>
+<tr class="row-odd"><td>Тип ID</td>
+<td><p class="first">Тип идентификатора обнаруженного шасси. Как правило, одно из следующих значений:</p>
+<ul class="last simple">
+<li>MAC-адрес;</li>
+<li>Локально заданный ID;</li>
+<li>Имя интерфейса;</li>
+<li>IP-адрес.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>IP-адреса</td>
+<td>Список IP-адресов управления обнаруженным шасси.</td>
+</tr>
+<tr class="row-odd"><td>Возможности</td>
+<td>Перечень поддерживаемых возможностей (capabilities) обнаруженного шасси.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">столбец «Обнаруженный порт»</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Описание</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ID порта</td>
+<td>Идентификатор порта обнаруженного устройства.</td>
+</tr>
+<tr class="row-odd"><td>Тип ID порта</td>
+<td><p class="first">Тип идентификатора порта. Как правило, одно из следующих значений:</p>
+<ul class="last simple">
+<li>MAC-адрес;</li>
+<li>Локально заданный ID;</li>
+<li>Имя интерфейса;</li>
+<li>IP-адрес.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>Описание порта</td>
+<td>Текстовая строка с описанием порта обнаруженного устройства.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="glossary.html#term-ttl"><span class="xref std std-term">TTL</span></a></td>
+<td>Время жизни в секундах. Если в течении указанного времени
+с порта не будут приходить пакеты с информацией об обнаруженном устройстве,
+это устройство будет считаться устаревшим и будет удалено из таблицы
+обнаруженных соседей.</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">Некоторые параметры режима расширенного отображения информации
+могут отсутствовать (не отображаться) если информация не сообщается
+соседним устройством (например, в случае отсутствия поддержки
+передачи подобной информации используемым протоколом).</p>
+</div>
+</div>
+</div>
+<div class="section" id="sec-status-stats">
+<span id="id5"></span><h2>3.2. Таблица статистики интерфейсов<a class="headerlink" href="#sec-status-stats" title="Ссылка на этот заголовок">¶</a></h2>
+<p>Пример внешнего вида вкладки с таблицей статистики интерфейсов приведён
+на рисунке ниже (<a class="reference internal" href="#fig-status-tab-stats"><span class="std std-numref">Рис. 3.4</span></a>).</p>
+<div class="figure" id="id12">
+<span id="fig-status-tab-stats"></span><a class="with-border reference internal image-reference" href="_images/status-tab-stats.png"><img alt="_images/status-tab-stats.png" class="with-border" src="_images/status-tab-stats.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 3.4 </span><span class="caption-text">Таблица статистики интерфейсов</span></p>
+</div>
+<p>Строки таблицы статистики интерфейсов, также как и строки таблицы обнаруженных соседей,
+имеют два режима отображения информации — компактный
+(см. <a class="reference internal" href="#fig-status-stat-collapsed"><span class="std std-numref">Рис. 3.5</span></a>) и расширенный
+(см. <a class="reference internal" href="#fig-status-stat-expanded"><span class="std std-numref">Рис. 3.6</span></a>).
+Переключение между режимами производится однократным нажатием на любом месте строки.</p>
+<div class="figure" id="id13">
+<span id="fig-status-stat-collapsed"></span><a class="with-border reference internal image-reference" href="_images/stat-collapsed.png"><img alt="_images/stat-collapsed.png" class="with-border" src="_images/stat-collapsed.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 3.5 </span><span class="caption-text">Компактный режим отображения таблицы статистики интерфейсов</span></p>
+</div>
+<div class="figure" id="id14">
+<span id="fig-status-stat-expanded"></span><a class="with-border reference internal image-reference" href="_images/stat-expanded.png"><img alt="_images/stat-expanded.png" class="with-border" src="_images/stat-expanded.png" style="width: 700px;" /></a>
+<p class="caption"><span class="caption-number">Рис. 3.6 </span><span class="caption-text">Расширенный режим отображения таблицы статистики интерфейсов</span></p>
+</div>
+<div class="section" id="id6">
+<h3>3.2.1. Компактный режим отображения<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h3>
+<p>В компактном режиме отображения, в столбцах таблицы статистики интерфейсов
+отображаются следующие данные для интерфейсов:</p>
+<ul class="simple">
+<li>столбец «Локальный интерфейс» — имя локального интерфейса;</li>
+<li>столбец «Протокол» — протокол по которому работает в текущий данный интерфейс.
+Если на интерфейсе обнаружено использование одновременно нескольких протоколов,
+то в этом случае  конкретный протокол не определён и в данном столбце будет
+указан прочерк;</li>
+<li>столбец «Tx» — количество отправленных фреймов через данный интерфейс;</li>
+<li>столбец «Rx» — количество принятых фреймов на данном интерфейсе;</li>
+<li>столбец «Tx (отброшено)» — количество отброшенных фреймов при отправке;</li>
+<li>столбец «Rx (не&nbsp;распознано)» — количество не распознанных фреймов на приёме;</li>
+<li>столбец «Устарело» — количество устаревших записей о соседях, полученных через данный интерфейс;</li>
+<li>столбец «Обнаружено» — количество обнаружений соседей через данный интерфейс;</li>
+<li>столбец «Удалено» — количество удаленных соседей через данный интерфейс.</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>3.2.2. Расширенный режим отображения<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h3>
+<p>В расширенном режиме отображения информации в столбце «Локальный интерфейс»
+отображается дополнительная информация, приведенная в таблице ниже:</p>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Параметр</th>
+<th class="head">Описание</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Имя</td>
+<td>Имя локального интерфейса</td>
+</tr>
+<tr class="row-odd"><td>Возраст</td>
+<td><p class="first">Время работы интерфейса. Время обнуляется при перезапуске службы <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> или
+при потере подключения (линка) на интерфейсе.</p>
+<div class="last admonition attention">
+<p class="first admonition-title">Внимание</p>
+<p class="last">В некоторых случаях данный параметр имеет значения наподобие
+«18507 days, 14:26:05» (время, прошедшее с момента 1-го января
+1970 года 00:00:00 UTC). Такое происходит для локальных интерфейсов,
+которые находятся в отключенном состоянии на протяжении всего
+времени работы службы <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> с момента запуска.</p>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td>ID порта</td>
+<td>Идентификатор порта локального интерфейса.</td>
+</tr>
+<tr class="row-odd"><td>Тип ID порта</td>
+<td><p class="first">Тип идентификатора порта локального интерфейса.
+Как правило, одно из следующих значений:</p>
+<ul class="last simple">
+<li>MAC-адрес;</li>
+<li>Локально заданный ID;</li>
+<li>Имя интерфейса;</li>
+<li>IP-адрес.</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td>Описание порта</td>
+<td>Текстовая строка с описанием порта локального интерфейса.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="glossary.html#term-ttl"><span class="xref std std-term">TTL</span></a></td>
+<td>Время жизни в секундах. Если в течении указанного времени
+на порт не будут отправляться пакеты с информацией об локальном шасси,
+это устройство будет считаться устаревшим для соседних устройств.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Примечание</p>
+<p class="last">Некоторые параметры режима расширенного отображения информации
+могут отсутствовать (не отображаться) если информация не сообщается
+соседним устройством (например, в случае отсутствия поддержки
+передачи подобной информации используемым протоколом).</p>
+</div>
+<p>Отображение всех остальных столбцов таблицы аналогично
+режиму компактного отображения информации.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="glossary.html" class="btn btn-neutral float-right" title="4. Глоссарий" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="configuration.html" class="btn btn-neutral float-left" title="2. Конфигурация" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Предыдущая</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Авторские права 2020, Tano Systems LLC
+
+    </p>
+  </div>
+    
+    
+    
+    Собрано при помощи <a href="http://sphinx-doc.org/">Sphinx</a> с использованием
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">темы,</a>
+    
+    предоставленной <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
