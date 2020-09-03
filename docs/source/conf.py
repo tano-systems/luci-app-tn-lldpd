@@ -71,8 +71,7 @@ with open('refs.rst') as f:
     rst_epilog += f.read()
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = None
-
+pygments_style = 'sphinx'
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -109,7 +108,7 @@ html_context = {
 #
 # html_sidebars = {}
 
-html_sidebars = { '**': [ 'localtoc.html', 'globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html'] }
+html_sidebars = { '**': [ 'globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html'] }
 
 
 # -- Options for HTMLHelp output ---------------------------------------------
@@ -142,8 +141,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'luci-app-tn-lldpd.tex', u'luci-app-tn-lldpd Documentation',
-     u'Tano Systems LLC', 'manual'),
+    (master_doc, 'luci-app-tn-lldpd.tex', u'LuCI приложение luci-app-tn-lldpd',
+     u'ООО «Тано Системс»', 'manual'),
 ]
 
 
@@ -186,7 +185,6 @@ epub_title = project
 # A list of files that should not be packed into the epub file.
 epub_exclude_files = ['search.html']
 
-
 # -- Extension configuration -------------------------------------------------
 
 # -- Options for todo extension ----------------------------------------------
@@ -199,3 +197,24 @@ numfig = True
 
 # Remove the trailing 'dot' in section numbers
 html_secnumber_suffix = " "
+
+# inside conf.py
+latex_engine = 'xelatex'
+latex_elements = {
+    'fontpkg': r'''
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+''',
+    'preamble': r'''
+\usepackage[titles]{tocloft}
+\cftsetpnumwidth {1.25cm}\cftsetrmarg{1.5cm}
+\setlength{\cftchapnumwidth}{0.75cm}
+\setlength{\cftsecindent}{\cftchapnumwidth}
+\setlength{\cftsecnumwidth}{1.25cm}
+''',
+    'fncychap': r'\usepackage[Bjornstrup]{fncychap}',
+    'printindex': r'\footnotesize\raggedright\printindex',
+}
+
+latex_show_urls = 'footnote'

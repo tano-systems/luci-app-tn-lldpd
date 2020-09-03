@@ -1,26 +1,93 @@
-﻿img.with-shadow {
+﻿div.wy-nav-content {
+	max-width: 900px;
+}
+
+.rst-content h1,
+.rst-content h2,
+.rst-content h3,
+.rst-content h4,
+.rst-content h5,
+.rst-content h6 {
+	margin-top: revert;
+}
+
+.rst-content img.with-shadow {
 	box-shadow: 3px 3px 6px rgba(0,0,0,0.4);
 }
 
-img.with-border {
+.rst-content img.with-border {
 	border: 1px solid #d0d0d0;
 }
 
-p.caption {
+.rst-content table td p {
+	font-size: inherit;
+}
+
+
+.rst-content div.figure {
+	margin-top: 24px;
+}
+
+.rst-content .section > a > img,
+.rst-content .section > img {
+	margin-top: 12px;
+}
+
+.rst-content .section ul,
+.rst-content .toctree-wrapper ul,
+.rst-content .wy-plain-list-disc,
+.rst-content article ul,
+.rst-content .admonition,
+.rst-content .admonition-todo,
+.rst-content .attention,
+.rst-content .caution,
+.rst-content .danger,
+.rst-content .error,
+.rst-content .hint,
+.rst-content .important,
+.rst-content .note,
+.rst-content .seealso,
+.rst-content .tip,
+.rst-content .warning,
+.rst-content .wy-alert,
+.rst-content div[class^=highlight],
+.rst-content pre.literal-block,
+.rst-content p {
+	margin-bottom: 12px;
+}
+
+.rst-content .wy-table-responsive {
+	margin-top: 24px;
+	margin-bottom: 24px;
+}
+
+.rst-content .figure p.caption {
 	text-align: center;
 	margin-top: 6px;
 }
 
-a.reference.external:after {
-	content: url(icon-external-link.png);
-	margin: 0 0 0 4px;
+.rst-content a.reference.external:not(.image-reference):after {
+	content: "";
+	padding-left: 16px;
+	background: url(icon-external-link.png);
+	background-size: 12px;
+	background-repeat: no-repeat;
+	background-position: right center;
 }
 
-table > caption {
+.rst-content table > caption {
 	text-align: left !important;
 }
 
-div.center,
-p.center {
+.rst-content div.center,
+.rst-content p.center {
 	text-align: center;
+}
+
+.wy-menu-vertical header,
+.wy-menu-vertical p.caption {
+	height: auto;
+	line-height: 20px;
+	margin: 12px 0 12px;
+	white-space: normal;
 }
