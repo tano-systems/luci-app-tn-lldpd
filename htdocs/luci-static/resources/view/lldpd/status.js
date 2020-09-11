@@ -330,11 +330,11 @@ return L.view.extend({
 			if (do_unfold)
 			{
 				e_folded[i].style.display = 'none';
-				e_unfolded[i].style.display = null;
+				e_unfolded[i].style.display = 'block';
 			}
 			else
 			{
-				e_folded[i].style.display = null;
+				e_folded[i].style.display = 'block';
 				e_unfolded[i].style.display = 'none';
 			}
 		}
