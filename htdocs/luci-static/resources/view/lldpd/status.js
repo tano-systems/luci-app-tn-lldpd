@@ -448,7 +448,7 @@ return L.view.extend({
 			],
 			this.renderProtocol(iobj.via),
 			this.renderNumber(sobj.tx[0].tx),
-			this.renderNumber(sobj.tx[0].rx),
+			this.renderNumber(sobj.rx[0].rx),
 			this.renderNumber(sobj.rx_discarded_cnt[0].rx_discarded_cnt),
 			this.renderNumber(sobj.rx_unrecognized_cnt[0].rx_unrecognized_cnt),
 			this.renderNumber(sobj.ageout_cnt[0].ageout_cnt),
