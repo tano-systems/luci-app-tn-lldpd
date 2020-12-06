@@ -8,6 +8,9 @@ All dates in this document are in `DD.MM.YYYY` format.
 
 ## [Unreleased]
 
+**Nothing yet**
+
+## [Version 2.0.1] (06.12.2020)
 ### Fixed
 - Fixed IE11 compatibility.
 - Fixed Rx interface statistics display.
@@ -90,6 +93,7 @@ All dates in this document are in `DD.MM.YYYY` format.
 Initial release
 
 [Unreleased]: https://github.com/tano-systems/luci-app-tn-lldpd/tree/master
+[Version 2.0.1]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v2.0.1
 [Version 2.0.0]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v2.0.0
 [Version 1.3.0]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v1.3.0
 [Version 1.2.2]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v1.2.2

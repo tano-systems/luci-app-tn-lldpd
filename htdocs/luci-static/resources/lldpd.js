@@ -10,7 +10,7 @@
 'require session';
 'require uci';
 
-const appVersion = '2.0.0';
+const appVersion = '2.0.1';
 const appHomeUrl = 'https://github.com/tano-systems/luci-app-tn-lldpd';
 
 const appFooter = E('div', { 'class': 'cbi-section' }, [
