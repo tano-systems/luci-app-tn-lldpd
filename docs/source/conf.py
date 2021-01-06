@@ -23,10 +23,10 @@ copyright = u'2020, Tano Systems LLC'
 author = u'Tano Systems LLC'
 
 # The short X.Y version
-version = u'2.0.0'
+version = u'2.0.1'
 
 # The full version, including alpha/beta/rc tags
-release = u'2.0.0'
+release = u'2.0.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -196,3 +196,6 @@ todo_include_todos = True
 
 smartquotes = True
 numfig = True
+
+# Remove the trailing 'dot' in section numbers
+html_secnumber_suffix = " "
