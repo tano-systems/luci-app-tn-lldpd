@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 <html class="writer-html4" lang="ru" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>3. Мониторинг состояния &mdash; Документация luci-app-tn-lldpd 2.0.0</title>
+  <title>3 Мониторинг состояния &mdash; Документация luci-app-tn-lldpd 2.0.1</title>
   
 
   
@@ -18,7 +18,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -39,8 +42,8 @@
     
     <link rel="index" title="Алфавитный указатель" href="genindex.html" />
     <link rel="search" title="Поиск" href="search.html" />
-    <link rel="next" title="4. Глоссарий" href="glossary.html" />
-    <link rel="prev" title="2. Конфигурация" href="configuration.html" /> 
+    <link rel="next" title="4 Глоссарий" href="glossary.html" />
+    <link rel="prev" title="2 Конфигурация" href="configuration.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -54,7 +57,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> luci-app-tn-lldpd
+            <a href="index.html" class="icon icon-home"> luci-app-tn-lldpd
           
 
           
@@ -64,7 +67,7 @@
             
             
               <div class="version">
-                2.0.0
+                2.0.1
               </div>
             
           
@@ -90,22 +93,22 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">1. Обзор</a></li>
-<li class="toctree-l1"><a class="reference internal" href="configuration.html">2. Конфигурация</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">3. Мониторинг состояния</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#sec-status-neighbors">3.1. Таблица обнаруженных соседей</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id3">3.1.1. Компактный режим отображения</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">3.1.2. Расширенный режим отображения</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">1 Обзор</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">2 Конфигурация</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3 Мониторинг состояния</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sec-status-neighbors">3.1 Таблица обнаруженных соседей</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.1.1 Компактный режим отображения</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.1.2 Расширенный режим отображения</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#sec-status-stats">3.2. Таблица статистики интерфейсов</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">3.2.1. Компактный режим отображения</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">3.2.2. Расширенный режим отображения</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sec-status-stats">3.2 Таблица статистики интерфейсов</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3.2.1 Компактный режим отображения</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3.2.2 Расширенный режим отображения</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="glossary.html">4. Глоссарий</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">4 Глоссарий</a></li>
 </ul>
 
             
@@ -146,18 +149,20 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>3. Мониторинг состояния</li>
+      <li>3 Мониторинг состояния</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/status.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
           
         
@@ -172,10 +177,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="id1">
-<h1>3. Мониторинг состояния<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
+<h1>3 Мониторинг состояния<a class="headerlink" href="#id1" title="Ссылка на этот заголовок">¶</a></h1>
 <p>Мониторинг состояния службы <a class="reference external" href="https://github.com/vincentbernat/lldpd">LLDPd</a> осуществляется в подразделе «Состояние»
 (раздел главного меню <span class="menuselection">Службы ‣ LLDP</span>).</p>
-<a class="with-border reference internal image-reference" href="_images/status-page.png"><img alt="_images/status-page.png" class="with-border" src="_images/status-page.png" style="width: 100%;" /></a>
+<a class="with-border reference internal image-reference" href="_images/status-page.png"><img alt="_images/status-page.png" class="with-border" src="_images/status-page.png" style="width: 700px;" /></a>
 <p>В самом начале страницы «Состояние» отображается подраздел с информацией
 о локальном шасси в виде таблицы. Описание параметров локального
 шасси приведено в таблице ниже (<a class="reference internal" href="#table-local-chassis-params"><span class="std std-numref">Таблица 3.1</span></a>).</p>
@@ -220,11 +225,11 @@
 (см. <a class="reference internal" href="#sec-status-neighbors"><span class="std std-numref">Раздел 3.1</span></a>) и статистики интерфейсов
 (см. <a class="reference internal" href="#sec-status-stats"><span class="std std-numref">Раздел 3.2</span></a>) в соответствующих вкладках.</p>
 <div class="section" id="sec-status-neighbors">
-<span id="id2"></span><h2>3.1. Таблица обнаруженных соседей<a class="headerlink" href="#sec-status-neighbors" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="id2"></span><h2>3.1 Таблица обнаруженных соседей<a class="headerlink" href="#sec-status-neighbors" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Пример внешнего вида вкладки с таблицей обнаруженных соседей приведен
 на рисунке ниже (<a class="reference internal" href="#fig-status-tab-neighbors"><span class="std std-numref">Рис. 3.1</span></a>).</p>
 <div class="figure" id="id9">
-<span id="fig-status-tab-neighbors"></span><a class="with-border reference internal image-reference" href="_images/status-tab-neighbors.png"><img alt="_images/status-tab-neighbors.png" class="with-border" src="_images/status-tab-neighbors.png" style="width: 100%;" /></a>
+<span id="fig-status-tab-neighbors"></span><a class="with-border reference internal image-reference" href="_images/status-tab-neighbors.png"><img alt="_images/status-tab-neighbors.png" class="with-border" src="_images/status-tab-neighbors.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-number">Рис. 3.1 </span><span class="caption-text">Таблица обнаруженных соседей</span></p>
 </div>
 <p>Строки таблицы имеют два режима отображения информации — компактный
@@ -232,15 +237,15 @@
 (см. <a class="reference internal" href="#fig-status-neighbor-expanded"><span class="std std-numref">Рис. 3.3</span></a>).
 Переключение между режимами производится однократным нажатием на любом месте строки.</p>
 <div class="figure" id="id10">
-<span id="fig-status-neighbor-collapsed"></span><a class="with-border reference internal image-reference" href="_images/neighbor-collapsed.png"><img alt="_images/neighbor-collapsed.png" class="with-border" src="_images/neighbor-collapsed.png" style="width: 100%;" /></a>
+<span id="fig-status-neighbor-collapsed"></span><a class="with-border reference internal image-reference" href="_images/neighbor-collapsed.png"><img alt="_images/neighbor-collapsed.png" class="with-border" src="_images/neighbor-collapsed.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-number">Рис. 3.2 </span><span class="caption-text">Компактный режим отображения информации таблицы соседей</span></p>
 </div>
 <div class="figure" id="id11">
-<span id="fig-status-neighbor-expanded"></span><a class="with-border reference internal image-reference" href="_images/neighbor-expanded.png"><img alt="_images/neighbor-expanded.png" class="with-border" src="_images/neighbor-expanded.png" style="width: 100%;" /></a>
+<span id="fig-status-neighbor-expanded"></span><a class="with-border reference internal image-reference" href="_images/neighbor-expanded.png"><img alt="_images/neighbor-expanded.png" class="with-border" src="_images/neighbor-expanded.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-number">Рис. 3.3 </span><span class="caption-text">Расширенный режим отображения информации таблицы соседей</span></p>
 </div>
 <div class="section" id="id3">
-<h3>3.1.1. Компактный режим отображения<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>3.1.1 Компактный режим отображения<a class="headerlink" href="#id3" title="Ссылка на этот заголовок">¶</a></h3>
 <p>В компактном режиме отображения, в столбцах таблицы отображаются следующие
 данные для обнаруженных соседей:</p>
 <ul class="simple">
@@ -252,7 +257,7 @@
 </ul>
 </div>
 <div class="section" id="id4">
-<h3>3.1.2. Расширенный режим отображения<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>3.1.2 Расширенный режим отображения<a class="headerlink" href="#id4" title="Ссылка на этот заголовок">¶</a></h3>
 <p>В расширенном режиме отображения информации в столбцах таблицы
 отображается дополнительная информация:</p>
 <ul>
@@ -368,11 +373,11 @@
 </div>
 </div>
 <div class="section" id="sec-status-stats">
-<span id="id5"></span><h2>3.2. Таблица статистики интерфейсов<a class="headerlink" href="#sec-status-stats" title="Ссылка на этот заголовок">¶</a></h2>
+<span id="id5"></span><h2>3.2 Таблица статистики интерфейсов<a class="headerlink" href="#sec-status-stats" title="Ссылка на этот заголовок">¶</a></h2>
 <p>Пример внешнего вида вкладки с таблицей статистики интерфейсов приведён
 на рисунке ниже (<a class="reference internal" href="#fig-status-tab-stats"><span class="std std-numref">Рис. 3.4</span></a>).</p>
 <div class="figure" id="id12">
-<span id="fig-status-tab-stats"></span><a class="with-border reference internal image-reference" href="_images/status-tab-stats.png"><img alt="_images/status-tab-stats.png" class="with-border" src="_images/status-tab-stats.png" style="width: 100%;" /></a>
+<span id="fig-status-tab-stats"></span><a class="with-border reference internal image-reference" href="_images/status-tab-stats.png"><img alt="_images/status-tab-stats.png" class="with-border" src="_images/status-tab-stats.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-number">Рис. 3.4 </span><span class="caption-text">Таблица статистики интерфейсов</span></p>
 </div>
 <p>Строки таблицы статистики интерфейсов, также как и строки таблицы обнаруженных соседей,
@@ -381,15 +386,15 @@
 (см. <a class="reference internal" href="#fig-status-stat-expanded"><span class="std std-numref">Рис. 3.6</span></a>).
 Переключение между режимами производится однократным нажатием на любом месте строки.</p>
 <div class="figure" id="id13">
-<span id="fig-status-stat-collapsed"></span><a class="with-border reference internal image-reference" href="_images/stat-collapsed.png"><img alt="_images/stat-collapsed.png" class="with-border" src="_images/stat-collapsed.png" style="width: 100%;" /></a>
+<span id="fig-status-stat-collapsed"></span><a class="with-border reference internal image-reference" href="_images/stat-collapsed.png"><img alt="_images/stat-collapsed.png" class="with-border" src="_images/stat-collapsed.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-number">Рис. 3.5 </span><span class="caption-text">Компактный режим отображения таблицы статистики интерфейсов</span></p>
 </div>
 <div class="figure" id="id14">
-<span id="fig-status-stat-expanded"></span><a class="with-border reference internal image-reference" href="_images/stat-expanded.png"><img alt="_images/stat-expanded.png" class="with-border" src="_images/stat-expanded.png" style="width: 100%;" /></a>
+<span id="fig-status-stat-expanded"></span><a class="with-border reference internal image-reference" href="_images/stat-expanded.png"><img alt="_images/stat-expanded.png" class="with-border" src="_images/stat-expanded.png" style="width: 700px;" /></a>
 <p class="caption"><span class="caption-number">Рис. 3.6 </span><span class="caption-text">Расширенный режим отображения таблицы статистики интерфейсов</span></p>
 </div>
 <div class="section" id="id6">
-<h3>3.2.1. Компактный режим отображения<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>3.2.1 Компактный режим отображения<a class="headerlink" href="#id6" title="Ссылка на этот заголовок">¶</a></h3>
 <p>В компактном режиме отображения, в столбцах таблицы статистики интерфейсов
 отображаются следующие данные для интерфейсов:</p>
 <ul class="simple">
@@ -408,7 +413,7 @@
 </ul>
 </div>
 <div class="section" id="id7">
-<h3>3.2.2. Расширенный режим отображения<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h3>
+<h3>3.2.2 Расширенный режим отображения<a class="headerlink" href="#id7" title="Ссылка на этот заголовок">¶</a></h3>
 <p>В расширенном режиме отображения информации в столбце «Локальный интерфейс»
 отображается дополнительная информация, приведенная в таблице ниже:</p>
 <table border="1" class="colwidths-given docutils">
@@ -480,37 +485,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="glossary.html" class="btn btn-neutral float-right" title="4. Глоссарий" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="configuration.html" class="btn btn-neutral float-left" title="2. Конфигурация" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Предыдущая</a>
-      
+        <a href="glossary.html" class="btn btn-neutral float-right" title="4 Глоссарий" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="configuration.html" class="btn btn-neutral float-left" title="2 Конфигурация" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Авторские права 2020, Tano Systems LLC
+        &#169; Copyright 2020, Tano Systems LLC.
 
     </p>
   </div>
     
     
     
-    Собрано при помощи <a href="http://sphinx-doc.org/">Sphinx</a> с использованием
+    Собрано при помощи <a href="https://www.sphinx-doc.org/">Sphinx</a> с использованием
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">темы,</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">темы,</a>
     
     предоставленной <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

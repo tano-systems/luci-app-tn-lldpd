@@ -5,7 +5,6 @@
 .. container:: sidebar
 
    .. image:: images/tano-logo.png
-      :target: https://tano-systems.com
       :align: center
 
 luci-app-tn-lldpd --- LuCI_ приложение поддержки системной службы
