@@ -22,7 +22,7 @@ local methods = {
 		call = function(args)
 			local status = {
 				statistics = json.parse(lldpcli_show("statistics", "json0")),
-				neighbors  = json.parse(lldpcli_show("neighbors",  "json0")),
+				neighbors  = json.parse(lldpcli_show("neighbors details", "json0")),
 				interfaces = json.parse(lldpcli_show("interfaces", "json0")),
 				chassis    = json.parse(lldpcli_show("chassis",    "json0"))
 			}
