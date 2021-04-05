@@ -337,9 +337,6 @@ return L.view.extend({
 		var e_folded   = row.querySelectorAll('.lldpd-folded');
 		var e_unfolded = row.querySelectorAll('.lldpd-unfolded');
 
-		console.log(row);
-		console.log(row_id);
-
 		if (e_folded.length != e_unfolded.length)
 			return;
 
