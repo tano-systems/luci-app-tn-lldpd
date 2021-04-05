@@ -208,6 +208,9 @@ return L.view.extend({
 				items.push(this.renderParam(_('TTL'), port.ttl[0].ttl));
 			else if (port.port[0].ttl !== 'undefined')
 				items.push(this.renderParam(_('TTL'), port.port[0].ttl[0].value));
+
+			if (typeof port.port[0].mfs !== 'undefined')
+				items.push(this.renderParam(_('MFS'), port.port[0].mfs[0].value));
 		}
 
 		return E('div', { 'class': 'lldpd-params' }, items);
