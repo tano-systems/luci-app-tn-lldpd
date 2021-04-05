@@ -8,7 +8,12 @@ All dates in this document are in `DD.MM.YYYY` format.
 
 ## [Unreleased]
 
-**Nothing yet**
+### Added
+- Display port administrative status on statistics tab
+- Added support for discovered port "mfs" parameter
+
+### Fixed
+- Fixed displaying "Protocol" column in statistics table
 
 ## [Version 2.0.1] (06.12.2020)
 ### Fixed
