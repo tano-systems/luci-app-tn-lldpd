@@ -109,6 +109,8 @@ table.lldpd-filter tr.lldpd-filter-selected td {
 	width: 100%;
 	background-color: #e6e6e6;
 	border: 0;
+	margin-right: 5px;
+	margin-bottom: 5px;
 	color: #595959;
 }
 

@@ -458,7 +458,32 @@ return L.view.extend({
 	},
 
 	/** @private */
-	makeStatisticsTableRow: function(sobj, iobj) {
+	renderInterfaceProtocols: function(iface, neighbors) {
+		if ((typeof iface === 'undefined') ||
+		    (typeof neighbors == 'undefined') ||
+		    (typeof neighbors.lldp[0] === 'undefined') ||
+		    (typeof neighbors.lldp[0].interface === 'undefined'))
+			return "&#8211;";
+
+		var name = iface.name;
+		var protocols = [];
+
+		/* Search protocols for interface <name> */
+		neighbors.lldp[0].interface.forEach(function(n) {
+			if (n.name !== name)
+				return;
+
+			protocols.push(this.renderProtocol(n.via));
+		}.bind(this));
+
+		if (protocols.length > 0)
+			return E('span', {}, protocols);
+		else
+			return "&#8211;";
+	},
+
+	/** @private */
+	makeStatisticsTableRow: function(sobj, iobj, neighbors) {
 		var row_id = this.generateRowId(iobj.name);
 
 		return this.makeFoldingTableRow([
@@ -467,8 +492,8 @@ return L.view.extend({
 				this.renderPort(iobj),                  // folded
 				this.renderPortParamTable(iobj, false)  // unfolded
 			],
+			this.renderInterfaceProtocols(iobj, neighbors),
 			this.renderAdminStatus(iobj.status),
-			this.renderProtocol(iobj.via),
 			this.renderNumber(sobj.tx[0].tx),
 			this.renderNumber(sobj.rx[0].rx),
 			this.renderNumber(sobj.rx_discarded_cnt[0].rx_discarded_cnt),
@@ -601,7 +626,7 @@ return L.view.extend({
 	},
 
 	/** @private */
-	renderDataStatistics: function(statistics, interfaces) {
+	renderDataStatistics: function(statistics, interfaces, neighbors) {
 		var rows = [];
 
 		if (statistics &&
@@ -617,7 +642,7 @@ return L.view.extend({
 			if ((typeof sifaces !== 'undefined') &&
 			    (typeof  ifaces !== 'undefined')) {
 				for (var i = 0; i < sifaces.length; i++)
-					rows.push(this.makeStatisticsTableRow(sifaces[i], ifaces[i]));
+					rows.push(this.makeStatisticsTableRow(sifaces[i], ifaces[i], neighbors));
 			}
 		}
 
@@ -635,7 +660,7 @@ return L.view.extend({
 		this.updateTable(this.tableNeighbors, r,
 			_('No data to display'));
 
-		r = this.renderDataStatistics(data.statistics, data.interfaces);
+		r = this.renderDataStatistics(data.statistics, data.interfaces, data.neighbors);
 		this.updateTable(this.tableStatistics, r,
 			_('No data to display'));
 	},
