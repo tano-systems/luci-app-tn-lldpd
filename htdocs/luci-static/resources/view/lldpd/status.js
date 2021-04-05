@@ -49,6 +49,7 @@ return L.view.extend({
 			E('div', { 'class': 'tr table-titles' }, [
 				E('div', { 'class': 'th left top' }, _('Local interface')),
 				E('div', { 'class': 'th left top' }, _('Protocol')),
+				E('div', { 'class': 'th left top' }, _('Administrative Status')),
 				E('div', { 'class': 'th right top' }, _('Tx')),
 				E('div', { 'class': 'th right top' }, _('Rx')),
 				E('div', { 'class': 'th right top' }, _('Tx discarded')),
@@ -132,6 +133,23 @@ return L.view.extend({
 			return E('span', { 'class': 'lldpd-protocol-badge lldpd-protocol-sonmp' }, v);
 		else
 			return E('span', { 'class': 'lldpd-protocol-badge' }, v);
+	},
+
+	/** @private */
+	renderAdminStatus: function(status) {
+		if ((typeof status === 'undefined') || !Array.isArray(status))
+			return '&#8211;';
+
+		if (status[0].value === 'RX and TX')
+			return _('Rx and Tx');
+		else if (status[0].value === 'RX only')
+			return _('Rx only');
+		else if (status[0].value === 'TX only')
+			return _('Tx only');
+		else if (status[0].value === 'disabled')
+			return _('Disabled');
+		else
+			return _('Unknown');
 	},
 
 	/** @private */
@@ -449,6 +467,7 @@ return L.view.extend({
 				this.renderPort(iobj),                  // folded
 				this.renderPortParamTable(iobj, false)  // unfolded
 			],
+			this.renderAdminStatus(iobj.status),
 			this.renderProtocol(iobj.via),
 			this.renderNumber(sobj.tx[0].tx),
 			this.renderNumber(sobj.rx[0].rx),
