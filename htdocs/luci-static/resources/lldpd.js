@@ -10,7 +10,7 @@
 'require session';
 'require uci';
 
-const appVersion = '2.0.1';
+const appVersion = '2.0.2';
 const appHomeUrl = 'https://github.com/tano-systems/luci-app-tn-lldpd';
 
 const appFooter = E('div', { 'class': 'cbi-section' }, [
@@ -18,7 +18,7 @@ const appFooter = E('div', { 'class': 'cbi-section' }, [
 		E('a', { 'href': appHomeUrl },
 			_('LLDPd LuCI application (version %s)').format(appVersion)),
 		E('br', {}),
-		_('© 2018–2020, Tano Systems LLC, Anton Kikin'),
+		_('© 2018–2021, Tano Systems LLC, Anton Kikin'),
 		' <',
 		E('a', { 'href': 'mailto:a.kikin@tano-systems.com' },
 			E('nobr', {}, 'a.kikin@tano-systems.com')),

@@ -8,6 +8,9 @@ All dates in this document are in `DD.MM.YYYY` format.
 
 ## [Unreleased]
 
+*Nothing yet*
+
+## [Version 2.0.2] (06.04.2021)
 ### Added
 - Display port administrative status on statistics tab
 - Added support for discovered port "mfs" parameter
@@ -98,6 +101,7 @@ All dates in this document are in `DD.MM.YYYY` format.
 Initial release
 
 [Unreleased]: https://github.com/tano-systems/luci-app-tn-lldpd/tree/master
+[Version 2.0.2]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v2.0.2
 [Version 2.0.1]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v2.0.1
 [Version 2.0.0]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v2.0.0
 [Version 1.3.0]: https://github.com/tano-systems/luci-app-tn-lldpd/releases/tag/v1.3.0

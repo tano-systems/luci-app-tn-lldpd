@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: luci-app-tn-lldpd\n"
-"PO-Revision-Date: 2021-04-05 17:15+0300\n"
+"PO-Revision-Date: 2021-04-06 15:55+0300\n"
 "Last-Translator: Anton Kikin <a.kikin@tano-systems.com>\n"
 "Language-Team: Tano Systems LLC\n"
 "Language: ru\n"
@@ -625,5 +625,5 @@ msgid "enabled"
 msgstr "включено"
 
 #: htdocs/luci-static/resources/lldpd.js:21
-msgid "© 2018–2020, Tano Systems LLC, Anton Kikin"
-msgstr "© 2018–2020, ООО «Тано Системс», Антон Кикин"
+msgid "© 2018–2021, Tano Systems LLC, Anton Kikin"
+msgstr "© 2018–2021, ООО «Тано Системс», Антон Кикин"

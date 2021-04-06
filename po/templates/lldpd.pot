@@ -557,5 +557,5 @@ msgid "enabled"
 msgstr ""
 
 #: htdocs/luci-static/resources/lldpd.js:21
-msgid "© 2018–2020, Tano Systems LLC, Anton Kikin"
+msgid "© 2018–2021, Tano Systems LLC, Anton Kikin"
 msgstr ""
