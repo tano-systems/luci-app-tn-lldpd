@@ -14,10 +14,13 @@ LuCI приложение luci-app-tn-lldpd
    overview.rst
    configuration.rst
    status.rst
-   glossary.rst
 
 ===================
 Индексы и таблицы
 ===================
 
-* :ref:`genindex`
+.. toctree::
+   :maxdepth: 1
+
+   genindex
+   glossary.rst
