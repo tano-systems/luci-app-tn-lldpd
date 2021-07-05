@@ -6,7 +6,6 @@
 (раздел главного меню :menuselection:`Службы --> LLDP`).
 
 .. image:: images/status-page.png
-    :width: 100%
     :class: with-border
 
 В самом начале страницы "Состояние" отображается подраздел с информацией
@@ -60,7 +59,6 @@
 
 .. _fig-status-tab-neighbors:
 .. figure:: images/status-tab-neighbors.png
-    :width: 100%
     :class: with-border
 
     Таблица обнаруженных соседей
@@ -72,14 +70,12 @@
 
 .. _fig-status-neighbor-collapsed:
 .. figure:: images/neighbor-collapsed.png
-    :width: 100%
     :class: with-border
 
     Компактный режим отображения информации таблицы соседей
 
 .. _fig-status-neighbor-expanded:
 .. figure:: images/neighbor-expanded.png
-    :width: 100%
     :class: with-border
 
     Расширенный режим отображения информации таблицы соседей
@@ -198,7 +194,6 @@
 
 .. _fig-status-tab-stats:
 .. figure:: images/status-tab-stats.png
-    :width: 100%
     :class: with-border
 
     Таблица статистики интерфейсов
@@ -211,14 +206,12 @@
 
 .. _fig-status-stat-collapsed:
 .. figure:: images/stat-collapsed.png
-    :width: 100%
     :class: with-border
 
     Компактный режим отображения таблицы статистики интерфейсов
 
 .. _fig-status-stat-expanded:
 .. figure:: images/stat-expanded.png
-    :width: 100%
     :class: with-border
 
     Расширенный режим отображения таблицы статистики интерфейсов
