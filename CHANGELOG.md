@@ -8,7 +8,8 @@ All dates in this document are in `DD.MM.YYYY` format.
 
 ## [Unreleased]
 
-*Nothing yet*
+### Fixed
+- Fixed lldpd.getStatus ubus method arguments
 
 ## [Version 2.0.2] (06.04.2021)
 ### Added

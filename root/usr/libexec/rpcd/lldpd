@@ -18,8 +18,7 @@ end
 
 local methods = {
 	getStatus = {
-		args = { bridge = "string" },
-		call = function(args)
+		call = function()
 			local status = {
 				statistics = json.parse(lldpcli_show("statistics", "json0")),
 				neighbors  = json.parse(lldpcli_show("neighbors details", "json0")),
